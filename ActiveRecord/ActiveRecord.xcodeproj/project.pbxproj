@@ -19,6 +19,7 @@
 		90645F8718964BD50040B739 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90645F6F18964BD50040B739 /* UIKit.framework */; };
 		90645F8F18964BD50040B739 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90645F8D18964BD50040B739 /* InfoPlist.strings */; };
 		90645F9118964BD50040B739 /* ActiveRecordTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 90645F9018964BD50040B739 /* ActiveRecordTests.m */; };
+		90645FA118964C8B0040B739 /* ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 90645FA018964C8B0040B739 /* ActiveRecord.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		90645F8C18964BD50040B739 /* ActiveRecordTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ActiveRecordTests-Info.plist"; sourceTree = "<group>"; };
 		90645F8E18964BD50040B739 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		90645F9018964BD50040B739 /* ActiveRecordTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActiveRecordTests.m; sourceTree = "<group>"; };
+		90645F9F18964C8B0040B739 /* ActiveRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveRecord.h; sourceTree = "<group>"; };
+		90645FA018964C8B0040B739 /* ActiveRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveRecord.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,7 @@
 		90645F7118964BD50040B739 /* ActiveRecord */ = {
 			isa = PBXGroup;
 			children = (
+				90645F9E18964C810040B739 /* Source */,
 				90645F7A18964BD50040B739 /* AppDelegate.h */,
 				90645F7B18964BD50040B739 /* AppDelegate.m */,
 				90645F7D18964BD50040B739 /* Images.xcassets */,
@@ -142,6 +146,16 @@
 				90645F8D18964BD50040B739 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		90645F9E18964C810040B739 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				90645F9F18964C8B0040B739 /* ActiveRecord.h */,
+				90645FA018964C8B0040B739 /* ActiveRecord.m */,
+			);
+			name = Source;
+			path = ../../Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90645FA118964C8B0040B739 /* ActiveRecord.m in Sources */,
 				90645F7C18964BD50040B739 /* AppDelegate.m in Sources */,
 				90645F7818964BD50040B739 /* main.m in Sources */,
 			);
