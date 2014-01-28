@@ -20,6 +20,11 @@
 		90645F8F18964BD50040B739 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90645F8D18964BD50040B739 /* InfoPlist.strings */; };
 		90645F9118964BD50040B739 /* ActiveRecordTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 90645F9018964BD50040B739 /* ActiveRecordTests.m */; };
 		90645FA118964C8B0040B739 /* ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 90645FA018964C8B0040B739 /* ActiveRecord.m */; };
+		90E7BCAC18986C9F0087F277 /* MKManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E7BCA518986C9F0087F277 /* MKManagedObject.m */; };
+		90E7BCAD18986C9F0087F277 /* NSManagedObjectContext+MK.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E7BCA718986C9F0087F277 /* NSManagedObjectContext+MK.m */; };
+		90E7BCAE18986C9F0087F277 /* NSManagedObjectModel+MK.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E7BCA918986C9F0087F277 /* NSManagedObjectModel+MK.m */; };
+		90E7BCAF18986C9F0087F277 /* NSPersistentStoreCoordinator+MK.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E7BCAB18986C9F0087F277 /* NSPersistentStoreCoordinator+MK.m */; };
+		90E7BCB218986E260087F277 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E7BCB118986E260087F277 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,16 @@
 		90645F9018964BD50040B739 /* ActiveRecordTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActiveRecordTests.m; sourceTree = "<group>"; };
 		90645F9F18964C8B0040B739 /* ActiveRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveRecord.h; sourceTree = "<group>"; };
 		90645FA018964C8B0040B739 /* ActiveRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveRecord.m; sourceTree = "<group>"; };
+		90E7BCA418986C9F0087F277 /* MKManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKManagedObject.h; sourceTree = "<group>"; };
+		90E7BCA518986C9F0087F277 /* MKManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKManagedObject.m; sourceTree = "<group>"; };
+		90E7BCA618986C9F0087F277 /* NSManagedObjectContext+MK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+MK.h"; sourceTree = "<group>"; };
+		90E7BCA718986C9F0087F277 /* NSManagedObjectContext+MK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+MK.m"; sourceTree = "<group>"; };
+		90E7BCA818986C9F0087F277 /* NSManagedObjectModel+MK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectModel+MK.h"; sourceTree = "<group>"; };
+		90E7BCA918986C9F0087F277 /* NSManagedObjectModel+MK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectModel+MK.m"; sourceTree = "<group>"; };
+		90E7BCAA18986C9F0087F277 /* NSPersistentStoreCoordinator+MK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPersistentStoreCoordinator+MK.h"; sourceTree = "<group>"; };
+		90E7BCAB18986C9F0087F277 /* NSPersistentStoreCoordinator+MK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPersistentStoreCoordinator+MK.m"; sourceTree = "<group>"; };
+		90E7BCB018986DCC0087F277 /* MKMacro+Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMacro+Debug.h"; sourceTree = "<group>"; };
+		90E7BCB118986E260087F277 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90E7BCB218986E260087F277 /* CoreData.framework in Frameworks */,
 				90645F6E18964BD50040B739 /* CoreGraphics.framework in Frameworks */,
 				90645F7018964BD50040B739 /* UIKit.framework in Frameworks */,
 				90645F6C18964BD50040B739 /* Foundation.framework in Frameworks */,
@@ -99,6 +115,7 @@
 		90645F6A18964BD50040B739 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90E7BCB118986E260087F277 /* CoreData.framework */,
 				90645F6B18964BD50040B739 /* Foundation.framework */,
 				90645F6D18964BD50040B739 /* CoreGraphics.framework */,
 				90645F6F18964BD50040B739 /* UIKit.framework */,
@@ -153,6 +170,15 @@
 			children = (
 				90645F9F18964C8B0040B739 /* ActiveRecord.h */,
 				90645FA018964C8B0040B739 /* ActiveRecord.m */,
+				90E7BCB018986DCC0087F277 /* MKMacro+Debug.h */,
+				90E7BCA418986C9F0087F277 /* MKManagedObject.h */,
+				90E7BCA518986C9F0087F277 /* MKManagedObject.m */,
+				90E7BCA618986C9F0087F277 /* NSManagedObjectContext+MK.h */,
+				90E7BCA718986C9F0087F277 /* NSManagedObjectContext+MK.m */,
+				90E7BCA818986C9F0087F277 /* NSManagedObjectModel+MK.h */,
+				90E7BCA918986C9F0087F277 /* NSManagedObjectModel+MK.m */,
+				90E7BCAA18986C9F0087F277 /* NSPersistentStoreCoordinator+MK.h */,
+				90E7BCAB18986C9F0087F277 /* NSPersistentStoreCoordinator+MK.m */,
 			);
 			name = Source;
 			path = ../../Source;
@@ -253,9 +279,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90E7BCAD18986C9F0087F277 /* NSManagedObjectContext+MK.m in Sources */,
+				90E7BCAC18986C9F0087F277 /* MKManagedObject.m in Sources */,
 				90645FA118964C8B0040B739 /* ActiveRecord.m in Sources */,
 				90645F7C18964BD50040B739 /* AppDelegate.m in Sources */,
+				90E7BCAF18986C9F0087F277 /* NSPersistentStoreCoordinator+MK.m in Sources */,
 				90645F7818964BD50040B739 /* main.m in Sources */,
+				90E7BCAE18986C9F0087F277 /* NSManagedObjectModel+MK.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +486,7 @@
 				90645F9618964BD50040B739 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		90645F9718964BD50040B739 /* Build configuration list for PBXNativeTarget "ActiveRecordTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +495,7 @@
 				90645F9918964BD50040B739 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
