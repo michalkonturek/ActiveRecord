@@ -1,0 +1,9 @@
+
+#pod 'MKFoundationKit/Block', '~> 1.0.0'
+
+target :ActiveRecordTests, :exclusive => true do
+#	pod 'OCHamcrest',  '>= 3.0.0'    
+	pod 'Kiwi',	       '>= 2.2.1'	
+#	pod 'Specta',      '>= 0.1.8'
+end
+

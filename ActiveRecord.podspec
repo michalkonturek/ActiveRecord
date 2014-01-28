@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "ActiveRecord"
-  s.version      = "0.0.1"
+  s.version      = "0.1.0"
   s.summary      = "A lightweight Active Record for Core Data."
   s.homepage     = "https://github.com/michalkonturek/ActiveRecord"
   s.license      = 'MIT'
@@ -14,10 +14,10 @@ Pod::Spec.new do |s|
 
   s.source       = { 
     :git => "https://github.com/michalkonturek/ActiveRecord.git", 
-    :tag => "0.0.1" 
+    :tag => "0.1.0" 
   }
 
   s.source_files = 'Source/**/*.{h,m}'
   s.requires_arc = true
-
+  s.framework  = 'CoreData'
 end

@@ -7,6 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+
+#import "NSPersistentStoreCoordinator+MK.h"
+#import "NSManagedObjectContext+MK.h"
+
+#import "MKManagedObject.h"
 
 @interface ActiveRecord : NSObject
 
