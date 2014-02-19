@@ -14,6 +14,6 @@
 
 #import "MKManagedObject.h"
 
-@interface ActiveRecord : NSObject
+@interface ActiveRecord : MKManagedObject
 
 @end

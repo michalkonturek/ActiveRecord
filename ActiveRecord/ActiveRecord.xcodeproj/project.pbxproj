@@ -23,6 +23,8 @@
 		909E6B2418B41B9600FFAD9E /* KiwiExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 909E6B2318B41B9600FFAD9E /* KiwiExample.m */; };
 		90A9686F18B42583003BEE09 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E7BCB118986E260087F277 /* CoreData.framework */; };
 		90A9687318B425D8003BEE09 /* model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90A9687118B425D8003BEE09 /* model.xcdatamodeld */; };
+		90A9687618B42D29003BEE09 /* NSFetchRequest+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A9687518B42D29003BEE09 /* NSFetchRequest+ActiveRecord.m */; };
+		90A9687918B4323B003BEE09 /* ActiveRecord+NSFetchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A9687818B4323B003BEE09 /* ActiveRecord+NSFetchRequest.m */; };
 		90E7BCAC18986C9F0087F277 /* MKManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E7BCA518986C9F0087F277 /* MKManagedObject.m */; };
 		90E7BCAD18986C9F0087F277 /* NSManagedObjectContext+MK.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E7BCA718986C9F0087F277 /* NSManagedObjectContext+MK.m */; };
 		90E7BCAE18986C9F0087F277 /* NSManagedObjectModel+MK.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E7BCA918986C9F0087F277 /* NSManagedObjectModel+MK.m */; };
@@ -62,6 +64,10 @@
 		90645FA018964C8B0040B739 /* ActiveRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveRecord.m; sourceTree = "<group>"; };
 		909E6B2318B41B9600FFAD9E /* KiwiExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KiwiExample.m; sourceTree = "<group>"; };
 		90A9687218B425D8003BEE09 /* model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = model.xcdatamodel; sourceTree = "<group>"; };
+		90A9687418B42D29003BEE09 /* NSFetchRequest+ActiveRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFetchRequest+ActiveRecord.h"; sourceTree = "<group>"; };
+		90A9687518B42D29003BEE09 /* NSFetchRequest+ActiveRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFetchRequest+ActiveRecord.m"; sourceTree = "<group>"; };
+		90A9687718B4323B003BEE09 /* ActiveRecord+NSFetchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ActiveRecord+NSFetchRequest.h"; sourceTree = "<group>"; };
+		90A9687818B4323B003BEE09 /* ActiveRecord+NSFetchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ActiveRecord+NSFetchRequest.m"; sourceTree = "<group>"; };
 		90E7BCA418986C9F0087F277 /* MKManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKManagedObject.h; sourceTree = "<group>"; };
 		90E7BCA518986C9F0087F277 /* MKManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKManagedObject.m; sourceTree = "<group>"; };
 		90E7BCA618986C9F0087F277 /* NSManagedObjectContext+MK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+MK.h"; sourceTree = "<group>"; };
@@ -181,6 +187,10 @@
 			children = (
 				90645F9F18964C8B0040B739 /* ActiveRecord.h */,
 				90645FA018964C8B0040B739 /* ActiveRecord.m */,
+				90A9687718B4323B003BEE09 /* ActiveRecord+NSFetchRequest.h */,
+				90A9687818B4323B003BEE09 /* ActiveRecord+NSFetchRequest.m */,
+				90A9687418B42D29003BEE09 /* NSFetchRequest+ActiveRecord.h */,
+				90A9687518B42D29003BEE09 /* NSFetchRequest+ActiveRecord.m */,
 				90E7BCB018986DCC0087F277 /* MKMacro+Debug.h */,
 				90E7BCA418986C9F0087F277 /* MKManagedObject.h */,
 				90E7BCA518986C9F0087F277 /* MKManagedObject.m */,
@@ -336,8 +346,10 @@
 				90E7BCAD18986C9F0087F277 /* NSManagedObjectContext+MK.m in Sources */,
 				90E7BCAC18986C9F0087F277 /* MKManagedObject.m in Sources */,
 				90645FA118964C8B0040B739 /* ActiveRecord.m in Sources */,
+				90A9687618B42D29003BEE09 /* NSFetchRequest+ActiveRecord.m in Sources */,
 				90A9687318B425D8003BEE09 /* model.xcdatamodeld in Sources */,
 				90645F7C18964BD50040B739 /* AppDelegate.m in Sources */,
+				90A9687918B4323B003BEE09 /* ActiveRecord+NSFetchRequest.m in Sources */,
 				90E7BCAF18986C9F0087F277 /* NSPersistentStoreCoordinator+MK.m in Sources */,
 				90645F7818964BD50040B739 /* main.m in Sources */,
 				90E7BCAE18986C9F0087F277 /* NSManagedObjectModel+MK.m in Sources */,
