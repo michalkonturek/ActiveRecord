@@ -14,6 +14,14 @@
 
 #import "MKManagedObject.h"
 
-@interface ActiveRecord : MKManagedObject
+@interface ActiveRecord : NSManagedObject
+
++ (instancetype)createObjectWithID:(NSNumber *)objectID;
++ (instancetype)createObject;
+
++ (NSEntityDescription *)entityDescription;
++ (NSString *)entityName;
+
++ (NSString *)primaryKey;
 
 @end

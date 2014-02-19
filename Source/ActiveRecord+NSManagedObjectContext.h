@@ -10,4 +10,16 @@
 
 @interface ActiveRecord (NSManagedObjectContext)
 
++ (void)commit;
++ (void)commitInContext:(NSManagedObjectContext *)context;
+
++ (void)rollback;
++ (void)rollbackInContext:(NSManagedObjectContext *)context;
+
++ (NSArray *)executeFetchRequest:(NSFetchRequest *)request;
++ (NSArray *)executeFetchRequest:(NSFetchRequest *)request
+          inManagedObjectContext:(NSManagedObjectContext *)context;
+
++ (NSManagedObjectContext *)managedObjectContext;
+
 @end
