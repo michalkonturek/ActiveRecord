@@ -6,21 +6,21 @@
 //  Copyright (c) 2014 Michal Konturek. All rights reserved.
 //
 
-#import "NSManagedObject+AR_FetchRequest.h"
+#import "NSManagedObject+AR_Request.h"
 
 #import "NSFetchRequest+AR.h"
 #import "NSManagedObject+AR.h"
 
-@implementation NSManagedObject (AR_FetchRequest)
+@implementation NSManagedObject (AR_Request)
 
-+ (NSFetchRequest *)fetchRequestWithPredicate:(NSPredicate *)predicate
-                           withSortDescriptor:(NSSortDescriptor *)descriptor {
++ (NSFetchRequest *)requestWithPredicate:(NSPredicate *)predicate
+                      withSortDescriptor:(NSSortDescriptor *)descriptor {
     
-    return [self fetchRequestWithPredicate:predicate withSortDescriptors:@[descriptor]];
+    return [self requestWithPredicate:predicate withSortDescriptors:@[descriptor]];
 }
 
-+ (NSFetchRequest *)fetchRequestWithPredicate:(NSPredicate *)predicate
-                          withSortDescriptors:(NSArray *)descriptors {
++ (NSFetchRequest *)requestWithPredicate:(NSPredicate *)predicate
+                     withSortDescriptors:(NSArray *)descriptors {
     
     id request = [NSFetchRequest createWithPredicate:predicate withSortDescriptors:descriptors];
     [request setEntity:[self entityDescription]];

@@ -8,12 +8,12 @@
 
 #import <CoreData/CoreData.h>
 
-@interface NSManagedObject (AR_FetchRequest)
+@interface NSManagedObject (AR_Request)
 
-+ (NSFetchRequest *)fetchRequestWithPredicate:(NSPredicate *)predicate
-                           withSortDescriptor:(NSSortDescriptor *)descriptor;
++ (NSFetchRequest *)requestWithPredicate:(NSPredicate *)predicate
+                      withSortDescriptor:(NSSortDescriptor *)descriptor;
 
-+ (NSFetchRequest *)fetchRequestWithPredicate:(NSPredicate *)predicate
-                          withSortDescriptors:(NSArray *)descriptors;
++ (NSFetchRequest *)requestWithPredicate:(NSPredicate *)predicate
+                     withSortDescriptors:(NSArray *)descriptors;
 
 @end

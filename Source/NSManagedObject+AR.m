@@ -9,7 +9,7 @@
 #import "NSManagedObject+AR.h"
 
 #import "NSManagedObject+AR_Context.h"
-#import "NSManagedObject+AR_FetchRequest.h"
+#import "NSManagedObject+AR_Request.h"
 
 #import <MKFoundationKit/NSArray+MK_Block.h>
 
@@ -64,7 +64,7 @@
 
 + (NSArray *)objectsWithPredicate:(NSPredicate *)predicate
               withSortDescriptors:(NSArray *)descriptors {
-    id request = [self fetchRequestWithPredicate:predicate withSortDescriptors:descriptors];
+    id request = [self requestWithPredicate:predicate withSortDescriptors:descriptors];
     return [self executeFetchRequest:request];
 }
 

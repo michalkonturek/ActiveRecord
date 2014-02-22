@@ -23,7 +23,7 @@
 		90A9686F18B42583003BEE09 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E7BCB118986E260087F277 /* CoreData.framework */; };
 		90A9687318B425D8003BEE09 /* model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90A9687118B425D8003BEE09 /* model.xcdatamodeld */; };
 		90A9687618B42D29003BEE09 /* NSFetchRequest+AR.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A9687518B42D29003BEE09 /* NSFetchRequest+AR.m */; };
-		90A9687918B4323B003BEE09 /* NSManagedObject+AR_FetchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A9687818B4323B003BEE09 /* NSManagedObject+AR_FetchRequest.m */; };
+		90A9687918B4323B003BEE09 /* NSManagedObject+AR_Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A9687818B4323B003BEE09 /* NSManagedObject+AR_Request.m */; };
 		90CFB43D18B83CD1007C3553 /* NSManagedObject+AR.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFB43C18B83CD1007C3553 /* NSManagedObject+AR.m */; };
 		90CFB44018B83F75007C3553 /* NSManagedObject+AR_Context.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFB43F18B83F75007C3553 /* NSManagedObject+AR_Context.m */; };
 		90CFB44418B852B1007C3553 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFB44318B852B1007C3553 /* Course.m */; };
@@ -78,8 +78,8 @@
 		90A9687218B425D8003BEE09 /* model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = model.xcdatamodel; sourceTree = "<group>"; };
 		90A9687418B42D29003BEE09 /* NSFetchRequest+AR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFetchRequest+AR.h"; sourceTree = "<group>"; };
 		90A9687518B42D29003BEE09 /* NSFetchRequest+AR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFetchRequest+AR.m"; sourceTree = "<group>"; };
-		90A9687718B4323B003BEE09 /* NSManagedObject+AR_FetchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+AR_FetchRequest.h"; sourceTree = "<group>"; };
-		90A9687818B4323B003BEE09 /* NSManagedObject+AR_FetchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+AR_FetchRequest.m"; sourceTree = "<group>"; };
+		90A9687718B4323B003BEE09 /* NSManagedObject+AR_Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+AR_Request.h"; sourceTree = "<group>"; };
+		90A9687818B4323B003BEE09 /* NSManagedObject+AR_Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+AR_Request.m"; sourceTree = "<group>"; };
 		90CFB43B18B83CD1007C3553 /* NSManagedObject+AR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+AR.h"; sourceTree = "<group>"; };
 		90CFB43C18B83CD1007C3553 /* NSManagedObject+AR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+AR.m"; sourceTree = "<group>"; };
 		90CFB43E18B83F75007C3553 /* NSManagedObject+AR_Context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+AR_Context.h"; sourceTree = "<group>"; };
@@ -236,8 +236,8 @@
 				90CFB43C18B83CD1007C3553 /* NSManagedObject+AR.m */,
 				90CFB43E18B83F75007C3553 /* NSManagedObject+AR_Context.h */,
 				90CFB43F18B83F75007C3553 /* NSManagedObject+AR_Context.m */,
-				90A9687718B4323B003BEE09 /* NSManagedObject+AR_FetchRequest.h */,
-				90A9687818B4323B003BEE09 /* NSManagedObject+AR_FetchRequest.m */,
+				90A9687718B4323B003BEE09 /* NSManagedObject+AR_Request.h */,
+				90A9687818B4323B003BEE09 /* NSManagedObject+AR_Request.m */,
 				90CFB45418B91AE7007C3553 /* NSManagedObjectContext+AR.h */,
 				90CFB45518B91AE7007C3553 /* NSManagedObjectContext+AR.m */,
 				90CFB45A18B91C8C007C3553 /* NSManagedObjectModel+AR.h */,
@@ -456,7 +456,7 @@
 				90A9687618B42D29003BEE09 /* NSFetchRequest+AR.m in Sources */,
 				90A9687318B425D8003BEE09 /* model.xcdatamodeld in Sources */,
 				90645F7C18964BD50040B739 /* AppDelegate.m in Sources */,
-				90A9687918B4323B003BEE09 /* NSManagedObject+AR_FetchRequest.m in Sources */,
+				90A9687918B4323B003BEE09 /* NSManagedObject+AR_Request.m in Sources */,
 				90CFB44A18B852B2007C3553 /* StudyGroup.m in Sources */,
 				90CFB44D18B852B2007C3553 /* Student.m in Sources */,
 				90E7BCAF18986C9F0087F277 /* NSPersistentStoreCoordinator+MK.m in Sources */,

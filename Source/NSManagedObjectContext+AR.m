@@ -21,28 +21,29 @@ static NSManagedObjectContext *_backgroundContext;
     if ([NSThread isMainThread]) {
         dispatch_once(&onceToken, ^{
             _mainContext = [[self alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-            id storeCoordinator = [NSPersistentStoreCoordinator persistentStoreCoordinatorWithAutoMigration];
-            [_mainContext setPersistentStoreCoordinator:storeCoordinator];
+            id coordinator = [NSPersistentStoreCoordinator persistentStoreCoordinatorWithAutoMigration];
+            [_mainContext setPersistentStoreCoordinator:coordinator];
         });
         
         return _mainContext;
     }
     
-    if (_backgroundContext == nil) [self _createBackgroundManagedObjectContext];
+    if (_backgroundContext == nil) [self _createBackgroundContext];
     return _backgroundContext;
 }
 
-+ (void)_createBackgroundManagedObjectContext {
-    NSManagedObjectContext *ctx = [[self alloc] initWithConcurrencyType:NSConfinementConcurrencyType];
-    [NSManagedObjectContext setBackgroundManagedObjectContext:ctx];
-    [ctx setParentContext:[NSManagedObjectContext mainManagedObjectContext]];
++ (void)_createBackgroundContext {
+    id context = [[self alloc] initWithConcurrencyType:NSConfinementConcurrencyType];
+    [NSManagedObjectContext setBackgroundContext:context];
+    [context setParentContext:[NSManagedObjectContext mainContext]];
 }
 
-+ (void)resetBackgroundManagedObjectContext {
-    [self setBackgroundManagedObjectContext:nil];
++ (void)removeBackgroundContext {
+    [self setBackgroundContext:nil];
 }
 
-+ (void)setBackgroundManagedObjectContext:(NSManagedObjectContext *)context {
+// TODO: remove ?
++ (void)setBackgroundContext:(NSManagedObjectContext *)context {
     if (context == _backgroundContext) return;
     
 //    [context retain];
@@ -50,11 +51,11 @@ static NSManagedObjectContext *_backgroundContext;
     _backgroundContext = context;
 }
 
-+ (instancetype)mainManagedObjectContext {
++ (instancetype)mainContext {
     return _mainContext;
 }
 
-+ (instancetype)backgroundManagedObjectContext {
++ (instancetype)backgroundContext {
     return _backgroundContext;
 }
 
@@ -62,6 +63,5 @@ static NSManagedObjectContext *_backgroundContext;
     NSLog(@"Main context: %@", _mainContext);
     NSLog(@"Background context: %@", _backgroundContext);
 }
-
 
 @end
