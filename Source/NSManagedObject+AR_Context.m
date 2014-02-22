@@ -13,8 +13,7 @@
 @implementation NSManagedObject (AR_Context)
 
 + (void)commit {
-    NSManagedObjectContext *ctx = [self managedObjectContext];
-    [self commitInContext:ctx];
+    [self commitInContext:[self managedObjectContext]];
 }
 
 + (void)commitInContext:(NSManagedObjectContext *)context {
@@ -24,8 +23,7 @@
 }
 
 + (void)rollback {
-    NSManagedObjectContext *ctx = [self managedObjectContext];
-    [self rollbackInContext:ctx];
+    [self rollbackInContext:[self managedObjectContext]];
 }
 
 + (void)rollbackInContext:(NSManagedObjectContext *)context {
@@ -33,8 +31,7 @@
 }
 
 + (NSArray *)executeFetchRequest:(NSFetchRequest *)request {
-    id ctx = [self managedObjectContext];
-    return [self executeFetchRequest:request inManagedObjectContext:ctx];
+    return [self executeFetchRequest:request inManagedObjectContext:[self managedObjectContext]];
 }
 
 + (NSArray *)executeFetchRequest:(NSFetchRequest *)request

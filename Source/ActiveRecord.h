@@ -18,6 +18,4 @@
 
 @interface ActiveRecord : NSObject
 
-
-
 @end

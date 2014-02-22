@@ -10,6 +10,8 @@
 
 #import "NSManagedObject+AR_Context.h"
 
+#import "NSManagedObject+AR_FetchRequest.h"
+
 @implementation NSManagedObject (ActiveRecord)
 
 //+ (instancetype)createObjectWithID:(NSNumber *)objectID {
@@ -39,6 +41,25 @@
 + (NSString *)primaryKey {
     return @"uid";
 }
+
+
++ (void)deleteAll {
+//    [[self objects] enumerateObjectsUsingBlock:<#^(id obj, NSUInteger idx, BOOL *stop)block#>]
+}
+
++ (NSArray *)objects {
+    return [self objectsWithPredicate:nil withSortDescriptors:nil];
+}
+
++ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate withSortDescriptor:(NSSortDescriptor *)descriptor {
+    return [self objectsWithPredicate:predicate withSortDescriptors:@[descriptor]];
+}
+
++ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate withSortDescriptors:(NSArray *)descriptors {
+    NSFetchRequest *request = [self fetchRequestWithPredicate:predicate withSortDescriptors:descriptors];
+    return [self executeFetchRequest:request];
+}
+
 
 - (void)delete {
     [self.managedObjectContext deleteObject:self];
