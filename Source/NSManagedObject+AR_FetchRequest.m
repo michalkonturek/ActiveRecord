@@ -1,16 +1,17 @@
 //
-//  ActiveRecord+NSFetchRequest.m
+//  NSManagedObject+NSFetchRequest.m
 //  ActiveRecord
 //
 //  Created by Michal Konturek on 19/02/2014.
 //  Copyright (c) 2014 Michal Konturek. All rights reserved.
 //
 
-#import "ActiveRecord+NSFetchRequest.h"
+#import "NSManagedObject+AR_FetchRequest.h"
 
 #import "NSFetchRequest+ActiveRecord.h"
+#import "NSManagedObject+ActiveRecord.h"
 
-@implementation ActiveRecord (NSFetchRequest)
+@implementation NSManagedObject (AR_FetchRequest)
 
 + (NSFetchRequest *)fetchRequestWithPredicate:(NSPredicate *)predicate
                            withSortDescriptor:(NSSortDescriptor *)descriptor {

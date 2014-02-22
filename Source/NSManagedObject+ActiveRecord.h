@@ -10,4 +10,15 @@
 
 @interface NSManagedObject (ActiveRecord)
 
+//+ (instancetype)createObjectWithID:(NSNumber *)objectID;
++ (instancetype)createObject;
+
++ (NSEntityDescription *)entityDescription;
++ (NSString *)entityName;
+
++ (NSString *)primaryKey;
+
+
+- (void)delete;
+
 @end

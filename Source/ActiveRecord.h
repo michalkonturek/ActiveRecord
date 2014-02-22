@@ -12,16 +12,12 @@
 #import "NSPersistentStoreCoordinator+MK.h"
 #import "NSManagedObjectContext+MK.h"
 
-#import "MKManagedObject.h"
+#import "NSManagedObject+ActiveRecord.h"
+#import "NSManagedObject+AR_Context.h"
+#import "NSManagedObject+AR_FetchRequest.h"
 
-@interface ActiveRecord : NSManagedObject
+@interface ActiveRecord : NSObject
 
-+ (instancetype)createObjectWithID:(NSNumber *)objectID;
-+ (instancetype)createObject;
 
-+ (NSEntityDescription *)entityDescription;
-+ (NSString *)entityName;
-
-+ (NSString *)primaryKey;
 
 @end
