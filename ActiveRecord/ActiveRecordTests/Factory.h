@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
 @interface Factory : NSObject
+
++ (void)createStudents:(NSInteger)count;
 
 @end

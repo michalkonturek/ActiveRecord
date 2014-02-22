@@ -53,6 +53,10 @@
     return [self objectsWithPredicate:nil withSortDescriptors:nil];
 }
 
++ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate {
+    return [self objectsWithPredicate:predicate withSortDescriptors:nil];
+}
+
 + (NSArray *)objectsWithPredicate:(NSPredicate *)predicate
                withSortDescriptor:(NSSortDescriptor *)descriptor {
     return [self objectsWithPredicate:predicate withSortDescriptors:@[descriptor]];
@@ -60,7 +64,7 @@
 
 + (NSArray *)objectsWithPredicate:(NSPredicate *)predicate
               withSortDescriptors:(NSArray *)descriptors {
-    NSFetchRequest *request = [self fetchRequestWithPredicate:predicate withSortDescriptors:descriptors];
+    id request = [self fetchRequestWithPredicate:predicate withSortDescriptors:descriptors];
     return [self executeFetchRequest:request];
 }
 

@@ -8,6 +8,22 @@
 
 #import "Factory.h"
 
+#import "ActiveRecord.h"
+#import "Domain.h"
+
 @implementation Factory
+
++ (void)createStudents:(NSInteger)count {
+    
+    for (NSInteger idx = 0; idx < count; idx++) {
+        Student *item = [Student createObject];
+        item.uid = @(idx);
+        item.firstName = [NSString stringWithFormat:@"firstName%i", idx];
+        item.lastName = [NSString stringWithFormat:@"lastName%i", idx];
+        item.age = @(20 + idx);
+    }
+    
+    [Student commit];
+}
 
 @end
