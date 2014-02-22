@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Michal Konturek. All rights reserved.
 //
 
-#import "NSFetchRequest+ActiveRecord.h"
+#import "NSFetchRequest+AR.h"
 
-@implementation NSFetchRequest (ActiveRecord)
+@implementation NSFetchRequest (AR)
 
 + (instancetype)createWithPredicate:(NSPredicate *)predicate
                  withSortDescriptor:(NSSortDescriptor *)descriptor {

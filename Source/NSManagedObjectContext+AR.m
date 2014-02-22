@@ -10,43 +10,30 @@
 
 #import "NSPersistentStoreCoordinator+AR.h"
 
-static NSManagedObjectContext *_mainManagedObjectContext;
-//static NSManagedObjectContext *_backgroundManagedObjectContext = nil;
-static NSManagedObjectContext *_backgroundManagedObjectContext;
+static NSManagedObjectContext *_mainContext;
+static NSManagedObjectContext *_backgroundContext;
 
 @implementation NSManagedObjectContext (AR)
-
-+ (instancetype)MK_sharedInstance {
-    static dispatch_once_t onceToken;
-    
-    dispatch_once(&onceToken, ^{
-        _mainManagedObjectContext = [[NSManagedObjectContext alloc] init];
-        NSPersistentStoreCoordinator *storeCoordinator = [NSPersistentStoreCoordinator persistentStoreCoordinatorWithAutoMigration];
-        [_mainManagedObjectContext setPersistentStoreCoordinator:storeCoordinator];
-    });
-    
-    return _mainManagedObjectContext;
-}
 
 + (instancetype)managedObjectContext {
     static dispatch_once_t onceToken;
     
     if ([NSThread isMainThread]) {
         dispatch_once(&onceToken, ^{
-            _mainManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-            NSPersistentStoreCoordinator *storeCoordinator = [NSPersistentStoreCoordinator persistentStoreCoordinatorWithAutoMigration];
-            [_mainManagedObjectContext setPersistentStoreCoordinator:storeCoordinator];
+            _mainContext = [[self alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+            id storeCoordinator = [NSPersistentStoreCoordinator persistentStoreCoordinatorWithAutoMigration];
+            [_mainContext setPersistentStoreCoordinator:storeCoordinator];
         });
         
-        return _mainManagedObjectContext;
+        return _mainContext;
     }
     
-    if (_backgroundManagedObjectContext == nil) [self _createBackgroundManagedObjectContext];
-    return _backgroundManagedObjectContext;
+    if (_backgroundContext == nil) [self _createBackgroundManagedObjectContext];
+    return _backgroundContext;
 }
 
 + (void)_createBackgroundManagedObjectContext {
-    NSManagedObjectContext *ctx = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSConfinementConcurrencyType];
+    NSManagedObjectContext *ctx = [[self alloc] initWithConcurrencyType:NSConfinementConcurrencyType];
     [NSManagedObjectContext setBackgroundManagedObjectContext:ctx];
     [ctx setParentContext:[NSManagedObjectContext mainManagedObjectContext]];
 }
@@ -56,24 +43,24 @@ static NSManagedObjectContext *_backgroundManagedObjectContext;
 }
 
 + (void)setBackgroundManagedObjectContext:(NSManagedObjectContext *)context {
-    if (context == _backgroundManagedObjectContext) return;
+    if (context == _backgroundContext) return;
     
 //    [context retain];
 //    [_backgroundManagedObjectContext release];
-    _backgroundManagedObjectContext = context;
+    _backgroundContext = context;
 }
 
 + (instancetype)mainManagedObjectContext {
-    return _mainManagedObjectContext;
+    return _mainContext;
 }
 
 + (instancetype)backgroundManagedObjectContext {
-    return _backgroundManagedObjectContext;
+    return _backgroundContext;
 }
 
 + (void)debug_print {
-    NSLog(@"Main context: %@", _mainManagedObjectContext);
-    NSLog(@"Background context: %@", _backgroundManagedObjectContext);
+    NSLog(@"Main context: %@", _mainContext);
+    NSLog(@"Background context: %@", _backgroundContext);
 }
 
 

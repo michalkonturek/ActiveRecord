@@ -8,7 +8,7 @@
 
 #import <CoreData/CoreData.h>
 
-@interface NSFetchRequest (ActiveRecord)
+@interface NSFetchRequest (AR)
 
 + (instancetype)createWithPredicate:(NSPredicate *)predicate
                  withSortDescriptor:(NSSortDescriptor *)descriptor;
