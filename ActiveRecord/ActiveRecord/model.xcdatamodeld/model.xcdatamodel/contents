@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Entity" syncable="YES"/>
+    <entity name="Course" representedClassName="Course" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="students" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Student" inverseName="course" inverseEntity="Student" syncable="YES"/>
+    </entity>
+    <entity name="Module" representedClassName="Module" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="students" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Student" inverseName="modules" inverseEntity="Student" syncable="YES"/>
+        <relationship name="studyGroups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StudyGroup" inverseName="module" inverseEntity="StudyGroup" syncable="YES"/>
+    </entity>
+    <entity name="Student" representedClassName="Student" syncable="YES">
+        <attribute name="age" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="course" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="students" inverseEntity="Course" syncable="YES"/>
+        <relationship name="modules" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Module" inverseName="students" inverseEntity="Module" syncable="YES"/>
+        <relationship name="studyGroups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StudyGroup" inverseName="students" inverseEntity="StudyGroup" syncable="YES"/>
+    </entity>
+    <entity name="StudyGroup" representedClassName="StudyGroup" syncable="YES">
+        <attribute name="uid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="module" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Module" inverseName="studyGroups" inverseEntity="Module" syncable="YES"/>
+        <relationship name="students" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Student" inverseName="studyGroups" inverseEntity="Student" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Entity" positionX="-45" positionY="0" width="128" height="45"/>
+        <element name="Module" positionX="-1541" positionY="-61" width="128" height="103"/>
+        <element name="Student" positionX="-1748" positionY="-234" width="128" height="148"/>
+        <element name="StudyGroup" positionX="-1946" positionY="-72" width="128" height="88"/>
+        <element name="Course" positionX="-1953" positionY="-241" width="128" height="88"/>
     </elements>
 </model>
