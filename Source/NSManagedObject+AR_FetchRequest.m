@@ -9,7 +9,7 @@
 #import "NSManagedObject+AR_FetchRequest.h"
 
 #import "NSFetchRequest+ActiveRecord.h"
-#import "NSManagedObject+ActiveRecord.h"
+#import "NSManagedObject+AR.h"
 
 @implementation NSManagedObject (AR_FetchRequest)
 

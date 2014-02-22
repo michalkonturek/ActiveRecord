@@ -6,15 +6,14 @@
 //  Copyright (c) 2014 Michal Konturek. All rights reserved.
 //
 
-#import "NSManagedObject+ActiveRecord.h"
+#import "NSManagedObject+AR.h"
 
 #import "NSManagedObject+AR_Context.h"
-
 #import "NSManagedObject+AR_FetchRequest.h"
 
 #import <MKFoundationKit/NSArray+MK_Block.h>
 
-@implementation NSManagedObject (ActiveRecord)
+@implementation NSManagedObject (AR)
 
 //+ (instancetype)createObjectWithID:(NSNumber *)objectID {
 //    id object = [self objectWithID:objectID];

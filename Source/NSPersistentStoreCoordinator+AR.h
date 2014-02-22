@@ -8,7 +8,7 @@
 
 #import <CoreData/CoreData.h>
 
-@interface NSPersistentStoreCoordinator (ActiveRecord)
+@interface NSPersistentStoreCoordinator (AR)
 
 + (instancetype)persistentStoreCoordinator;
 + (instancetype)persistentStoreCoordinatorWithAutoMigration;

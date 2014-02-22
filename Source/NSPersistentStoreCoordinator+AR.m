@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 Michal Konturek. All rights reserved.
 //
 
-#import "NSPersistentStoreCoordinator+ActiveRecord.h"
+#import "NSPersistentStoreCoordinator+AR.h"
 
-#import "NSManagedObjectModel+ActiveRecord.h"
+#import "NSManagedObjectModel+AR.h"
 
-@implementation NSPersistentStoreCoordinator (ActiveRecord)
+@implementation NSPersistentStoreCoordinator (AR)
 
 static dispatch_once_t pred;
 static NSPersistentStoreCoordinator *sharedInstance;
 
-+ (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
++ (instancetype)persistentStoreCoordinator {
     
     dispatch_once(&pred, ^{
         NSString *fileName = @"Data.sqlite";
@@ -26,7 +26,7 @@ static NSPersistentStoreCoordinator *sharedInstance;
     return sharedInstance;
 }
 
-+ (NSPersistentStoreCoordinator *)persistentStoreCoordinatorWithAutoMigration {
++ (instancetype)persistentStoreCoordinatorWithAutoMigration {
     
     dispatch_once(&pred, ^{
         NSString *fileName = @"Data.sqlite";
@@ -37,22 +37,22 @@ static NSPersistentStoreCoordinator *sharedInstance;
     return sharedInstance;
 }
 
-+ (NSPersistentStoreCoordinator *)persistentStoreCoordinatorWithURL:(NSURL *)storeURL withType:(NSString *)storeType {
++ (instancetype )persistentStoreCoordinatorWithURL:(NSURL *)storeURL withType:(NSString *)storeType {
     return [self persistentStoreCoordinatorWithURL:storeURL withType:storeType withOptions:nil];
 }
 
-+ (NSPersistentStoreCoordinator *)persistentStoreCoordinatoWithAutoMigrationrWithURL:(NSURL *)storeURL withType:(NSString *)storeType {
++ (instancetype)persistentStoreCoordinatoWithAutoMigrationrWithURL:(NSURL *)storeURL withType:(NSString *)storeType {
     NSDictionary *options = [self autoMigrationOptions];
     return [self persistentStoreCoordinatorWithURL:storeURL withType:storeType withOptions:options];
 }
 
-+ (NSPersistentStoreCoordinator *)persistentStoreCoordinatorWithURL:(NSURL *)storeURL
-                                                           withType:(NSString *)storeType
-                                                        withOptions:(NSDictionary *)options {
++ (instancetype )persistentStoreCoordinatorWithURL:(NSURL *)storeURL
+                                          withType:(NSString *)storeType
+                                       withOptions:(NSDictionary *)options {
     
     NSError *error = nil;
     NSManagedObjectModel *model = [NSManagedObjectModel managedObjectModel];
-    sharedInstance = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+    sharedInstance = [[self alloc] initWithManagedObjectModel:model];
     
     if (![sharedInstance addPersistentStoreWithType:storeType configuration:nil URL:storeURL options:options error:&error]) {
         sharedInstance = nil;

@@ -8,11 +8,11 @@
 
 #import <CoreData/CoreData.h>
 
-@interface NSManagedObjectContext (ActiveRecord)
+@interface NSManagedObjectContext (AR)
 
-+ (NSManagedObjectContext *)managedObjectContext;
-+ (NSManagedObjectContext *)mainManagedObjectContext;
-+ (NSManagedObjectContext *)backgroundManagedObjectContext;
++ (instancetype)managedObjectContext;
++ (instancetype)mainManagedObjectContext;
++ (instancetype)backgroundManagedObjectContext;
 
 + (void)resetBackgroundManagedObjectContext;
 + (void)setBackgroundManagedObjectContext:(NSManagedObjectContext *)context;

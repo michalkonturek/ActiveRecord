@@ -6,16 +6,17 @@
 //  Copyright (c) 2014 Michal Konturek. All rights reserved.
 //
 
-#import "NSManagedObjectContext+ActiveRecord.h"
+#import "NSManagedObjectContext+AR.h"
 
-#import "NSPersistentStoreCoordinator+ActiveRecord.h"
+#import "NSPersistentStoreCoordinator+AR.h"
 
 static NSManagedObjectContext *_mainManagedObjectContext;
-static NSManagedObjectContext *_backgroundManagedObjectContext = nil;
+//static NSManagedObjectContext *_backgroundManagedObjectContext = nil;
+static NSManagedObjectContext *_backgroundManagedObjectContext;
 
-@implementation NSManagedObjectContext (ActiveRecord)
+@implementation NSManagedObjectContext (AR)
 
-+ (NSManagedObjectContext *)MK_sharedInstance {
++ (instancetype)MK_sharedInstance {
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
@@ -27,7 +28,7 @@ static NSManagedObjectContext *_backgroundManagedObjectContext = nil;
     return _mainManagedObjectContext;
 }
 
-+ (NSManagedObjectContext *)managedObjectContext {
++ (instancetype)managedObjectContext {
     static dispatch_once_t onceToken;
     
     if ([NSThread isMainThread]) {
@@ -62,11 +63,11 @@ static NSManagedObjectContext *_backgroundManagedObjectContext = nil;
     _backgroundManagedObjectContext = context;
 }
 
-+ (NSManagedObjectContext *)mainManagedObjectContext {
++ (instancetype)mainManagedObjectContext {
     return _mainManagedObjectContext;
 }
 
-+ (NSManagedObjectContext *)backgroundManagedObjectContext {
++ (instancetype)backgroundManagedObjectContext {
     return _backgroundManagedObjectContext;
 }
 

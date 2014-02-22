@@ -8,7 +8,7 @@
 
 #import "NSManagedObject+AR_Context.h"
 
-#import "NSManagedObjectContext+ActiveRecord.h"
+#import "NSManagedObjectContext+AR.h"
 
 @implementation NSManagedObject (AR_Context)
 

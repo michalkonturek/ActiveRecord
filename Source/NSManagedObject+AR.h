@@ -8,7 +8,7 @@
 
 #import <CoreData/CoreData.h>
 
-@interface NSManagedObject (ActiveRecord)
+@interface NSManagedObject (AR)
 
 //+ (instancetype)createObjectWithID:(NSNumber *)objectID;
 + (instancetype)createObject;

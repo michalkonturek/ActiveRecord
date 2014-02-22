@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-#import "NSPersistentStoreCoordinator+MK.h"
-#import "NSManagedObjectContext+MK.h"
+#import "NSPersistentStoreCoordinator+AR.h"
+#import "NSManagedObjectContext+AR.h"
 
-#import "NSManagedObject+ActiveRecord.h"
+#import "NSManagedObject+AR.h"
 #import "NSManagedObject+AR_Context.h"
 #import "NSManagedObject+AR_FetchRequest.h"
 

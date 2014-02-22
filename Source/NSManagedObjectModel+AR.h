@@ -8,8 +8,8 @@
 
 #import <CoreData/CoreData.h>
 
-@interface NSManagedObjectModel (ActiveRecord)
+@interface NSManagedObjectModel (AR)
 
-+ (NSManagedObjectModel *)managedObjectModel;
++ (instancetype)managedObjectModel;
 
 @end
