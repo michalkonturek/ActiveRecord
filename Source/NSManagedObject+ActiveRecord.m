@@ -12,6 +12,8 @@
 
 #import "NSManagedObject+AR_FetchRequest.h"
 
+#import <MKFoundationKit/NSArray+MK_Block.h>
+
 @implementation NSManagedObject (ActiveRecord)
 
 //+ (instancetype)createObjectWithID:(NSNumber *)objectID {
@@ -44,7 +46,9 @@
 
 
 + (void)deleteAll {
-//    [[self objects] enumerateObjectsUsingBlock:<#^(id obj, NSUInteger idx, BOOL *stop)block#>]
+    [[self objects] mk_each:^(id item) {
+        [item delete];
+    }];
 }
 
 + (NSArray *)objects {
