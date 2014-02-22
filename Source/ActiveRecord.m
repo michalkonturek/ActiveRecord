@@ -10,4 +10,20 @@
 
 @implementation ActiveRecord
 
++ (void)setup {
+    
+}
+
++ (void)setupWithInMemoryStore {
+    
+}
+
++ (void)cleanup {
+    
+}
+
++ (NSString *)defaultStoreName {
+    return @"data.sqlite";
+}
+
 @end
