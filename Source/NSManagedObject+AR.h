@@ -20,13 +20,6 @@
 
 + (void)deleteAll;
 
-+ (NSArray *)objects;
-+ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate;
-+ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate
-               withSortDescriptor:(NSSortDescriptor *)descriptor;
-+ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate
-              withSortDescriptors:(NSArray *)descriptors;
-
 - (void)delete;
 
 @end

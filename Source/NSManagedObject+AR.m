@@ -9,7 +9,7 @@
 #import "NSManagedObject+AR.h"
 
 #import "NSManagedObject+AR_Context.h"
-#import "NSManagedObject+AR_Request.h"
+#import "NSManagedObject+AR_Finders.h"
 
 #import <MKFoundationKit/NSArray+MK_Block.h>
 
@@ -48,26 +48,6 @@
         [item delete];
     }];
 }
-
-+ (NSArray *)objects {
-    return [self objectsWithPredicate:nil withSortDescriptors:nil];
-}
-
-+ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate {
-    return [self objectsWithPredicate:predicate withSortDescriptors:nil];
-}
-
-+ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate
-               withSortDescriptor:(NSSortDescriptor *)descriptor {
-    return [self objectsWithPredicate:predicate withSortDescriptors:@[descriptor]];
-}
-
-+ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate
-              withSortDescriptors:(NSArray *)descriptors {
-    id request = [self requestWithPredicate:predicate withSortDescriptors:descriptors];
-    return [self executeFetchRequest:request];
-}
-
 
 - (void)delete {
     [self.managedObjectContext deleteObject:self];

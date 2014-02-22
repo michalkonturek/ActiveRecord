@@ -14,6 +14,7 @@
 
 #import "NSManagedObject+AR.h"
 #import "NSManagedObject+AR_Context.h"
+#import "NSManagedObject+AR_Finders.h"
 #import "NSManagedObject+AR_Request.h"
 
 @interface ActiveRecord : NSObject
