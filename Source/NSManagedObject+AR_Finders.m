@@ -58,7 +58,6 @@
     return [self objectsWithPredicate:nil withSortDescriptor:descriptor];
 }
 
-
 + (NSArray *)objects {
     return [self objectsWithPredicate:nil withSortDescriptors:nil];
 }
