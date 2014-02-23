@@ -25,8 +25,7 @@ describe(@"NSManagedObjectSpec", ^{
     context(@"Create", ^{
         
         it(@"should create object", ^{
-            Student *student = [Student create];
-            student.uid = @1;
+            Student *student = [Student createWithID:@100];
             student.firstName = @"John";
             student.lastName = @"Doe";
             student.age = @21;
@@ -54,9 +53,17 @@ describe(@"NSManagedObjectSpec", ^{
             [[[Student objectsWithPredicate:predicate] should] haveCountOf:10];
         });
         
-//        it(@"should read specific object", ^{
-//            [[[Student objects] should] haveCountOf:count];
-//        });
+        it(@"should read only a specified object", ^{
+            id item = [Student objectWithID:@1];
+            [[[item uid] should] equal:@1];
+            [[[item firstName] should] equal:@"firstName1"];
+            [[[item lastName] should] equal:@"lastName1"];
+            [[[item age] should] equal:@21];
+        });
+        
+        it(@"should return only ", ^{
+            
+        });
     });
     
 //    context(@"Update", ^{
