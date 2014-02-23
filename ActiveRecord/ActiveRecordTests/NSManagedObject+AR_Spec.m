@@ -14,9 +14,8 @@
 
 SPEC_BEGIN(NSManagedObject_AR_Spec)
 
-describe(@"NSManagedObjectAR", ^{
+describe(@"NSManagedObject_AR", ^{
 
-    
     describe(@"+create", ^{
         
         __block Student *sut;
@@ -41,7 +40,7 @@ describe(@"NSManagedObjectAR", ^{
             [[[Student objects] should] haveCountOf:0];
         });
         
-        context(@"withID", ^{
+        context(@"with ID", ^{
             
             __block NSNumber *uid = @1;
             
@@ -91,43 +90,6 @@ describe(@"NSManagedObjectAR", ^{
             [[[Student objects] should] haveCountOf:1];
         });
     });
-    
-//    
-//    context(@"Read", ^{
-//        
-//        beforeEach(^{
-//            [Factory createStudents:count];
-//        });
-//        
-//        it(@"should read ALL objects", ^{
-//            [[[Student objects] should] haveCountOf:count];
-//        });
-//        
-//        it(@"should read only objects that match predicate", ^{
-//            id predicate = [NSPredicate predicateWithFormat:@"age >= 30"];
-//            [[[Student objectsWithPredicate:predicate] should] haveCountOf:10];
-//        });
-//        
-//        it(@"should read only a specified object", ^{
-//            id item = [Student objectWithID:@1];
-//            [[[item uid] should] equal:@1];
-//            [[[item firstName] should] equal:@"firstName1"];
-//            [[[item lastName] should] equal:@"lastName1"];
-//            [[[item age] should] equal:@21];
-//        });
-//        
-//        it(@"should return only ", ^{
-//            
-//        });
-//    });
-//    
-////    context(@"Update", ^{
-////       
-////        it(@"", ^{
-////            
-////        });
-////    });
-//    
     
 });
 

@@ -43,6 +43,7 @@
 		90E7BCAE18986C9F0087F277 /* NSManagedObjectModel+MK.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E7BCA918986C9F0087F277 /* NSManagedObjectModel+MK.m */; };
 		90E7BCAF18986C9F0087F277 /* NSPersistentStoreCoordinator+MK.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E7BCAB18986C9F0087F277 /* NSPersistentStoreCoordinator+MK.m */; };
 		90E7BCB218986E260087F277 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E7BCB118986E260087F277 /* CoreData.framework */; };
+		90F102B318BA56D50005B3E1 /* NSManagedObject+AR_Finders_Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F102B218BA56D50005B3E1 /* NSManagedObject+AR_Finders_Spec.m */; };
 		B1CBD2C597504716BDC50335 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36E3A54062CA4CD8981453EB /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +121,7 @@
 		90E7BCAB18986C9F0087F277 /* NSPersistentStoreCoordinator+MK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPersistentStoreCoordinator+MK.m"; sourceTree = "<group>"; };
 		90E7BCB018986DCC0087F277 /* MKMacro+Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMacro+Debug.h"; sourceTree = "<group>"; };
 		90E7BCB118986E260087F277 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		90F102B218BA56D50005B3E1 /* NSManagedObject+AR_Finders_Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+AR_Finders_Spec.m"; sourceTree = "<group>"; };
 		D0DF2050E6AB444498D5BD7C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -216,9 +218,10 @@
 			isa = PBXGroup;
 			children = (
 				90645F8B18964BD50040B739 /* Supporting Files */,
-				90CFB46018B925A1007C3553 /* NSManagedObject+AR_Spec.m */,
 				90CFB46218B933D9007C3553 /* Factory.h */,
 				90CFB46318B933D9007C3553 /* Factory.m */,
+				90CFB46018B925A1007C3553 /* NSManagedObject+AR_Spec.m */,
+				90F102B218BA56D50005B3E1 /* NSManagedObject+AR_Finders_Spec.m */,
 			);
 			path = ActiveRecordTests;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90CFB46118B925A1007C3553 /* NSManagedObject+AR_Spec.m in Sources */,
+				90F102B318BA56D50005B3E1 /* NSManagedObject+AR_Finders_Spec.m in Sources */,
 				90CFB46418B933D9007C3553 /* Factory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
