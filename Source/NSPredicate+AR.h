@@ -16,7 +16,7 @@
 + (instancetype)or:(NSArray *)conditions;
 + (instancetype)or:(id)cond1 :(id)cond2;
 
-+ (instancetype)createFrom:(id)object;
+//+ (instancetype)createFrom:(id)object;
 
 - (instancetype)and:(id)condition;
 - (instancetype)or:(id)condition;

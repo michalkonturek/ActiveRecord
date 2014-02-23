@@ -10,13 +10,21 @@
 
 @interface NSManagedObject (AR_Finders)
 
-+ (NSArray *)objects;
++ (instancetype)objectWithID:(NSNumber *)objectID;
+//+ (instancetype)objectWithName:(NSString *)name;
++ (instancetype)objectWithPredicate:(NSPredicate *)predicate;
++ (instancetype)objectWithMaxValueForAttribute:(NSString *)attribute;
++ (instancetype)objectWithMinValueForAttribute:(NSString *)attribute;
 
++ (NSArray *)orderedAscendingBy:(NSString *)key;
++ (NSArray *)orderedDescendingBy:(NSString *)key;
++ (NSArray *)orderedBy:(NSSortDescriptor *)descriptor;
+
++ (NSArray *)objects;
 + (NSArray *)objectsWithPredicate:(NSPredicate *)predicate;
 + (NSArray *)objectsWithPredicate:(NSPredicate *)predicate withSortDescriptor:(NSSortDescriptor *)descriptor;
 + (NSArray *)objectsWithPredicate:(NSPredicate *)predicate withSortDescriptors:(NSArray *)descriptors;
 
-//+ (NSArray *)objectsSortedBy:(NSString *)attribute
-+ (NSArray *)objectsWithSortDescriptor:(NSSortDescriptor *)descriptor;
+
 
 @end
