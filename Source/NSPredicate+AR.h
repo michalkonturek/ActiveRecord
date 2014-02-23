@@ -11,12 +11,12 @@
 @interface NSPredicate (AR)
 
 + (instancetype)and:(NSArray *)conditions;
-+ (instancetype)and:(id)cond1 :(id)cond2;
-
 + (instancetype)or:(NSArray *)conditions;
+
++ (instancetype)and:(id)cond1 :(id)cond2;
 + (instancetype)or:(id)cond1 :(id)cond2;
 
-//+ (instancetype)createFrom:(id)object;
++ (instancetype)createFrom:(id)object;
 
 - (instancetype)and:(id)condition;
 - (instancetype)or:(id)condition;

@@ -18,11 +18,6 @@
     }];
     
     return [NSCompoundPredicate andPredicateWithSubpredicates:items];
-//    [[[[Student fetch] where:@""] and:@""] execute]
-}
-
-+ (instancetype)and:(id)cond1 :(id)cond2 {
-    return [cond1 and:cond2];
 }
 
 + (instancetype)or:(NSArray *)conditions {
@@ -31,6 +26,10 @@
     }];
     
     return [NSCompoundPredicate orPredicateWithSubpredicates:items];
+}
+
++ (instancetype)and:(id)cond1 :(id)cond2 {
+    return [cond1 and:cond2];
 }
 
 + (instancetype)or:(id)cond1 :(id)cond2 {
@@ -42,6 +41,14 @@
     else if ([object isKindOfClass:[NSString class]]) return [self predicateWithFormat:object];
     return nil;
 }
+
+//+ (instancetype)createFrom:(NSDictionary *)object {
+//    NSArray *items = [object mk_map:^(id key, id value) {
+//        return [NSPredicate predicateWithFormat:@"%K == %@", key, value];
+//    }];
+//    
+//    return [NSCompoundPredicate andPredicateWithSubpredicates:items];
+//}
 
 - (instancetype)and:(id)condition {
     id predicate = [[self class] createFrom:condition];

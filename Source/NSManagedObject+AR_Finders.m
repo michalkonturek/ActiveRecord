@@ -11,6 +11,8 @@
 #import "NSManagedObject+AR_Context.h"
 #import "NSManagedObject+AR_Request.h"
 
+#import "NSPredicate+AR.h"
+
 @implementation NSManagedObject (AR_Finders)
 
 + (instancetype)objectWithID:(NSNumber *)objectID {

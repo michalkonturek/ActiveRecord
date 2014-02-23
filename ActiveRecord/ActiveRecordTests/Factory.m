@@ -16,7 +16,7 @@
 + (void)createStudents:(NSInteger)count {
     
     for (NSInteger idx = 0; idx < count; idx++) {
-        Student *item = [Student createObject];
+        Student *item = [Student create];
         item.uid = @(idx);
         item.firstName = [NSString stringWithFormat:@"firstName%i", idx];
         item.lastName = [NSString stringWithFormat:@"lastName%i", idx];

@@ -22,7 +22,6 @@
 + (void)setup;
 + (void)setupWithInMemoryStore;
 
-
 + (void)cleanup;
 
 + (NSString *)defaultStoreName;

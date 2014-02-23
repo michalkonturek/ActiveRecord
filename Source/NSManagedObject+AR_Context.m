@@ -19,7 +19,7 @@
 + (void)commitInContext:(NSManagedObjectContext *)context {
     NSError *error = nil;
     [context save:&error];
-    [self handleError:error];
+    if (!error) [self _printError:error];
 }
 
 + (void)rollback {
@@ -31,14 +31,14 @@
 }
 
 + (NSArray *)executeFetchRequest:(NSFetchRequest *)request {
-    return [self executeFetchRequest:request inManagedObjectContext:[self managedObjectContext]];
+    return [self executeFetchRequest:request inContext:[self managedObjectContext]];
 }
 
 + (NSArray *)executeFetchRequest:(NSFetchRequest *)request
-          inManagedObjectContext:(NSManagedObjectContext *)context {
+                       inContext:(NSManagedObjectContext *)context {
     NSError *error = nil;
     NSArray *result = [context executeFetchRequest:request error:&error];
-    [self handleError:error];
+    if (!error) [self _printError:error];
     return result;
 }
 
@@ -46,11 +46,10 @@
     return [NSManagedObjectContext managedObjectContext];
 }
 
-+ (void)handleError:(NSError *)error {
-    if (error != nil) {
-        NSLog(@"*** %@ : %@ : %@",
-              [self class], NSStringFromSelector(_cmd), [error localizedDescription]);
-    }
++ (void)_printError:(NSError *)error {
+    NSLog(@"*** %@ : %@ : %@",
+          [self class], NSStringFromSelector(_cmd),
+          [error localizedDescription]);
 }
 
 @end

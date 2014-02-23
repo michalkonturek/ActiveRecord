@@ -18,7 +18,7 @@
 
 + (NSArray *)executeFetchRequest:(NSFetchRequest *)request;
 + (NSArray *)executeFetchRequest:(NSFetchRequest *)request
-          inManagedObjectContext:(NSManagedObjectContext *)context;
+                       inContext:(NSManagedObjectContext *)context;
 
 + (NSManagedObjectContext *)managedObjectContext;
 

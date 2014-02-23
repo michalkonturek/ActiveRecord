@@ -10,12 +10,11 @@
 
 @interface NSManagedObject (AR)
 
-//+ (instancetype)createObjectWithID:(NSNumber *)objectID;
-+ (instancetype)createObject;
++ (instancetype)createWithID:(NSNumber *)objectID;
++ (instancetype)create;
 
 + (NSEntityDescription *)entityDescription;
 + (NSString *)entityName;
-
 + (NSString *)primaryKey;
 
 + (void)deleteAll;

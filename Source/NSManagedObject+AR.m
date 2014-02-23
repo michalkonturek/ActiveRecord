@@ -15,24 +15,24 @@
 
 @implementation NSManagedObject (AR)
 
-//+ (instancetype)createObjectWithID:(NSNumber *)objectID {
-//    id object = [self objectWithID:objectID];
-//    if (!object) object = [self createObject];
-//    [object setValue:objectID forKey:[self primaryKey]];
-//    return object;
-//}
++ (instancetype)createWithID:(NSNumber *)objectID {
+    id object = [self objectWithID:objectID];
+    if (!object) object = [self create];
+    [object setValue:objectID forKey:[self primaryKey]];
+    return object;
+}
 
-+ (instancetype)createObject {
-    id ctx = [self managedObjectContext];
++ (instancetype)create {
+    id context = [self managedObjectContext];
     id entityName = [self entityName];
     return [NSEntityDescription insertNewObjectForEntityForName:entityName
-                                         inManagedObjectContext:ctx];
+                                         inManagedObjectContext:context];
 }
 
 + (NSEntityDescription *)entityDescription {
     id entityName = [self entityName];
-    id ctx = [self managedObjectContext];
-    return [NSEntityDescription entityForName:entityName inManagedObjectContext:ctx];
+    id context = [self managedObjectContext];
+    return [NSEntityDescription entityForName:entityName inManagedObjectContext:context];
 }
 
 + (NSString *)entityName {

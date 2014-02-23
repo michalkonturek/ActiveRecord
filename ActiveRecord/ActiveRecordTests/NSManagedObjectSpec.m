@@ -25,7 +25,7 @@ describe(@"NSManagedObjectSpec", ^{
     context(@"Create", ^{
         
         it(@"should create object", ^{
-            Student *student = [Student createObject];
+            Student *student = [Student create];
             student.uid = @1;
             student.firstName = @"John";
             student.lastName = @"Doe";
