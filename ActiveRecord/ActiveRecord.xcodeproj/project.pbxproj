@@ -36,7 +36,7 @@
 		90CFB45918B91BFB007C3553 /* NSPersistentStoreCoordinator+AR.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFB45818B91BFB007C3553 /* NSPersistentStoreCoordinator+AR.m */; };
 		90CFB45C18B91C8C007C3553 /* NSManagedObjectModel+AR.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFB45B18B91C8C007C3553 /* NSManagedObjectModel+AR.m */; };
 		90CFB45F18B91FB2007C3553 /* Example.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFB45E18B91FB2007C3553 /* Example.m */; };
-		90CFB46118B925A1007C3553 /* NSManagedObjectSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFB46018B925A1007C3553 /* NSManagedObjectSpec.m */; };
+		90CFB46118B925A1007C3553 /* NSManagedObject+AR_Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFB46018B925A1007C3553 /* NSManagedObject+AR_Spec.m */; };
 		90CFB46418B933D9007C3553 /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFB46318B933D9007C3553 /* Factory.m */; };
 		90E7BCAC18986C9F0087F277 /* MKManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E7BCA518986C9F0087F277 /* MKManagedObject.m */; };
 		90E7BCAD18986C9F0087F277 /* NSManagedObjectContext+MK.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E7BCA718986C9F0087F277 /* NSManagedObjectContext+MK.m */; };
@@ -107,7 +107,7 @@
 		90CFB45B18B91C8C007C3553 /* NSManagedObjectModel+AR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectModel+AR.m"; sourceTree = "<group>"; };
 		90CFB45D18B91FB2007C3553 /* Example.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Example.h; sourceTree = "<group>"; };
 		90CFB45E18B91FB2007C3553 /* Example.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example.m; sourceTree = "<group>"; };
-		90CFB46018B925A1007C3553 /* NSManagedObjectSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectSpec.m; sourceTree = "<group>"; };
+		90CFB46018B925A1007C3553 /* NSManagedObject+AR_Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+AR_Spec.m"; sourceTree = "<group>"; };
 		90CFB46218B933D9007C3553 /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
 		90CFB46318B933D9007C3553 /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
 		90E7BCA418986C9F0087F277 /* MKManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKManagedObject.h; sourceTree = "<group>"; };
@@ -216,7 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				90645F8B18964BD50040B739 /* Supporting Files */,
-				90CFB46018B925A1007C3553 /* NSManagedObjectSpec.m */,
+				90CFB46018B925A1007C3553 /* NSManagedObject+AR_Spec.m */,
 				90CFB46218B933D9007C3553 /* Factory.h */,
 				90CFB46318B933D9007C3553 /* Factory.m */,
 			);
@@ -485,7 +485,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90CFB46118B925A1007C3553 /* NSManagedObjectSpec.m in Sources */,
+				90CFB46118B925A1007C3553 /* NSManagedObject+AR_Spec.m in Sources */,
 				90CFB46418B933D9007C3553 /* Factory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
