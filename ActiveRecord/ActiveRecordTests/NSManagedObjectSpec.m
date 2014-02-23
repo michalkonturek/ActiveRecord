@@ -80,7 +80,10 @@ describe(@"NSManagedObjectSpec", ^{
         
         it(@"it should delete specific object", ^{
             [[[Student objects] should] haveCountOf:count];
-            [[[Student objects] objectAtIndex:0] delete];
+
+            [[Student objectWithID:@1] delete];
+
+            [[[Student objectWithID:@1] should] beNil];
             [[[Student objects] should] haveCountOf:(count - 1)];
         });
     });

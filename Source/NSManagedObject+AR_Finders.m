@@ -46,7 +46,6 @@
     else return nil;
 }
 
-
 + (NSArray *)orderedAscendingBy:(NSString *)key {
     return [self orderedBy:[NSSortDescriptor sortDescriptorWithKey:key ascending:YES]];
 }
@@ -69,15 +68,14 @@
 }
 
 + (NSArray *)objectsWithPredicate:(NSPredicate *)predicate withSortDescriptor:(NSSortDescriptor *)descriptor {
-    return [self objectsWithPredicate:predicate withSortDescriptors:@[descriptor]];
+    id descriptors = (descriptor) ? @[descriptor] : nil;
+    return [self objectsWithPredicate:predicate withSortDescriptors:descriptors];
 }
 
 + (NSArray *)objectsWithPredicate:(NSPredicate *)predicate withSortDescriptors:(NSArray *)descriptors {
     id request = [self requestWithPredicate:predicate withSortDescriptors:descriptors];
     return [self executeFetchRequest:request];
 }
-
-
 
 @end
 

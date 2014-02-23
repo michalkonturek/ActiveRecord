@@ -19,7 +19,7 @@
 + (void)commitInContext:(NSManagedObjectContext *)context {
     NSError *error = nil;
     [context save:&error];
-    if (!error) [self _printError:error];
+    if (error) [self _printError:error];
 }
 
 + (void)rollback {
@@ -38,7 +38,7 @@
                        inContext:(NSManagedObjectContext *)context {
     NSError *error = nil;
     NSArray *result = [context executeFetchRequest:request error:&error];
-    if (!error) [self _printError:error];
+    if (error) [self _printError:error];
     return result;
 }
 
