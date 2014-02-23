@@ -12,11 +12,11 @@
 
 @interface NSPersistentStoreCoordinator (MK)
 
-+ (NSPersistentStoreCoordinator *)persistentStoreCoordinator;
-+ (NSPersistentStoreCoordinator *)persistentStoreCoordinatorWithAutoMigration;
-+ (NSPersistentStoreCoordinator *)persistentStoreCoordinatorWithURL:(NSURL *)storeURL withType:(NSString *)storeType;
-+ (NSPersistentStoreCoordinator *)persistentStoreCoordinatoWithAutoMigrationrWithURL:(NSURL *)storeURL withType:(NSString *)storeType;
-+ (NSPersistentStoreCoordinator *)persistentStoreCoordinatorWithURL:(NSURL *)storeURL 
++ (instancetype)persistentStoreCoordinator;
++ (instancetype)persistentStoreCoordinatorWithAutoMigration;
++ (instancetype)persistentStoreCoordinatorWithURL:(NSURL *)storeURL withType:(NSString *)storeType;
++ (instancetype)persistentStoreCoordinatoWithAutoMigrationrWithURL:(NSURL *)storeURL withType:(NSString *)storeType;
++ (instancetype)persistentStoreCoordinatorWithURL:(NSURL *)storeURL
                                                            withType:(NSString *)storeType 
                                                         withOptions:(NSDictionary *)options;
 

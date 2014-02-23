@@ -15,38 +15,38 @@
 static dispatch_once_t pred;
 static NSPersistentStoreCoordinator *sharedInstance;
 
-+ (instancetype)persistentStoreCoordinator {
++ (instancetype)sharedInstance {
     
     dispatch_once(&pred, ^{
         NSString *fileName = @"Data.sqlite";
         NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:fileName];
-        sharedInstance = [self persistentStoreCoordinatorWithURL:storeURL withType:NSSQLiteStoreType];
+        sharedInstance = [self createWithURL:storeURL withType:NSSQLiteStoreType];
     });
     
     return sharedInstance;
 }
 
-+ (instancetype)persistentStoreCoordinatorWithAutoMigration {
++ (instancetype)sharedInstanceWithAutoMigration {
     
     dispatch_once(&pred, ^{
         NSString *fileName = @"Data.sqlite";
         NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:fileName];
-        sharedInstance = [self persistentStoreCoordinatoWithAutoMigrationrWithURL:storeURL withType:NSSQLiteStoreType];
+        sharedInstance = [self createWithAutoMigrationWithURL:storeURL withType:NSSQLiteStoreType];
     });
     
     return sharedInstance;
 }
 
-+ (instancetype )persistentStoreCoordinatorWithURL:(NSURL *)storeURL withType:(NSString *)storeType {
-    return [self persistentStoreCoordinatorWithURL:storeURL withType:storeType withOptions:nil];
++ (instancetype )createWithURL:(NSURL *)storeURL withType:(NSString *)storeType {
+    return [self createWithURL:storeURL withType:storeType withOptions:nil];
 }
 
-+ (instancetype)persistentStoreCoordinatoWithAutoMigrationrWithURL:(NSURL *)storeURL withType:(NSString *)storeType {
++ (instancetype)createWithAutoMigrationWithURL:(NSURL *)storeURL withType:(NSString *)storeType {
     NSDictionary *options = [self autoMigrationOptions];
-    return [self persistentStoreCoordinatorWithURL:storeURL withType:storeType withOptions:options];
+    return [self createWithURL:storeURL withType:storeType withOptions:options];
 }
 
-+ (instancetype )persistentStoreCoordinatorWithURL:(NSURL *)storeURL
++ (instancetype )createWithURL:(NSURL *)storeURL
                                           withType:(NSString *)storeType
                                        withOptions:(NSDictionary *)options {
     

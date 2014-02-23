@@ -15,7 +15,7 @@
 static dispatch_once_t pred;
 static NSPersistentStoreCoordinator *sharedPersistentStoreCoordinator;
 
-+ (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
++ (instancetype)persistentStoreCoordinator {
     
     dispatch_once(&pred, ^{
         NSString *fileName = @"Data.sqlite";
@@ -26,7 +26,7 @@ static NSPersistentStoreCoordinator *sharedPersistentStoreCoordinator;
     return sharedPersistentStoreCoordinator;
 }
 
-+ (NSPersistentStoreCoordinator *)persistentStoreCoordinatorWithAutoMigration {
++ (instancetype)persistentStoreCoordinatorWithAutoMigration {
     
     dispatch_once(&pred, ^{
         NSString *fileName = @"Data.sqlite";
@@ -37,16 +37,16 @@ static NSPersistentStoreCoordinator *sharedPersistentStoreCoordinator;
     return sharedPersistentStoreCoordinator;
 }
 
-+ (NSPersistentStoreCoordinator *)persistentStoreCoordinatorWithURL:(NSURL *)storeURL withType:(NSString *)storeType {        
++ (instancetype)persistentStoreCoordinatorWithURL:(NSURL *)storeURL withType:(NSString *)storeType {
     return [self persistentStoreCoordinatorWithURL:storeURL withType:storeType withOptions:nil];
 }
 
-+ (NSPersistentStoreCoordinator *)persistentStoreCoordinatoWithAutoMigrationrWithURL:(NSURL *)storeURL withType:(NSString *)storeType {
++ (instancetype)persistentStoreCoordinatoWithAutoMigrationrWithURL:(NSURL *)storeURL withType:(NSString *)storeType {
     NSDictionary *options = [self autoMigrationOptions];
     return [self persistentStoreCoordinatorWithURL:storeURL withType:storeType withOptions:options];
 }
 
-+ (NSPersistentStoreCoordinator *)persistentStoreCoordinatorWithURL:(NSURL *)storeURL 
++ (instancetype)persistentStoreCoordinatorWithURL:(NSURL *)storeURL
                                                            withType:(NSString *)storeType 
                                                         withOptions:(NSDictionary *)options {
 //    if (sharedPersistentStoreCoordinator != nil) [sharedPersistentStoreCoordinator release]; ARC

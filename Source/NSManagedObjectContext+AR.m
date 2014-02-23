@@ -21,7 +21,7 @@ static NSManagedObjectContext *_backgroundContext;
     if ([NSThread isMainThread]) {
         dispatch_once(&onceToken, ^{
             _mainContext = [[self alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-            id coordinator = [NSPersistentStoreCoordinator persistentStoreCoordinatorWithAutoMigration];
+            id coordinator = [NSPersistentStoreCoordinator sharedInstanceWithAutoMigration];
             [_mainContext setPersistentStoreCoordinator:coordinator];
         });
         

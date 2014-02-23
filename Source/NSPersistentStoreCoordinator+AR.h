@@ -10,13 +10,15 @@
 
 @interface NSPersistentStoreCoordinator (AR)
 
-+ (instancetype)persistentStoreCoordinator;
-+ (instancetype)persistentStoreCoordinatorWithAutoMigration;
-+ (instancetype)persistentStoreCoordinatorWithURL:(NSURL *)storeURL withType:(NSString *)storeType;
-+ (instancetype)persistentStoreCoordinatoWithAutoMigrationrWithURL:(NSURL *)storeURL withType:(NSString *)storeType;
-+ (instancetype)persistentStoreCoordinatorWithURL:(NSURL *)storeURL
-                                                           withType:(NSString *)storeType
-                                                        withOptions:(NSDictionary *)options;
++ (instancetype)sharedInstance;
++ (instancetype)sharedInstanceWithAutoMigration;
+
++ (instancetype)createWithURL:(NSURL *)storeURL withType:(NSString *)storeType;
++ (instancetype)createWithAutoMigrationWithURL:(NSURL *)storeURL
+                                      withType:(NSString *)storeType;
++ (instancetype)createWithURL:(NSURL *)storeURL
+                     withType:(NSString *)storeType
+                  withOptions:(NSDictionary *)options;
 
 + (NSURL *)applicationDocumentsDirectory;
 + (NSDictionary *)autoMigrationOptions;
