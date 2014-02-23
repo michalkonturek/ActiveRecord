@@ -11,10 +11,12 @@
 @interface NSManagedObject (AR_Finders)
 
 + (NSArray *)objects;
+
 + (NSArray *)objectsWithPredicate:(NSPredicate *)predicate;
-+ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate
-               withSortDescriptor:(NSSortDescriptor *)descriptor;
-+ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate
-              withSortDescriptors:(NSArray *)descriptors;
++ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate withSortDescriptor:(NSSortDescriptor *)descriptor;
++ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate withSortDescriptors:(NSArray *)descriptors;
+
+//+ (NSArray *)objectsSortedBy:(NSString *)attribute
++ (NSArray *)objectsWithSortDescriptor:(NSSortDescriptor *)descriptor;
 
 @end

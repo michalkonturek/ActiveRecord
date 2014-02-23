@@ -21,13 +21,15 @@
     return [self objectsWithPredicate:predicate withSortDescriptors:nil];
 }
 
-+ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate
-               withSortDescriptor:(NSSortDescriptor *)descriptor {
++ (NSArray *)objectsWithSortDescriptor:(NSSortDescriptor *)descriptor {
+    return [self objectsWithPredicate:nil withSortDescriptor:descriptor];
+}
+
++ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate withSortDescriptor:(NSSortDescriptor *)descriptor {
     return [self objectsWithPredicate:predicate withSortDescriptors:@[descriptor]];
 }
 
-+ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate
-              withSortDescriptors:(NSArray *)descriptors {
++ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate withSortDescriptors:(NSArray *)descriptors {
     id request = [self requestWithPredicate:predicate withSortDescriptors:descriptors];
     return [self executeFetchRequest:request];
 }

@@ -23,6 +23,19 @@
     
     [Student commit];
     
+    id items = @[
+                 [NSPredicate predicateWithFormat:@"age == 18"],
+                 [NSPredicate predicateWithFormat:@"age == 28"]
+                 ];
+    id pred = [NSCompoundPredicate andPredicateWithSubpredicates:items];
+    NSLog(@"%@", pred);
+    
+    items = @[
+               pred,
+               [NSPredicate predicateWithFormat:@"age > 100"]
+              ];
+    pred = [NSCompoundPredicate orPredicateWithSubpredicates:items];
+    NSLog(@"%@", pred);
     
     id item = [Student objects];
     NSLog(@"%@", item[0]);
