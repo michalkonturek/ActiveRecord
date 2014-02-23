@@ -9,6 +9,7 @@
 #import "NSPredicate+AR.h"
 
 #import <MKFoundationKit/NSArray+MK_Block.h>
+#import <MKFoundationKit/NSDictionary+MK_Block.h>
 
 @implementation NSPredicate (AR)
 
@@ -39,16 +40,18 @@
 + (instancetype)createFrom:(id)object {
     if ([object isKindOfClass:[self class]]) return object;
     else if ([object isKindOfClass:[NSString class]]) return [self predicateWithFormat:object];
+    else if ([object isKindOfClass:[NSDictionary class]]) return [self _createFromDictionary:object];
     return nil;
 }
 
-//+ (instancetype)createFrom:(NSDictionary *)object {
-//    NSArray *items = [object mk_map:^(id key, id value) {
-//        return [NSPredicate predicateWithFormat:@"%K == %@", key, value];
-//    }];
-//    
-//    return [NSCompoundPredicate andPredicateWithSubpredicates:items];
-//}
++ (instancetype)_createFromDictionary:(NSDictionary *)object {
+    id items = [NSMutableArray array];
+    [object enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [items addObject:[NSPredicate predicateWithFormat:@"%K == %@", key, obj]];
+    }];
+    
+    return [NSCompoundPredicate andPredicateWithSubpredicates:items];
+}
 
 - (instancetype)and:(id)condition {
     id predicate = [[self class] createFrom:condition];

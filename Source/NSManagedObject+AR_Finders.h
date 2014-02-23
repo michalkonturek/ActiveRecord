@@ -11,7 +11,6 @@
 @interface NSManagedObject (AR_Finders)
 
 + (instancetype)objectWithID:(NSNumber *)objectID;
-//+ (instancetype)objectWithName:(NSString *)name;
 + (instancetype)objectWithPredicate:(NSPredicate *)predicate;
 + (instancetype)objectWithMaxValueForAttribute:(NSString *)attribute;
 + (instancetype)objectWithMinValueForAttribute:(NSString *)attribute;
