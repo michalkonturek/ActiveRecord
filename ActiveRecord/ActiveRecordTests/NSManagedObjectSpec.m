@@ -12,9 +12,9 @@
 #import "Domain.h"
 #import "Factory.h"
 
-SPEC_BEGIN(NSManagedObjectSpec)
+SPEC_BEGIN(NSManagedObject_AR_Spec)
 
-describe(@"NSManagedObject+AR", ^{
+describe(@"NSManagedObjectAR", ^{
 
     
     describe(@"+create", ^{
@@ -92,31 +92,6 @@ describe(@"NSManagedObject+AR", ^{
         });
     });
     
-
-    
-    
-    
-//    NSInteger count = 20;
-//    
-//    beforeEach(^{
-//        [Student deleteAll];
-//    });
-//
-//    context(@"Create", ^{
-//        
-//        it(@"should create object", ^{
-//            Student *student = [Student createWithID:@100];
-//            student.firstName = @"John";
-//            student.lastName = @"Doe";
-//            student.age = @21;
-//            
-//            id result = [Student objects][0];
-//            [[result should] beMemberOfClass:[Student class]];
-//            [[[result firstName] should] equal:@"John"];
-//            [[[result lastName] should] equal:@"Doe"];
-//            [[[result age] should] equal:theValue(21)];
-//        });
-//    });
 //    
 //    context(@"Read", ^{
 //        
@@ -153,27 +128,6 @@ describe(@"NSManagedObject+AR", ^{
 ////        });
 ////    });
 //    
-//    context(@"Delete", ^{
-//        
-//        beforeEach(^{
-//            [Factory createStudents:count];
-//        });
-//        
-//        it(@"it should delete all objects", ^{
-//            [[[Student objects] should] haveCountOf:count];
-//            [Student deleteAll];
-//            [[[Student objects] should] haveCountOf:0];
-//        });
-//        
-//        it(@"it should delete specific object", ^{
-//            [[[Student objects] should] haveCountOf:count];
-//
-//            [[Student objectWithID:@1] delete];
-//
-//            [[[Student objectWithID:@1] should] beNil];
-//            [[[Student objects] should] haveCountOf:(count - 1)];
-//        });
-//    });
     
 });
 
