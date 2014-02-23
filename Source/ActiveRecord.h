@@ -17,6 +17,8 @@
 #import "NSManagedObject+AR_Finders.h"
 #import "NSManagedObject+AR_Request.h"
 
+#import "NSPredicate+AR.h"
+
 @interface ActiveRecord : NSObject
 
 + (void)setup;

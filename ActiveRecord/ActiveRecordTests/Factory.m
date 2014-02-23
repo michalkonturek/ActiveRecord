@@ -22,7 +22,7 @@
         item.age = @(20 + idx);
     }
     
-    [Student commit];
+//    [Student commit];
 }
 
 @end

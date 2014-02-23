@@ -12,6 +12,8 @@
 #import "Domain.h"
 #import "Factory.h"
 
+#import <MKFoundationKit/NSArray+MK_Block.h>
+
 SPEC_BEGIN(NSManagedObject_AR_Finders_Spec)
 
 describe(@"NSManagedObject_AR_Finders", ^{
@@ -25,40 +27,59 @@ describe(@"NSManagedObject_AR_Finders", ^{
        
         context(@"with ID", ^{
             it(@"should read only a specified object", ^{
-                id item = [Student objectWithID:@1];
-                [[[item uid] should] equal:@1];
-                [[[item firstName] should] equal:@"firstName1"];
-                [[[item lastName] should] equal:@"lastName1"];
-                [[[item age] should] equal:@21];
+                id target = [Student objectWithID:@1];
+                [[[target uid] should] equal:@1];
+                [[[target firstName] should] equal:@"firstName1"];
+                [[[target lastName] should] equal:@"lastName1"];
+                [[[target age] should] equal:@21];
             });
         });
         
         context(@"with predicate", ^{
-            
+            it(@"should returns object with surname 'lastName10'", ^{
+                id predicate = [NSPredicate createFrom:@"lastName == 'lastName10'"];
+                id target = [Student objectWithPredicate:predicate];
+                [[[target lastName] should] equal:@"lastName10"];
+            });
         });
 
         context(@"with max value for attribute", ^{
-            
+            it(@"should return object with age 39", ^{
+                id target = [Student objectWithMaxValueForAttribute:@"age"];
+                [[[target age] should] equal:@39];
+            });
         });
         
-        context(@"with max value for attribute", ^{
-            
+        context(@"with min value for attribute", ^{
+            it(@"should return object with age 20", ^{
+                id target = [Student objectWithMinValueForAttribute:@"age"];
+                [[[target age] should] equal:@20];
+            });
         });
     });
     
     describe(@"+orderedBy", ^{
        
+        beforeAll(^{
+            [Student deleteAll];
+            [Factory createStudents:4];
+        });
+        
         context(@"ascending", ^{
-            
-            it(@"", ^{
-                
+            it(@"orders objects by single property ascending", ^{
+                id result = [[Student orderedAscendingBy:@"age"] mk_map:^id(id item) {
+                    return [item age];
+                }];
+                [[result should] equal:@[@20, @21, @22, @23]];
             });
         });
         
         context(@"descending", ^{
-            
-            it(@"", ^{
-                
+            it(@"orders objects by single property descending", ^{
+                id result = [[Student orderedDescendingBy:@"age"] mk_map:^id(id item) {
+                    return [item age];
+                }];
+                [[result should] equal:@[@23, @22, @21, @20]];
             });
         });
     });
@@ -77,7 +98,6 @@ describe(@"NSManagedObject_AR_Finders", ^{
         });
 
         context(@"with predicate", ^{
-            
             it(@"should read only objects that match predicate", ^{
                 id predicate = [NSPredicate predicateWithFormat:@"age >= 30"];
                 [[[Student objectsWithPredicate:predicate] should] haveCountOf:10];
