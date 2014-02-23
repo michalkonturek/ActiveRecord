@@ -9,11 +9,23 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-#import "NSPersistentStoreCoordinator+MK.h"
-#import "NSManagedObjectContext+MK.h"
+#import "NSPersistentStoreCoordinator+AR.h"
+#import "NSManagedObjectContext+AR.h"
 
-#import "MKManagedObject.h"
+#import "NSManagedObject+AR.h"
+#import "NSManagedObject+AR_Context.h"
+#import "NSManagedObject+AR_Finders.h"
+#import "NSManagedObject+AR_Request.h"
+
+#import "NSPredicate+AR.h"
 
 @interface ActiveRecord : NSObject
+
++ (void)setup;
++ (void)setupWithInMemoryStore;
+
++ (void)cleanup;
+
++ (NSString *)defaultStoreName;
 
 @end

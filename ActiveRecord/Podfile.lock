@@ -1,16 +1,17 @@
 PODS:
-  - Kiwi (2.2.3):
-    - Kiwi/SenTestingKit
   - Kiwi/ARC (2.2.3)
   - Kiwi/NonARC (2.2.3)
-  - Kiwi/SenTestingKit (2.2.3):
+  - Kiwi/XCTest (2.2.3):
     - Kiwi/ARC
     - Kiwi/NonARC
+  - MKFoundationKit/Block (1.1.0)
 
 DEPENDENCIES:
-  - Kiwi (>= 2.2.1)
+  - Kiwi/XCTest (>= 2.2.1)
+  - MKFoundationKit/Block (>= 1.0.0)
 
 SPEC CHECKSUMS:
   Kiwi: 04c51e880831d291748ec702d42c4101f7eb95c9
+  MKFoundationKit: db5b09c3d266b6476e605b6060096a62fd542b61
 
 COCOAPODS: 0.29.0
