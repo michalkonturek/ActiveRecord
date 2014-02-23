@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
   s.name         = "ActiveRecord"
   s.version      = "1.0.0"
-  s.summary      = "A lightweight Active Record for Core Data."
+  s.summary      = "A lightweight Active Record implementation for Core Data."
   s.homepage     = "https://github.com/michalkonturek/ActiveRecord"
   s.license      = 'MIT'
 
@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Source/**/*.{h,m}'
   s.requires_arc = true
   s.framework  = 'CoreData'
+  s.dependency 'MKFoundationKit/Block', '~> 1.1.0'
 end
