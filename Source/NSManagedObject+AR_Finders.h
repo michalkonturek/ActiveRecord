@@ -12,8 +12,8 @@
 
 + (instancetype)objectWithID:(NSNumber *)objectID;
 + (instancetype)objectWithPredicate:(NSPredicate *)predicate;
-+ (instancetype)objectWithMaxValueForAttribute:(NSString *)attribute;
-+ (instancetype)objectWithMinValueForAttribute:(NSString *)attribute;
++ (instancetype)objectWithMaxValueFor:(NSString *)attribute;
++ (instancetype)objectWithMinValueFor:(NSString *)attribute;
 
 + (NSArray *)orderedAscendingBy:(NSString *)key;
 + (NSArray *)orderedDescendingBy:(NSString *)key;

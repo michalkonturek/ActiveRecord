@@ -24,13 +24,13 @@
     return [self firstWithPredicate:predicate];
 }
 
-+ (instancetype)objectWithMaxValueForAttribute:(NSString *)attribute {
++ (instancetype)objectWithMaxValueFor:(NSString *)attribute {
     id predicate = [NSPredicate predicateWithFormat:@"%K != nil", attribute];
     id descriptor = [NSSortDescriptor sortDescriptorWithKey:attribute ascending:NO];
     return [self firstWithPredicate:predicate withSortDescriptor:descriptor];
 }
 
-+ (instancetype)objectWithMinValueForAttribute:(NSString *)attribute {
++ (instancetype)objectWithMinValueFor:(NSString *)attribute {
     id predicate = [NSPredicate predicateWithFormat:@"%K != nil", attribute];
     id descriptor = [NSSortDescriptor sortDescriptorWithKey:attribute ascending:YES];
     return [self firstWithPredicate:predicate withSortDescriptor:descriptor];

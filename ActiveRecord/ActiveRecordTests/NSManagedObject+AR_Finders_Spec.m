@@ -45,14 +45,14 @@ describe(@"NSManagedObject_AR_Finders", ^{
 
         context(@"with max value for attribute", ^{
             it(@"should return object with age 39", ^{
-                id target = [Student objectWithMaxValueForAttribute:@"age"];
+                id target = [Student objectWithMaxValueFor:@"age"];
                 [[[target age] should] equal:@39];
             });
         });
         
         context(@"with min value for attribute", ^{
             it(@"should return object with age 20", ^{
-                id target = [Student objectWithMinValueForAttribute:@"age"];
+                id target = [Student objectWithMinValueFor:@"age"];
                 [[[target age] should] equal:@20];
             });
         });
