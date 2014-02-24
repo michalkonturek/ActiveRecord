@@ -5,6 +5,7 @@
 [![Build Version](https://cocoapod-badges.herokuapp.com/v/ActiveRecord/badge.png)](https://github.com/michalkonturek/ActiveRecord)
 <!--[![Build Status](https://travis-ci.org/michalkonturek/ActiveRecord.png?branch=master)](https://travis-ci.org/michalkonturek/ActiveRecord)-->
 
+A lightweight Active Record implementation for Core Data.
 
 ## License
 
