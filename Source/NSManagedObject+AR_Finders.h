@@ -10,6 +10,9 @@
 
 @interface NSManagedObject (AR_Finders)
 
++ (NSInteger)count;
++ (NSInteger)countWithPredicate:(NSPredicate *)predicate;
+
 + (instancetype)objectWithID:(NSNumber *)objectID;
 + (instancetype)objectWithPredicate:(NSPredicate *)predicate;
 + (instancetype)objectWithMaxValueFor:(NSString *)attribute;

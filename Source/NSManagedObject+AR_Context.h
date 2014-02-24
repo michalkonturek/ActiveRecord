@@ -16,6 +16,10 @@
 + (void)rollback;
 + (void)rollbackInContext:(NSManagedObjectContext *)context;
 
++ (NSInteger)countForRequest:(NSFetchRequest *)request;
++ (NSInteger)countForRequest:(NSFetchRequest *)request
+                   inContext:(NSManagedObjectContext *)context;
+
 + (NSArray *)executeFetchRequest:(NSFetchRequest *)request;
 + (NSArray *)executeFetchRequest:(NSFetchRequest *)request
                        inContext:(NSManagedObjectContext *)context;

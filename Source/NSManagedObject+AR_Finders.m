@@ -15,6 +15,14 @@
 
 @implementation NSManagedObject (AR_Finders)
 
++ (NSInteger)count {
+    
+}
+
++ (NSInteger)countWithPredicate:(NSPredicate *)predicate {
+    return 0;
+}
+
 + (instancetype)objectWithID:(NSNumber *)objectID {
     id predicate = [NSPredicate predicateWithFormat:@"uid == %@", objectID];
     return [self objectWithPredicate:predicate];
@@ -77,9 +85,3 @@
 }
 
 @end
-
-
-
-
-
-

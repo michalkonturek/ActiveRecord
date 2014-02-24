@@ -30,6 +30,18 @@
     [context rollback];
 }
 
++ (NSInteger)countForRequest:(NSFetchRequest *)request {
+    return [self countForRequest:request inContext:[self managedObjectContext]];
+}
+
++ (NSInteger)countForRequest:(NSFetchRequest *)request
+                   inContext:(NSManagedObjectContext *)context {
+    NSError *error = nil;
+    NSInteger result = [context countForFetchRequest:request error:&error];
+    if (error) [self _printError:error];
+    return result;
+}
+
 + (NSArray *)executeFetchRequest:(NSFetchRequest *)request {
     return [self executeFetchRequest:request inContext:[self managedObjectContext]];
 }

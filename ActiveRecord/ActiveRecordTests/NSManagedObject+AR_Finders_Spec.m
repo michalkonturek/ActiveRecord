@@ -18,6 +18,24 @@ SPEC_BEGIN(NSManagedObject_AR_Finders_Spec)
 
 describe(@"NSManagedObject_AR_Finders", ^{
     
+    describe(@"+count", ^{
+        
+        beforeAll(^{
+            [Student deleteAll];
+            [Factory createStudents:20];
+        });
+        
+        it(@"should return total number of objects", ^{
+            [[@([Student count]) should] equal:@20];
+        });
+        
+        context(@"with Predicate", ^{
+            it(@"should return number of objects that satisfy predicate", ^{
+                
+            });
+        });
+    });
+    
     describe(@"+object", ^{
         
         beforeAll(^{
