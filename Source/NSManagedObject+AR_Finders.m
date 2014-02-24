@@ -16,7 +16,8 @@
 @implementation NSManagedObject (AR_Finders)
 
 + (NSInteger)count {
-    
+    id request = [self requestWithPredicate:nil withSortDescriptor:nil];
+    return [self countForRequest:request];
 }
 
 + (NSInteger)countWithPredicate:(NSPredicate *)predicate {

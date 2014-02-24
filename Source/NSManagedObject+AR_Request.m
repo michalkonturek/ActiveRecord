@@ -15,8 +15,8 @@
 
 + (NSFetchRequest *)requestWithPredicate:(NSPredicate *)predicate
                       withSortDescriptor:(NSSortDescriptor *)descriptor {
-    
-    return [self requestWithPredicate:predicate withSortDescriptors:@[descriptor]];
+    id descriptors = (descriptor != nil) ? @[descriptor] : nil;
+    return [self requestWithPredicate:predicate withSortDescriptors:descriptors];
 }
 
 + (NSFetchRequest *)requestWithPredicate:(NSPredicate *)predicate
