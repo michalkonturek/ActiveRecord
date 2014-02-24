@@ -16,12 +16,12 @@
 @implementation NSManagedObject (AR_Finders)
 
 + (NSInteger)count {
-    id request = [self requestWithPredicate:nil withSortDescriptor:nil];
-    return [self countForRequest:request];
+    return [self countWithPredicate:nil];
 }
 
 + (NSInteger)countWithPredicate:(NSPredicate *)predicate {
-    return 0;
+    id request = [self requestWithPredicate:predicate withSortDescriptor:nil];
+    return [self countForRequest:request];
 }
 
 + (instancetype)objectWithID:(NSNumber *)objectID {

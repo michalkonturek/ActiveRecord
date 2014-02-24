@@ -31,7 +31,8 @@ describe(@"NSManagedObject_AR_Finders", ^{
         
         context(@"with Predicate", ^{
             it(@"should return number of objects that satisfy predicate", ^{
-                
+                id predicate = [NSPredicate predicateWithFormat:@"age < 30"];
+                [[@([Student countWithPredicate:predicate]) should] equal:@(10)];
             });
         });
     });
