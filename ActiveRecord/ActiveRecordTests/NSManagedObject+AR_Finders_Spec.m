@@ -18,6 +18,30 @@ SPEC_BEGIN(NSManagedObject_AR_Finders_Spec)
 
 describe(@"NSManagedObject_AR_Finders", ^{
     
+    describe(@"+hasObjects", ^{
+
+        beforeEach(^{
+            [Student deleteAll];
+            [Factory createStudents:20];
+        });
+        
+        specify(^{
+            [[@([Student hasObjects]) should] equal:@(YES)];
+        });
+        
+        specify(^{
+            [Student deleteAll];
+            [[@([Student hasObjects]) should] equal:@(NO)];
+        });
+       
+        context(@"with Predicate", ^{
+            specify(^{
+                id predicate = [NSPredicate predicateWithFormat:@"age < 30"];
+                [[@([Student hasObjectsWithPredicate:predicate]) should] equal:@(YES)];
+            });
+        });
+    });
+    
     describe(@"+count", ^{
         
         beforeAll(^{

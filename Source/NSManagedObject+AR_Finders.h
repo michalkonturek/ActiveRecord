@@ -10,6 +10,9 @@
 
 @interface NSManagedObject (AR_Finders)
 
++ (BOOL)hasObjects;
++ (BOOL)hasObjectsWithPredicate:(NSPredicate *)predicate;
+
 + (NSInteger)count;
 + (NSInteger)countWithPredicate:(NSPredicate *)predicate;
 

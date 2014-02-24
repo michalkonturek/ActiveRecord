@@ -15,6 +15,14 @@
 
 @implementation NSManagedObject (AR_Finders)
 
++ (BOOL)hasObjects {
+    return [self hasObjectsWithPredicate:nil];
+}
+
++ (BOOL)hasObjectsWithPredicate:(NSPredicate *)predicate {
+    return ([self countWithPredicate:predicate] != 0);
+}
+
 + (NSInteger)count {
     return [self countWithPredicate:nil];
 }
