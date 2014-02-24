@@ -23,4 +23,6 @@
 + (NSURL *)applicationDocumentsDirectory;
 + (NSDictionary *)autoMigrationOptions;
 
++ (NSString *)defaultStoreName;
+
 @end

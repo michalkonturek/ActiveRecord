@@ -22,8 +22,4 @@
     
 }
 
-+ (NSString *)defaultStoreName {
-    return @"data.sqlite";
-}
-
 @end

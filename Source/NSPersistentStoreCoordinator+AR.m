@@ -18,7 +18,7 @@ static NSPersistentStoreCoordinator *sharedInstance;
 + (instancetype)sharedInstance {
     
     dispatch_once(&pred, ^{
-        NSString *fileName = @"Data.sqlite";
+        NSString *fileName = [self defaultStoreName];
         NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:fileName];
         sharedInstance = [self createWithURL:storeURL withType:NSSQLiteStoreType];
     });
@@ -29,7 +29,7 @@ static NSPersistentStoreCoordinator *sharedInstance;
 + (instancetype)sharedInstanceWithAutoMigration {
     
     dispatch_once(&pred, ^{
-        NSString *fileName = @"Data.sqlite";
+        NSString *fileName = [self defaultStoreName];
         NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:fileName];
         sharedInstance = [self createWithAutoMigrationWithURL:storeURL withType:NSSQLiteStoreType];
     });
@@ -81,5 +81,8 @@ static NSPersistentStoreCoordinator *sharedInstance;
             nil];
 }
 
++ (NSString *)defaultStoreName {
+    return @"data.sqlite";
+}
 
 @end

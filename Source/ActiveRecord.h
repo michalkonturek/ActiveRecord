@@ -21,11 +21,9 @@
 
 @interface ActiveRecord : NSObject
 
-+ (void)setup;
-+ (void)setupWithInMemoryStore;
-
-+ (void)cleanup;
-
-+ (NSString *)defaultStoreName;
+//+ (void)setup;
+//+ (void)setupWithInMemoryStore;
+//
+//+ (void)cleanup;
 
 @end
