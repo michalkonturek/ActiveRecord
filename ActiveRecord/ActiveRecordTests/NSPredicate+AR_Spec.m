@@ -43,6 +43,34 @@ describe(@"NSPredicate_AR", ^{
         });
     });
     
+    describe(@"-and", ^{
+
+        __block id target = [NSPredicate predicateWithFormat:@"age > 10"];
+        __block id result = [target and:@"age != 13"];
+        
+        it(@"should be member of NSCompoundPredicate", ^{
+            [[result should] beMemberOfClass:[NSCompoundPredicate class]];
+        });
+
+        it(@"should create AND compound predicate", ^{
+            [[[result description] should] equal:@"age > 10 AND age != 13"];
+        });
+    });
+    
+    describe(@"-or", ^{
+        
+        __block id target = [NSPredicate predicateWithFormat:@"age > 10"];
+        __block id result = [target or:@"age != 13"];
+        
+        it(@"should be member of NSCompoundPredicate", ^{
+            [[result should] beMemberOfClass:[NSCompoundPredicate class]];
+        });
+        
+        it(@"should create OR compound predicate", ^{
+            [[[result description] should] equal:@"age > 10 OR age != 13"];
+        });
+    });
+    
 });
 
 SPEC_END
