@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7E9B23BA1FAC4D24B014C4C8 /* libPods-ActiveRecordTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 520C64368C034727BD0DBA7B /* libPods-ActiveRecordTests.a */; };
+		901FBAF718BD26630004DD73 /* NSPredicate+AR_Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = 901FBAF618BD26630004DD73 /* NSPredicate+AR_Spec.m */; };
 		90645F6C18964BD50040B739 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90645F6B18964BD50040B739 /* Foundation.framework */; };
 		90645F6E18964BD50040B739 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90645F6D18964BD50040B739 /* CoreGraphics.framework */; };
 		90645F7018964BD50040B739 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90645F6F18964BD50040B739 /* UIKit.framework */; };
@@ -57,6 +58,7 @@
 		095142AA7F314D5D9909D734 /* Pods-ActiveRecordTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActiveRecordTests.xcconfig"; path = "Pods/Pods-ActiveRecordTests.xcconfig"; sourceTree = "<group>"; };
 		36E3A54062CA4CD8981453EB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		520C64368C034727BD0DBA7B /* libPods-ActiveRecordTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ActiveRecordTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		901FBAF618BD26630004DD73 /* NSPredicate+AR_Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPredicate+AR_Spec.m"; sourceTree = "<group>"; };
 		90645F6818964BD50040B739 /* ActiveRecord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActiveRecord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90645F6B18964BD50040B739 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		90645F6D18964BD50040B739 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -209,6 +211,7 @@
 				90CFB46318B933D9007C3553 /* Factory.m */,
 				90CFB46018B925A1007C3553 /* NSManagedObject+AR_Spec.m */,
 				90F102B218BA56D50005B3E1 /* NSManagedObject+AR_Finders_Spec.m */,
+				901FBAF618BD26630004DD73 /* NSPredicate+AR_Spec.m */,
 			);
 			path = ActiveRecordTests;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 			files = (
 				90CFB46118B925A1007C3553 /* NSManagedObject+AR_Spec.m in Sources */,
 				90F102B318BA56D50005B3E1 /* NSManagedObject+AR_Finders_Spec.m in Sources */,
+				901FBAF718BD26630004DD73 /* NSPredicate+AR_Spec.m in Sources */,
 				90CFB46418B933D9007C3553 /* Factory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
