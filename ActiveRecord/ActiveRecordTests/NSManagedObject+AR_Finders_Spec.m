@@ -68,6 +68,21 @@ describe(@"NSManagedObject_AR_Finders", ^{
             [Factory createStudents:20];
         });
        
+        context(@"where", ^{
+            
+            __block id expected = [[Student objectWithID:@1] uid];
+            
+            it(@"should match NSString condition", ^{
+                id result = [[Student objectWhere:@"uid == 1"] uid];
+                [[result should] equal:expected];
+            });
+            
+            it(@"should match NSDictionary condition", ^{
+                id result = [[Student objectWhere:@{@"uid": @1}] uid];
+                [[result should] equal:expected];
+            });
+        });
+        
         context(@"with ID", ^{
             it(@"should read only a specified object", ^{
                 id target = [Student objectWithID:@1];

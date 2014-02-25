@@ -16,6 +16,7 @@
 + (NSInteger)count;
 + (NSInteger)countWithPredicate:(NSPredicate *)predicate;
 
++ (instancetype)objectWhere:(id)condition;
 + (instancetype)objectWithID:(NSNumber *)objectID;
 + (instancetype)objectWithPredicate:(NSPredicate *)predicate;
 + (instancetype)objectWithMaxValueFor:(NSString *)attribute;
@@ -26,6 +27,7 @@
 + (NSArray *)orderedBy:(NSSortDescriptor *)descriptor;
 
 + (NSArray *)objects;
++ (NSArray *)objectsWhere:(id)condition;
 + (NSArray *)objectsWithPredicate:(NSPredicate *)predicate;
 + (NSArray *)objectsWithPredicate:(NSPredicate *)predicate withSortDescriptor:(NSSortDescriptor *)descriptor;
 + (NSArray *)objectsWithPredicate:(NSPredicate *)predicate withSortDescriptors:(NSArray *)descriptors;

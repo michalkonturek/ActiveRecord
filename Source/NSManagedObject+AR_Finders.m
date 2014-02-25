@@ -32,6 +32,10 @@
     return [self countForRequest:request];
 }
 
++ (instancetype)objectWhere:(id)condition {
+    return [self objectWithPredicate:[NSPredicate createFrom:condition]];
+}
+
 + (instancetype)objectWithID:(NSNumber *)objectID {
     id predicate = [NSPredicate predicateWithFormat:@"uid == %@", objectID];
     return [self objectWithPredicate:predicate];
@@ -77,6 +81,10 @@
 
 + (NSArray *)objects {
     return [self objectsWithPredicate:nil withSortDescriptors:nil];
+}
+
++ (NSArray *)objectsWhere:(id)condition {
+    return [self objectsWithPredicate:[NSPredicate createFrom:condition]];
 }
 
 + (NSArray *)objectsWithPredicate:(NSPredicate *)predicate {
