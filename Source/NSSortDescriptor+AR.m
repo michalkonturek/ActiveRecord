@@ -10,4 +10,14 @@
 
 @implementation NSSortDescriptor (AR)
 
++ (instancetype)createFrom:(id)object {
+    if ([object isKindOfClass:[self class]]) return object;
+    if ([object isKindOfClass:[NSString class]]) return [self createWithKey:object ascending:YES];
+    return nil;
+}
+
++ (instancetype)createWithKey:(NSString *)key ascending:(BOOL)ascending {
+    return [self sortDescriptorWithKey:key ascending:ascending];
+}
+
 @end
