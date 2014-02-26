@@ -18,8 +18,8 @@ static NSPersistentStoreCoordinator *sharedInstance;
 + (instancetype)sharedInstance {
     
     dispatch_once(&pred, ^{
-        NSString *fileName = [self defaultStoreName];
-        NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:fileName];
+        id fileName = [self defaultStoreName];
+        id storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:fileName];
         sharedInstance = [self createWithURL:storeURL withType:NSSQLiteStoreType];
     });
     
@@ -42,36 +42,40 @@ static NSPersistentStoreCoordinator *sharedInstance;
 }
 
 + (instancetype)createWithAutoMigrationWithURL:(NSURL *)storeURL withType:(NSString *)storeType {
-    NSDictionary *options = [self autoMigrationOptions];
+    id options = [self autoMigrationOptions];
     return [self createWithURL:storeURL withType:storeType withOptions:options];
 }
 
-+ (instancetype )createWithURL:(NSURL *)storeURL
-                                          withType:(NSString *)storeType
-                                       withOptions:(NSDictionary *)options {
++ (instancetype)createWithURL:(NSURL *)storeURL
+                     withType:(NSString *)storeType withOptions:(NSDictionary *)options {
     
-    NSError *error = nil;
-    NSManagedObjectModel *model = [NSManagedObjectModel managedObjectModel];
-    sharedInstance = [[self alloc] initWithManagedObjectModel:model];
+    id error = nil;
+    id model = [NSManagedObjectModel managedObjectModel];
+    id instance = [[self alloc] initWithManagedObjectModel:model];
     
-    if (![sharedInstance addPersistentStoreWithType:storeType configuration:nil URL:storeURL options:options error:&error]) {
-        sharedInstance = nil;
+    id store = [instance addPersistentStoreWithType:storeType
+                                      configuration:nil URL:storeURL options:options error:&error];
+    
+    if (!store) {
 #if DEBUG
-        NSLog(@"*** Persistance Store Error: %@, %@, %@", error, [error userInfo], [error localizedDescription]);
+        NSLog(@"*** Persistance Store Error: %@, %@, %@",
+              error, [error userInfo], [error localizedDescription]);
         abort();
 #endif
     }
     
-    if (sharedInstance == nil) {
-        NSString *format = @"Could not setup persistance store of type %@ at URL %@ (Error: %@)";
-        [NSException raise:NSInternalInconsistencyException format:format, storeType, [storeURL absoluteURL], [error localizedDescription]];
+    if (!instance) {
+        id format = @"Could not create store of type %@ at URL %@ (Error: %@)";
+        [NSException raise:NSInternalInconsistencyException
+                    format:format, storeType, [storeURL absoluteURL], [error localizedDescription]];
     }
     
-    return sharedInstance;
+    return instance;
 }
 
 + (NSURL *)applicationDocumentsDirectory {
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
+                                                   inDomains:NSUserDomainMask] lastObject];
 }
 
 + (NSDictionary *)autoMigrationOptions {
