@@ -19,6 +19,10 @@
     return [self hasObjectsWithPredicate:nil];
 }
 
++ (BOOL)hasObjects:(id)condition {
+    return [self hasObjectsWithPredicate:[NSPredicate createFrom:condition]];
+}
+
 + (BOOL)hasObjectsWithPredicate:(NSPredicate *)predicate {
     return ([self countWithPredicate:predicate] != 0);
 }
@@ -27,12 +31,16 @@
     return [self countWithPredicate:nil];
 }
 
++ (NSInteger)count:(id)condition {
+    return [self countWithPredicate:[NSPredicate createFrom:condition]];
+}
+
 + (NSInteger)countWithPredicate:(NSPredicate *)predicate {
     id request = [self requestWithPredicate:predicate withSortDescriptor:nil];
     return [self countForRequest:request];
 }
 
-+ (instancetype)objectWhere:(id)condition {
++ (instancetype)object:(id)condition {
     return [self objectWithPredicate:[NSPredicate createFrom:condition]];
 }
 
@@ -83,7 +91,7 @@
     return [self objectsWithPredicate:nil withSortDescriptors:nil];
 }
 
-+ (NSArray *)objectsWhere:(id)condition {
++ (NSArray *)objects:(id)condition {
     return [self objectsWithPredicate:[NSPredicate createFrom:condition]];
 }
 

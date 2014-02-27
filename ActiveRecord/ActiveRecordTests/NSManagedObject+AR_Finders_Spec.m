@@ -73,12 +73,12 @@ describe(@"NSManagedObject_AR_Finders", ^{
             __block id expected = [[Student objectWithID:@1] uid];
             
             it(@"should match NSString condition", ^{
-                id result = [[Student objectWhere:@"uid == 1"] uid];
+                id result = [[Student object:@"uid == 1"] uid];
                 [[result should] equal:expected];
             });
             
             it(@"should match NSDictionary condition", ^{
-                id result = [[Student objectWhere:@{@"uid": @1}] uid];
+                id result = [[Student object:@{@"uid": @1}] uid];
                 [[result should] equal:expected];
             });
         });
