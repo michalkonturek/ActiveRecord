@@ -16,22 +16,51 @@
 @implementation NSManagedObject (AR)
 
 + (instancetype)createWithAutoID {
-    return [self createWithID:[self _autoGenerateID]];
+    id object = [self create];
+    [object assignAutoID];
+    return object;
 }
 
-+ (NSNumber *)_autoGenerateID {
-    id pk = @1;
+//+ (NSNumber *)_autoGenerateID {
+//    id pk = @1;
+//    
+//    id object = [self objectWithMaxValueFor:[self primaryKey]];
+//    if (object) {
+//        id max = [object valueForKey:[self primaryKey]];
+//        
+//        if ((max != nil) && ([max integerValue] > 0)) {
+//            pk = @([max integerValue] + 1);
+//        }
+//    }
+//    
+//    return pk;
+//}
+
+- (void)assignAutoID {
+    id key = [[self class] primaryKey];
+    id pk = [self _autoGenerateID];
+    [self setValue:pk forKey:key];
+}
+
+- (NSNumber *)_autoGenerateID {
+    id defaultID = @1;
+    id key = [[self class] primaryKey];
     
-    id object = [self objectWithMaxValueFor:[self primaryKey]];
+    id pk = [self valueForKey:key];
+    if ([pk integerValue] > 0) return pk;
+    
+    id object = [[self class] objectWithMaxValueFor:key];
     if (object) {
-        id max = [object valueForKey:[self primaryKey]];
+        id max = [object valueForKey:key];
         
-        if ((max != nil) && ([max integerValue] > 0)) {
-            pk = @([max integerValue] + 1);
-        }
+        if (!max) return defaultID;
+        if (![max integerValue] > 0) return defaultID;
+        if ([max integerValue] == [pk integerValue]) return pk;
+        
+        return @([max integerValue] + 1);
     }
     
-    return pk;
+    return defaultID;
 }
 
 + (instancetype)createWithID:(NSNumber *)objectID {
