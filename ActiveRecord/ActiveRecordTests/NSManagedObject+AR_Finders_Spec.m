@@ -52,6 +52,19 @@ describe(@"NSManagedObject_AR_Finders", ^{
         it(@"should return total number of objects", ^{
             [[@([Student count]) should] equal:@20];
         });
+
+        context(@"condition", ^{
+
+            it(@"should return number of objects that match condition", ^{
+                id condition = @"age < 30";
+                [[@([Student count:condition]) should] equal:@(10)];
+            });
+            
+            it(@"should return number of objects that match condition", ^{
+                id condition = @{@"age" : @30};
+                [[@([Student count:condition]) should] equal:@(1)];
+            });
+        });
         
         context(@"with Predicate", ^{
             it(@"should return number of objects that satisfy predicate", ^{
@@ -68,7 +81,7 @@ describe(@"NSManagedObject_AR_Finders", ^{
             [Factory createStudents:20];
         });
        
-        context(@"where", ^{
+        context(@"condition", ^{
             
             __block id expected = [[Student objectWithID:@1] uid];
             
