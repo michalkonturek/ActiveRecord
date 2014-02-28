@@ -15,6 +15,25 @@
 
 @implementation NSManagedObject (AR)
 
++ (instancetype)createWithAutoID {
+    return [self createWithID:[self _autoGenerateID]];
+}
+
++ (NSNumber *)_autoGenerateID {
+    id pk = @1;
+    
+    id object = [self objectWithMaxValueFor:[self primaryKey]];
+    if (object) {
+        id max = [object valueForKey:[self primaryKey]];
+        
+        if ((max != nil) && ([max integerValue] > 0)) {
+            pk = @([max integerValue] + 1);
+        }
+    }
+    
+    return pk;
+}
+
 + (instancetype)createWithID:(NSNumber *)objectID {
     id object = [self objectWithID:objectID];
     if (!object) object = [self create];

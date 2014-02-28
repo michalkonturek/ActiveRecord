@@ -34,7 +34,7 @@ describe(@"NSManagedObject_AR", ^{
             [[sut should] beMemberOfClass:[Student class]];
         });
         
-        it(@"it should not commit changes", ^{
+        it(@"should not commit changes", ^{
             [[[Student objects] should] haveCountOf:1];
             [Student rollback];
             [[[Student objects] should] haveCountOf:0];
@@ -58,18 +58,53 @@ describe(@"NSManagedObject_AR", ^{
                 [[other should] equal:sut];
             });
         });
+        
+        context(@"with Auto ID", ^{
+            
+            NSInteger count = 20;
+            beforeEach(^{
+                [Student deleteAll];
+                [Factory createStudents:count];
+            });
+            
+            it(@"should create with 1 if first object", ^{
+                [Student deleteAll];
+                id result = [Student createWithAutoID];
+                [[[result uid] should] equal:@1];
+            });
+            
+            it(@"should create with 1 if other objects have no PK", ^{
+                [[Student objects] mk_each:^(id item) {
+                    [item setUid:nil];
+                }];
+                id result = [Student createWithAutoID];
+                [[[result uid] should] equal:@1];
+            });
+            
+            it(@"should create with succ number of MAX primary key", ^{
+                id expected = @(count);
+                id result = [Student createWithAutoID];
+                [[[result uid] should] equal:expected];
+            });
+            
+            it(@"should create with ID > 0", ^{
+                [Student deleteAll];
+                [Student createWithID:@-10];
+                id result = [Student createWithAutoID];
+                [[[result uid] should] beGreaterThan:@0];
+            });
+        });
     });
     
     describe(@"+deleteAll", ^{
         
         NSInteger count = 20;
-        
         beforeEach(^{
             [Student deleteAll];
             [Factory createStudents:count];
         });
         
-        it(@"it should delete all objects", ^{
+        it(@"should delete all objects", ^{
             [[[Student objects] should] haveCountOf:count];
             [Student deleteAll];
             [[[Student objects] should] haveCountOf:0];
@@ -79,7 +114,7 @@ describe(@"NSManagedObject_AR", ^{
     
     describe(@"-delete", ^{
         
-        it(@"it should delete specified objects", ^{
+        it(@"should delete specified objects", ^{
             [Student createWithID:@1];
             [Student createWithID:@2];
             [[[Student objects] should] haveCountOf:2];

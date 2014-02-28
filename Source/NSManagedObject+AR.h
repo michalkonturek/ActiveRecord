@@ -10,6 +10,7 @@
 
 @interface NSManagedObject (AR)
 
++ (instancetype)createWithAutoID;
 + (instancetype)createWithID:(NSNumber *)objectID;
 + (instancetype)create;
 
