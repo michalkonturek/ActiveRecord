@@ -20,6 +20,7 @@
 
 + (void)deleteAll;
 
+- (void)assignAutoID;
 - (void)delete;
 
 @end

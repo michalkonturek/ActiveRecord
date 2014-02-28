@@ -21,21 +21,6 @@
     return object;
 }
 
-//+ (NSNumber *)_autoGenerateID {
-//    id pk = @1;
-//    
-//    id object = [self objectWithMaxValueFor:[self primaryKey]];
-//    if (object) {
-//        id max = [object valueForKey:[self primaryKey]];
-//        
-//        if ((max != nil) && ([max integerValue] > 0)) {
-//            pk = @([max integerValue] + 1);
-//        }
-//    }
-//    
-//    return pk;
-//}
-
 - (void)assignAutoID {
     id key = [[self class] primaryKey];
     id pk = [self _autoGenerateID];
@@ -54,8 +39,7 @@
         id max = [object valueForKey:key];
         
         if (!max) return defaultID;
-        if (![max integerValue] > 0) return defaultID;
-        if ([max integerValue] == [pk integerValue]) return pk;
+        if (!([max integerValue] > 0)) return defaultID;
         
         return @([max integerValue] + 1);
     }
