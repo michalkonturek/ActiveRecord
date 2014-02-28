@@ -31,7 +31,9 @@
 + (NSArray *)objects;
 + (NSArray *)objects:(id)condition;
 + (NSArray *)objectsWithPredicate:(NSPredicate *)predicate;
-+ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate withSortDescriptor:(NSSortDescriptor *)descriptor;
-+ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate withSortDescriptors:(NSArray *)descriptors;
++ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate
+               withSortDescriptor:(NSSortDescriptor *)descriptor;
++ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate
+              withSortDescriptors:(NSArray *)descriptors;
 
 @end

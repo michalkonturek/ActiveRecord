@@ -10,16 +10,4 @@
 
 @implementation ActiveRecord
 
-+ (void)setup {
-    
-}
-
-+ (void)setupWithInMemoryStore {
-    
-}
-
-+ (void)cleanup {
-    
-}
-
 @end
