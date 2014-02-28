@@ -18,6 +18,7 @@
 #import "NSManagedObject+AR_Request.h"
 
 #import "NSPredicate+AR.h"
+#import "NSSortDescriptor+AR.h"
 
 @interface ActiveRecord : NSObject
 

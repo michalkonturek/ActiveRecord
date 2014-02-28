@@ -16,31 +16,27 @@ SPEC_BEGIN(NSSortDescriptor_AR_Spec)
 
 describe(@"NSSortDescriptor_AR", ^{
     
+    describe(@"+from", ^{
+        
+    });
+    
     describe(@"+createFrom", ^{
         
-//        it(@"should create from NSPredicate", ^{
-//            id input = [NSPredicate predicateWithFormat:@"name == %@", @"Adam"];
-//            id expected = @"name == \"Adam\"";
-//            id result = [NSPredicate createFrom:input];
-//            [[result should] beKindOfClass:[NSPredicate class]];
-//            [[[result description] should] equal:expected];
-//        });
-//        
-//        it(@"should create from NSString", ^{
-//            id input = @"name == 'Adam'";
-//            id expected = @"name == \"Adam\"";
-//            id result = [NSPredicate createFrom:input];
-//            [[result should] beKindOfClass:[NSPredicate class]];
-//            [[[result description] should] equal:expected];
-//        });
-//        
-//        it(@"should create from NSDictionary", ^{
-//            id input = @{@"name": @"Adam"};
-//            id expected = @"name == \"Adam\"";
-//            id result = [NSPredicate createFrom:input];
-//            [[result should] beKindOfClass:[NSPredicate class]];
-//            [[[result description] should] equal:expected];
-//        });
+        __block id expected = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+        
+        it(@"should create from NSSortDescriptor", ^{
+            id input = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+            id result = [NSSortDescriptor createFrom:input];
+            [[result should] beKindOfClass:[NSSortDescriptor class]];
+            [[result should] equal:expected];
+        });
+
+        it(@"should create from NSString", ^{
+            id input = @"name";
+            id result = [NSSortDescriptor createFrom:input];
+            [[result should] beKindOfClass:[NSSortDescriptor class]];
+            [[result should] equal:expected];
+        });
     });
     
 });

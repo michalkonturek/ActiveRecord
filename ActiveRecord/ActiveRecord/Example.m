@@ -25,6 +25,9 @@
     
     id item = [Student objects];
     NSLog(@"%@", item[0]);
+    
+//    id sort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+//    NSLog(@"%@", sort);
 }
 
 @end
