@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <MKFoundationKit/NSArray+MK_Block.h>
+#import <MKFoundationKit/NSDictionary+MK_Block.h>
 
 #import "NSPersistentStoreCoordinator+AR.h"
 #import "NSManagedObjectContext+AR.h"
