@@ -42,12 +42,8 @@ static NSManagedObjectContext *_backgroundContext;
     [self setBackgroundContext:nil];
 }
 
-// TODO: remove ?
 + (void)setBackgroundContext:(NSManagedObjectContext *)context {
     if (context == _backgroundContext) return;
-    
-//    [context retain];
-//    [_backgroundManagedObjectContext release];
     _backgroundContext = context;
 }
 
@@ -59,9 +55,9 @@ static NSManagedObjectContext *_backgroundContext;
     return _backgroundContext;
 }
 
-+ (void)debug_print {
-    NSLog(@"Main context: %@", _mainContext);
-    NSLog(@"Background context: %@", _backgroundContext);
-}
+//+ (void)debug_print {
+//    NSLog(@"Main context: %@", _mainContext);
+//    NSLog(@"Background context: %@", _backgroundContext);
+//}
 
 @end

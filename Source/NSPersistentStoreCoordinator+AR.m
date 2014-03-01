@@ -10,10 +10,10 @@
 
 #import "NSManagedObjectModel+AR.h"
 
-@implementation NSPersistentStoreCoordinator (AR)
-
 static dispatch_once_t pred;
 static NSPersistentStoreCoordinator *sharedInstance;
+
+@implementation NSPersistentStoreCoordinator (AR)
 
 + (instancetype)sharedInstance {
     

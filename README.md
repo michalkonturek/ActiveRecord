@@ -14,6 +14,22 @@ Source code of this project is available under the standard MIT license. Please 
 [PODS]:http://cocoapods.org/
 [LICENSE]:https://github.com/michalkonturek/ActiveRecord/blob/master/LICENSE
 
+
+## Usage
+
+
+# API
+
+## `NSManagedObject+AR`
+
+## `NSPredicate+AR`
+
+```
+```
+
+## `NSSortDescriptor+AR`
+
+
 - - -
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/michalkonturek/activerecord/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
