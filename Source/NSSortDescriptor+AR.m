@@ -10,16 +10,21 @@
 
 @implementation NSSortDescriptor (AR)
 
-+ (NSArray *)from:(NSArray *)object {
++ (NSArray *)descriptors:(id)object {
+    if ([object isKindOfClass:[NSArray class]]) return [self _createFromArray:object];
+    return @[[self create:object]];
+}
+
++ (NSArray *)_createFromArray:(NSArray *)object {
     id result = [NSMutableArray array];
     for (id item in object) {
-        id descriptor = [self createFrom:item];
+        id descriptor = [self create:item];
         if (descriptor) [result addObject:descriptor];
     }
     return result;
 }
 
-+ (instancetype)createFrom:(id)object {
++ (instancetype)create:(id)object {
     if ([object isKindOfClass:[self class]]) return object;
     if ([object isKindOfClass:[NSString class]]) return [self createWithKey:object ascending:YES];
     return nil;

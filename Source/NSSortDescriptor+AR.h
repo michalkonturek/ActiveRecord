@@ -10,9 +10,9 @@
 
 @interface NSSortDescriptor (AR)
 
-+ (NSArray *)from:(NSArray *)object;
++ (NSArray *)descriptors:(id)object;
 
-+ (instancetype)createFrom:(id)object;
++ (instancetype)create:(id)object;
 + (instancetype)createWithKey:(NSString *)key ascending:(BOOL)ascending;
 
 @end

@@ -94,12 +94,13 @@
 }
 
 + (NSArray *)objects:(id)condition {
-    return [self objectsWithPredicate:[NSPredicate createFrom:condition]];
+//    return [self objectsWithPredicate:[NSPredicate createFrom:condition]];
+    return [self objects:condition ordered:nil];
 }
 
 + (NSArray *)objects:(id)condition ordered:(id)order {
     id predicate = [NSPredicate createFrom:condition];
-    id descriptor = [NSSortDescriptor createFrom:order];
+    id descriptor = [NSSortDescriptor descriptors:order];
     return [self objectsWithPredicate:predicate
                   withSortDescriptors:descriptor];
 }

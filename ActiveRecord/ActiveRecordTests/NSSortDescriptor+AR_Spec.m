@@ -24,7 +24,7 @@ describe(@"NSSortDescriptor_AR", ^{
                      [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES],
                      @"name",
                      invalid];
-        __block id result = [NSSortDescriptor from:input];
+        __block id result = [NSSortDescriptor descriptors:input];
         
         it(@"should ignore invalid object", ^{
             [[result should] haveCountOf:2];
@@ -49,14 +49,14 @@ describe(@"NSSortDescriptor_AR", ^{
         
         it(@"should create from NSSortDescriptor", ^{
             id input = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-            id result = [NSSortDescriptor createFrom:input];
+            id result = [NSSortDescriptor create:input];
             [[result should] beKindOfClass:[NSSortDescriptor class]];
             [[result should] equal:expected];
         });
 
         it(@"should create from NSString", ^{
             id input = @"name";
-            id result = [NSSortDescriptor createFrom:input];
+            id result = [NSSortDescriptor create:input];
             [[result should] beKindOfClass:[NSSortDescriptor class]];
             [[result should] equal:expected];
         });
