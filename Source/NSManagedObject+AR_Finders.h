@@ -26,7 +26,7 @@
 
 + (NSArray *)orderedAscendingBy:(NSString *)key;
 + (NSArray *)orderedDescendingBy:(NSString *)key;
-+ (NSArray *)orderedBy:(NSSortDescriptor *)descriptor;
++ (NSArray *)ordered:(id)order;
 
 + (NSArray *)objects;
 + (NSArray *)objects:(id)condition;

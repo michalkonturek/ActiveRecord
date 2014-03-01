@@ -78,15 +78,15 @@
 }
 
 + (NSArray *)orderedAscendingBy:(NSString *)key {
-    return [self orderedBy:[NSSortDescriptor sortDescriptorWithKey:key ascending:YES]];
+    return [self ordered:key];
 }
 
 + (NSArray *)orderedDescendingBy:(NSString *)key {
-    return [self orderedBy:[NSSortDescriptor sortDescriptorWithKey:key ascending:NO]];
+    return [self ordered:[NSSortDescriptor createWithKey:key ascending:NO]];
 }
 
-+ (NSArray *)orderedBy:(NSSortDescriptor *)descriptor {
-    return [self objectsWithPredicate:nil withSortDescriptor:descriptor];
++ (NSArray *)ordered:(id)order {
+    return [self objects:nil ordered:order];
 }
 
 + (NSArray *)objects {
