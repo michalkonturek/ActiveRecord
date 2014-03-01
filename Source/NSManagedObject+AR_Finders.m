@@ -90,11 +90,10 @@
 }
 
 + (NSArray *)objects {
-    return [self objectsWithPredicate:nil withSortDescriptors:nil];
+    return [self objects:nil];
 }
 
 + (NSArray *)objects:(id)condition {
-//    return [self objectsWithPredicate:[NSPredicate createFrom:condition]];
     return [self objects:condition ordered:nil];
 }
 

@@ -12,7 +12,8 @@
 
 + (NSArray *)descriptors:(id)object {
     if ([object isKindOfClass:[NSArray class]]) return [self _createFromArray:object];
-    return @[[self create:object]];
+    id descriptor = [self create:object];
+    return (descriptor) ? @[descriptor] : nil;
 }
 
 + (NSArray *)_createFromArray:(NSArray *)object {
