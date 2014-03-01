@@ -8,6 +8,7 @@
 
 #import "NSManagedObject+AR_Finders.h"
 
+#import "NSManagedObject+AR.h"
 #import "NSManagedObject+AR_Context.h"
 #import "NSManagedObject+AR_Request.h"
 
@@ -45,7 +46,7 @@
 }
 
 + (instancetype)objectWithID:(NSNumber *)objectID {
-    id predicate = [NSPredicate predicateWithFormat:@"uid == %@", objectID];
+    id predicate = [NSPredicate predicateWithFormat:@"%K == %@", [self primaryKey], objectID];
     return [self objectWithPredicate:predicate];
 }
 

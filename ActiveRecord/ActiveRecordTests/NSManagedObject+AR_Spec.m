@@ -93,40 +93,40 @@ describe(@"NSManagedObject_AR", ^{
                 id result = [Student createWithAutoID];
                 [[[result uid] should] beGreaterThan:@0];
             });
-            
-            describe(@"-assignAutoID", ^{
-                
-                beforeEach(^{
-                    [Student deleteAll];
-                });
-                
-                context(@"if object already has positive ID", ^{
-                    it(@"should not assign new ID", ^{
-                        id expected = @1;
-                        id result = [Student createWithID:expected];
-                        [result assignAutoID];
-                        [[[result uid] should] equal:expected];
-                    });
-                });
-                
-                context(@"if no objects with positive ID", ^{
-                    it(@"should assign default ID = 1", ^{
-                        [Student create];
-                        [Student createWithID:@-1];
-                        
-                        id result = [Student create];
-                        [result assignAutoID];
-                        [[[result uid] should] equal:@1];
-                    });
-                    
-                    it(@"should never assign below 1", ^{
-                        id result = [Student createWithID:@-1];
-                        [result assignAutoID];
-                        [[[result uid] should] equal:@1];
-                    });
-                    
-                });
+        });
+    });
+    
+    describe(@"-assignAutoID", ^{
+        
+        beforeEach(^{
+            [Student deleteAll];
+        });
+        
+        context(@"if object already has positive ID", ^{
+            it(@"should not assign new ID", ^{
+                id expected = @1;
+                id result = [Student createWithID:expected];
+                [result assignAutoID];
+                [[[result uid] should] equal:expected];
             });
+        });
+        
+        context(@"if no objects with positive ID", ^{
+            it(@"should assign default ID = 1", ^{
+                [Student create];
+                [Student createWithID:@-1];
+                
+                id result = [Student create];
+                [result assignAutoID];
+                [[[result uid] should] equal:@1];
+            });
+            
+            it(@"should never assign below 1", ^{
+                id result = [Student createWithID:@-1];
+                [result assignAutoID];
+                [[[result uid] should] equal:@1];
+            });
+            
         });
     });
     
