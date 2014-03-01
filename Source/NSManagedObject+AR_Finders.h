@@ -30,6 +30,7 @@
 
 + (NSArray *)objects;
 + (NSArray *)objects:(id)condition;
++ (NSArray *)objects:(id)condition ordered:(id)order;
 + (NSArray *)objectsWithPredicate:(NSPredicate *)predicate;
 + (NSArray *)objectsWithPredicate:(NSPredicate *)predicate
                withSortDescriptor:(NSSortDescriptor *)descriptor;

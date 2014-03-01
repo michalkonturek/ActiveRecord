@@ -12,6 +12,7 @@
 #import "NSManagedObject+AR_Context.h"
 #import "NSManagedObject+AR_Request.h"
 
+#import "NSSortDescriptor+AR.h"
 #import "NSPredicate+AR.h"
 
 @implementation NSManagedObject (AR_Finders)
@@ -94,6 +95,13 @@
 
 + (NSArray *)objects:(id)condition {
     return [self objectsWithPredicate:[NSPredicate createFrom:condition]];
+}
+
++ (NSArray *)objects:(id)condition ordered:(id)order {
+    id predicate = [NSPredicate createFrom:condition];
+    id descriptor = [NSSortDescriptor createFrom:order];
+    return [self objectsWithPredicate:predicate
+                  withSortDescriptors:descriptor];
 }
 
 + (NSArray *)objectsWithPredicate:(NSPredicate *)predicate {
