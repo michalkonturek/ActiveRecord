@@ -78,6 +78,15 @@ Source code of this project is available under the standard MIT license. Please 
 + (void)setBackgroundContext:(NSManagedObjectContext *)context;
 ```
 
+## `NSManagedObjectContext+AR_Request`
+
+```
++ (NSFetchRequest *)requestWithPredicate:(NSPredicate *)predicate
+                      withSortDescriptor:(NSSortDescriptor *)descriptor;
+
++ (NSFetchRequest *)requestWithPredicate:(NSPredicate *)predicate
+                     withSortDescriptors:(NSArray *)descriptors;
+```
 
 ## `NSFetchRequest+AR`
 
