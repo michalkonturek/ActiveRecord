@@ -37,6 +37,7 @@ Source code of this project is available under the standard MIT license. Please 
 - (void)delete;
 ```
 
+
 ## `NSManagedObject+AR_Finders`
 
 ```
@@ -68,35 +69,6 @@ Source code of this project is available under the standard MIT license. Please 
               withSortDescriptors:(NSArray *)descriptors;
 ```
 
-## `NSManagedObjectContext+AR`
-
-```
-+ (instancetype)managedObjectContext;
-+ (instancetype)mainContext;
-+ (instancetype)backgroundContext;
-+ (void)removeBackgroundContext;
-+ (void)setBackgroundContext:(NSManagedObjectContext *)context;
-```
-
-## `NSManagedObjectContext+AR_Request`
-
-```
-+ (NSFetchRequest *)requestWithPredicate:(NSPredicate *)predicate
-                      withSortDescriptor:(NSSortDescriptor *)descriptor;
-
-+ (NSFetchRequest *)requestWithPredicate:(NSPredicate *)predicate
-                     withSortDescriptors:(NSArray *)descriptors;
-```
-
-## `NSFetchRequest+AR`
-
-```
-+ (instancetype)createWithPredicate:(NSPredicate *)predicate
-                 withSortDescriptor:(NSSortDescriptor *)descriptor;
-+ (instancetype)createWithPredicate:(NSPredicate *)predicate
-                withSortDescriptors:(NSArray *)descriptors;
-```
-
 
 ## `NSPredicate+AR`
 
@@ -113,6 +85,7 @@ Source code of this project is available under the standard MIT license. Please 
 - (instancetype)or:(id)condition;
 ```
 
+
 ## `NSSortDescriptor+AR`
 
 ```
@@ -120,6 +93,39 @@ Source code of this project is available under the standard MIT license. Please 
 + (instancetype)create:(id)object;
 + (instancetype)createWithKey:(NSString *)key ascending:(BOOL)ascending;
 ```
+
+
+## `NSManagedObjectContext+AR`
+
+```
++ (instancetype)managedObjectContext;
++ (instancetype)mainContext;
++ (instancetype)backgroundContext;
++ (void)removeBackgroundContext;
++ (void)setBackgroundContext:(NSManagedObjectContext *)context;
+```
+
+
+## `NSManagedObjectContext+AR_Request`
+
+```
++ (NSFetchRequest *)requestWithPredicate:(NSPredicate *)predicate
+                      withSortDescriptor:(NSSortDescriptor *)descriptor;
+
++ (NSFetchRequest *)requestWithPredicate:(NSPredicate *)predicate
+                     withSortDescriptors:(NSArray *)descriptors;
+```
+
+
+## `NSFetchRequest+AR`
+
+```
++ (instancetype)createWithPredicate:(NSPredicate *)predicate
+                 withSortDescriptor:(NSSortDescriptor *)descriptor;
++ (instancetype)createWithPredicate:(NSPredicate *)predicate
+                withSortDescriptors:(NSArray *)descriptors;
+```
+
 
 - - -
 
