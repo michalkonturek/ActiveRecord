@@ -11,7 +11,7 @@
 @interface NSManagedObjectContext (AR)
 
 + (instancetype)managedObjectContext;
-+ (instancetype)mainContext;
++ (instancetype)foregroundContext;
 + (instancetype)backgroundContext;
 
 + (void)removeBackgroundContext;

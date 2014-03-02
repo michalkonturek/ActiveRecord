@@ -10,7 +10,7 @@
 
 #import "NSPersistentStoreCoordinator+AR.h"
 
-static NSManagedObjectContext *_mainContext;
+static NSManagedObjectContext *_foregroundContext;
 static NSManagedObjectContext *_backgroundContext;
 
 @implementation NSManagedObjectContext (AR)
@@ -20,12 +20,12 @@ static NSManagedObjectContext *_backgroundContext;
     
     if ([NSThread isMainThread]) {
         dispatch_once(&onceToken, ^{
-            _mainContext = [[self alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+            _foregroundContext = [[self alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
             id coordinator = [NSPersistentStoreCoordinator sharedInstanceWithAutoMigration];
-            [_mainContext setPersistentStoreCoordinator:coordinator];
+            [_foregroundContext setPersistentStoreCoordinator:coordinator];
         });
         
-        return _mainContext;
+        return _foregroundContext;
     }
     
     if (_backgroundContext == nil) [self _createBackgroundContext];
@@ -35,7 +35,7 @@ static NSManagedObjectContext *_backgroundContext;
 + (void)_createBackgroundContext {
     id context = [[self alloc] initWithConcurrencyType:NSConfinementConcurrencyType];
     [NSManagedObjectContext setBackgroundContext:context];
-    [context setParentContext:[NSManagedObjectContext mainContext]];
+    [context setParentContext:[NSManagedObjectContext foregroundContext]];
 }
 
 + (void)removeBackgroundContext {
@@ -47,8 +47,8 @@ static NSManagedObjectContext *_backgroundContext;
     _backgroundContext = context;
 }
 
-+ (instancetype)mainContext {
-    return _mainContext;
++ (instancetype)foregroundContext {
+    return _foregroundContext;
 }
 
 + (instancetype)backgroundContext {
