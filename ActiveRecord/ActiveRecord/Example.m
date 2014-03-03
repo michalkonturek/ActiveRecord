@@ -16,18 +16,11 @@
 + (void)run {
     
     Student *student = [Student create];
-    student.uid = @1;
     student.firstName = @"John";
     student.lastName = @"Doe";
     student.age = @21;
     
     [Student commit];
-    
-    id item = [Student objects];
-    NSLog(@"%@", item[0]);
-    
-//    id sort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-//    NSLog(@"%@", sort);
 }
 
 @end

@@ -83,7 +83,11 @@ describe(@"NSManagedObject_AR_Finders", ^{
        
         context(@"condition", ^{
             
-            __block id expected = [[Student objectWithID:@1] uid];
+            __block id expected = nil;
+            
+            beforeEach(^{
+                expected = [[Student objectWithID:@1] uid];
+            });
             
             it(@"should match NSString condition", ^{
                 id result = [[Student object:@"uid == 1"] uid];

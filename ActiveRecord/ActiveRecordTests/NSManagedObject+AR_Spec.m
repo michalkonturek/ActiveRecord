@@ -42,10 +42,11 @@ describe(@"NSManagedObject_AR", ^{
         
         context(@"with ID", ^{
             
-            __block NSNumber *uid = @1;
+            __block id uid = nil;
             
             beforeEach(^{
                 [Student deleteAll];
+                uid = @1;
                 sut = [Student createWithID:uid];
             });
             
