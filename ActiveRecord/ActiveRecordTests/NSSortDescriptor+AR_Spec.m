@@ -60,8 +60,16 @@ describe(@"NSSortDescriptor_AR", ^{
             [[result should] equal:expected];
         });
 
-        it(@"should create from NSString", ^{
+        it(@"should create from NSString ascending", ^{
             id input = @"name";
+            id result = [NSSortDescriptor create:input];
+            [[result should] beKindOfClass:[NSSortDescriptor class]];
+            [[result should] equal:expected];
+        });
+        
+        it(@"should create from NSString descending", ^{
+            id expected = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
+            id input = @"!name";
             id result = [NSSortDescriptor create:input];
             [[result should] beKindOfClass:[NSSortDescriptor class]];
             [[result should] equal:expected];

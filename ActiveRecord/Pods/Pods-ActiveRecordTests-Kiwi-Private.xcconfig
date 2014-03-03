@@ -1,6 +1,6 @@
 #include "Pods-ActiveRecordTests-Kiwi.xcconfig"
 FRAMEWORK_SEARCH_PATHS = ${PODS_ACTIVERECORDTESTS_KIWI_FRAMEWORK_SEARCH_PATHS}
 GCC_PREPROCESSOR_DEFINITIONS = COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/Kiwi" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/Kiwi" "${PODS_ROOT}/Headers/MKFoundationKit"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/Kiwi" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/Kiwi" "${PODS_ROOT}/Headers/MKFoundationKit" "${PODS_ROOT}/Headers/RubySugar"
 OTHER_LDFLAGS = -ObjC ${PODS_ACTIVERECORDTESTS_KIWI_OTHER_LDFLAGS}
 PODS_ROOT = ${SRCROOT}

@@ -31,6 +31,10 @@
     return nil;
 }
 
++ (instancetype)_createFromString:(NSString *)object {
+    return nil;
+}
+
 + (instancetype)createWithKey:(NSString *)key ascending:(BOOL)ascending {
     return [self sortDescriptorWithKey:key ascending:ascending];
 }
