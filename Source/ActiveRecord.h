@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import <MKFoundationKit/NSArray+MK_Block.h>
 #import <MKFoundationKit/NSDictionary+MK_Block.h>
+#import <RubySugar/RubySugar.h>
 
 #import "NSManagedObject+AR.h"
 #import "NSManagedObject+AR_Context.h"

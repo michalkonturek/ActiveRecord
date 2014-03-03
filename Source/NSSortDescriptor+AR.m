@@ -8,6 +8,8 @@
 
 #import "NSSortDescriptor+AR.h"
 
+#import <RubySugar/NSString+RubySugar.h>
+
 @implementation NSSortDescriptor (AR)
 
 + (NSArray *)descriptors:(id)object {
@@ -27,12 +29,15 @@
 
 + (instancetype)create:(id)object {
     if ([object isKindOfClass:[self class]]) return object;
-    if ([object isKindOfClass:[NSString class]]) return [self createWithKey:object ascending:YES];
+//    if ([object isKindOfClass:[NSString class]]) return [self createWithKey:object ascending:YES];
+    if ([object isKindOfClass:[NSString class]]) return [self _createFromString:object];
     return nil;
 }
 
 + (instancetype)_createFromString:(NSString *)object {
-    return nil;
+    static id key = @"!";
+    if (![object rs_containsString:key]) return [self createWithKey:object ascending:YES];
+    else return [self createWithKey:[object rs_delete:key] ascending:NO];
 }
 
 + (instancetype)createWithKey:(NSString *)key ascending:(BOOL)ascending {
