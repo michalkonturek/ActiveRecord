@@ -61,7 +61,7 @@ describe(@"NSManagedObject_AR_Finders", ^{
             });
             
             it(@"should return number of objects that match condition NSDictionary", ^{
-                id condition = @{@"age" : @30};
+                id condition = @{@"firstName" : @"firstName1"};
                 [[@([Student count:condition]) should] equal:@(1)];
             });
             

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		7E9B23BA1FAC4D24B014C4C8 /* libPods-ActiveRecordTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 520C64368C034727BD0DBA7B /* libPods-ActiveRecordTests.a */; };
+		9012A02B18C53023002D0B51 /* Example.m in Sources */ = {isa = PBXBuildFile; fileRef = 9012A02018C53023002D0B51 /* Example.m */; };
+		9012A02C18C53023002D0B51 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 9012A02318C53023002D0B51 /* Course.m */; };
+		9012A02D18C53023002D0B51 /* Module.m in Sources */ = {isa = PBXBuildFile; fileRef = 9012A02618C53023002D0B51 /* Module.m */; };
+		9012A02E18C53023002D0B51 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 9012A02818C53023002D0B51 /* Student.m */; };
+		9012A02F18C53023002D0B51 /* StudyGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 9012A02A18C53023002D0B51 /* StudyGroup.m */; };
 		901FBAF718BD26630004DD73 /* NSPredicate+AR_Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = 901FBAF618BD26630004DD73 /* NSPredicate+AR_Spec.m */; };
 		901FBAF918BD39DE0004DD73 /* NSSortDescriptor+AR_Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = 901FBAF818BD39DE0004DD73 /* NSSortDescriptor+AR_Spec.m */; };
 		901FBAFC18BD3AB00004DD73 /* NSSortDescriptor+AR.m in Sources */ = {isa = PBXBuildFile; fileRef = 901FBAFB18BD3AB00004DD73 /* NSSortDescriptor+AR.m */; };
@@ -31,14 +36,9 @@
 		90A9687918B4323B003BEE09 /* NSManagedObject+AR_Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A9687818B4323B003BEE09 /* NSManagedObject+AR_Request.m */; };
 		90CFB43D18B83CD1007C3553 /* NSManagedObject+AR.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFB43C18B83CD1007C3553 /* NSManagedObject+AR.m */; };
 		90CFB44018B83F75007C3553 /* NSManagedObject+AR_Context.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFB43F18B83F75007C3553 /* NSManagedObject+AR_Context.m */; };
-		90CFB44418B852B1007C3553 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFB44318B852B1007C3553 /* Course.m */; };
-		90CFB44718B852B2007C3553 /* Module.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFB44618B852B2007C3553 /* Module.m */; };
-		90CFB44A18B852B2007C3553 /* StudyGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFB44918B852B2007C3553 /* StudyGroup.m */; };
-		90CFB44D18B852B2007C3553 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFB44C18B852B2007C3553 /* Student.m */; };
 		90CFB45618B91AE7007C3553 /* NSManagedObjectContext+AR.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFB45518B91AE7007C3553 /* NSManagedObjectContext+AR.m */; };
 		90CFB45918B91BFB007C3553 /* NSPersistentStoreCoordinator+AR.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFB45818B91BFB007C3553 /* NSPersistentStoreCoordinator+AR.m */; };
 		90CFB45C18B91C8C007C3553 /* NSManagedObjectModel+AR.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFB45B18B91C8C007C3553 /* NSManagedObjectModel+AR.m */; };
-		90CFB45F18B91FB2007C3553 /* Example.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFB45E18B91FB2007C3553 /* Example.m */; };
 		90CFB46118B925A1007C3553 /* NSManagedObject+AR_Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFB46018B925A1007C3553 /* NSManagedObject+AR_Spec.m */; };
 		90CFB46418B933D9007C3553 /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFB46318B933D9007C3553 /* Factory.m */; };
 		90E7BCB218986E260087F277 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E7BCB118986E260087F277 /* CoreData.framework */; };
@@ -60,6 +60,17 @@
 		095142AA7F314D5D9909D734 /* Pods-ActiveRecordTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActiveRecordTests.xcconfig"; path = "Pods/Pods-ActiveRecordTests.xcconfig"; sourceTree = "<group>"; };
 		36E3A54062CA4CD8981453EB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		520C64368C034727BD0DBA7B /* libPods-ActiveRecordTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ActiveRecordTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9012A01F18C53023002D0B51 /* Example.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Example.h; sourceTree = "<group>"; };
+		9012A02018C53023002D0B51 /* Example.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example.m; sourceTree = "<group>"; };
+		9012A02218C53023002D0B51 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		9012A02318C53023002D0B51 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		9012A02418C53023002D0B51 /* Domain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Domain.h; sourceTree = "<group>"; };
+		9012A02518C53023002D0B51 /* Module.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Module.h; sourceTree = "<group>"; };
+		9012A02618C53023002D0B51 /* Module.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Module.m; sourceTree = "<group>"; };
+		9012A02718C53023002D0B51 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		9012A02818C53023002D0B51 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		9012A02918C53023002D0B51 /* StudyGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudyGroup.h; sourceTree = "<group>"; };
+		9012A02A18C53023002D0B51 /* StudyGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudyGroup.m; sourceTree = "<group>"; };
 		901FBAF618BD26630004DD73 /* NSPredicate+AR_Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPredicate+AR_Spec.m"; sourceTree = "<group>"; };
 		901FBAF818BD39DE0004DD73 /* NSSortDescriptor+AR_Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSortDescriptor+AR_Spec.m"; sourceTree = "<group>"; };
 		901FBAFA18BD3AB00004DD73 /* NSSortDescriptor+AR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSortDescriptor+AR.h"; sourceTree = "<group>"; };
@@ -94,23 +105,12 @@
 		90CFB43C18B83CD1007C3553 /* NSManagedObject+AR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+AR.m"; sourceTree = "<group>"; };
 		90CFB43E18B83F75007C3553 /* NSManagedObject+AR_Context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+AR_Context.h"; sourceTree = "<group>"; };
 		90CFB43F18B83F75007C3553 /* NSManagedObject+AR_Context.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+AR_Context.m"; sourceTree = "<group>"; };
-		90CFB44218B852B1007C3553 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
-		90CFB44318B852B1007C3553 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
-		90CFB44518B852B2007C3553 /* Module.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Module.h; sourceTree = "<group>"; };
-		90CFB44618B852B2007C3553 /* Module.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Module.m; sourceTree = "<group>"; };
-		90CFB44818B852B2007C3553 /* StudyGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudyGroup.h; sourceTree = "<group>"; };
-		90CFB44918B852B2007C3553 /* StudyGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudyGroup.m; sourceTree = "<group>"; };
-		90CFB44B18B852B2007C3553 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
-		90CFB44C18B852B2007C3553 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
-		90CFB44E18B85339007C3553 /* Domain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Domain.h; sourceTree = "<group>"; };
 		90CFB45418B91AE7007C3553 /* NSManagedObjectContext+AR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+AR.h"; sourceTree = "<group>"; };
 		90CFB45518B91AE7007C3553 /* NSManagedObjectContext+AR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+AR.m"; sourceTree = "<group>"; };
 		90CFB45718B91BFB007C3553 /* NSPersistentStoreCoordinator+AR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPersistentStoreCoordinator+AR.h"; sourceTree = "<group>"; };
 		90CFB45818B91BFB007C3553 /* NSPersistentStoreCoordinator+AR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPersistentStoreCoordinator+AR.m"; sourceTree = "<group>"; };
 		90CFB45A18B91C8C007C3553 /* NSManagedObjectModel+AR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectModel+AR.h"; sourceTree = "<group>"; };
 		90CFB45B18B91C8C007C3553 /* NSManagedObjectModel+AR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectModel+AR.m"; sourceTree = "<group>"; };
-		90CFB45D18B91FB2007C3553 /* Example.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Example.h; sourceTree = "<group>"; };
-		90CFB45E18B91FB2007C3553 /* Example.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example.m; sourceTree = "<group>"; };
 		90CFB46018B925A1007C3553 /* NSManagedObject+AR_Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+AR_Spec.m"; sourceTree = "<group>"; };
 		90CFB46218B933D9007C3553 /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
 		90CFB46318B933D9007C3553 /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
@@ -147,6 +147,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9012A01E18C53023002D0B51 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				9012A02118C53023002D0B51 /* Models */,
+				9012A01F18C53023002D0B51 /* Example.h */,
+				9012A02018C53023002D0B51 /* Example.m */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		9012A02118C53023002D0B51 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				90A9687118B425D8003BEE09 /* model.xcdatamodeld */,
+				9012A02218C53023002D0B51 /* Course.h */,
+				9012A02318C53023002D0B51 /* Course.m */,
+				9012A02418C53023002D0B51 /* Domain.h */,
+				9012A02518C53023002D0B51 /* Module.h */,
+				9012A02618C53023002D0B51 /* Module.m */,
+				9012A02718C53023002D0B51 /* Student.h */,
+				9012A02818C53023002D0B51 /* Student.m */,
+				9012A02918C53023002D0B51 /* StudyGroup.h */,
+				9012A02A18C53023002D0B51 /* StudyGroup.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		90645F5F18964BD50040B739 = {
 			isa = PBXGroup;
 			children = (
@@ -185,12 +212,10 @@
 		90645F7118964BD50040B739 /* ActiveRecord */ = {
 			isa = PBXGroup;
 			children = (
-				90CFB44118B8525C007C3553 /* Models */,
+				9012A01E18C53023002D0B51 /* Example */,
 				90645F9E18964C810040B739 /* Source */,
 				90645F7A18964BD50040B739 /* AppDelegate.h */,
 				90645F7B18964BD50040B739 /* AppDelegate.m */,
-				90CFB45D18B91FB2007C3553 /* Example.h */,
-				90CFB45E18B91FB2007C3553 /* Example.m */,
 				90645F7D18964BD50040B739 /* Images.xcassets */,
 				90645F7218964BD50040B739 /* Supporting Files */,
 			);
@@ -259,23 +284,6 @@
 			);
 			name = Source;
 			path = ../../Source;
-			sourceTree = "<group>";
-		};
-		90CFB44118B8525C007C3553 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				90CFB44E18B85339007C3553 /* Domain.h */,
-				90A9687118B425D8003BEE09 /* model.xcdatamodeld */,
-				90CFB44B18B852B2007C3553 /* Student.h */,
-				90CFB44C18B852B2007C3553 /* Student.m */,
-				90CFB44818B852B2007C3553 /* StudyGroup.h */,
-				90CFB44918B852B2007C3553 /* StudyGroup.m */,
-				90CFB44518B852B2007C3553 /* Module.h */,
-				90CFB44618B852B2007C3553 /* Module.m */,
-				90CFB44218B852B1007C3553 /* Course.h */,
-				90CFB44318B852B1007C3553 /* Course.m */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,25 +448,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90CFB44418B852B1007C3553 /* Course.m in Sources */,
 				901FBAFC18BD3AB00004DD73 /* NSSortDescriptor+AR.m in Sources */,
 				90CFB44018B83F75007C3553 /* NSManagedObject+AR_Context.m in Sources */,
-				90CFB44718B852B2007C3553 /* Module.m in Sources */,
 				90CFB45C18B91C8C007C3553 /* NSManagedObjectModel+AR.m in Sources */,
 				909E98C918B9504500C2982E /* NSManagedObject+AR_Finders.m in Sources */,
+				9012A02C18C53023002D0B51 /* Course.m in Sources */,
 				90645FA118964C8B0040B739 /* ActiveRecord.m in Sources */,
 				90A9687618B42D29003BEE09 /* NSFetchRequest+AR.m in Sources */,
 				90A9687318B425D8003BEE09 /* model.xcdatamodeld in Sources */,
 				90645F7C18964BD50040B739 /* AppDelegate.m in Sources */,
+				9012A02D18C53023002D0B51 /* Module.m in Sources */,
 				909E98C618B94EA100C2982E /* NSPredicate+AR.m in Sources */,
 				90A9687918B4323B003BEE09 /* NSManagedObject+AR_Request.m in Sources */,
-				90CFB44A18B852B2007C3553 /* StudyGroup.m in Sources */,
-				90CFB44D18B852B2007C3553 /* Student.m in Sources */,
 				90CFB43D18B83CD1007C3553 /* NSManagedObject+AR.m in Sources */,
+				9012A02B18C53023002D0B51 /* Example.m in Sources */,
+				9012A02F18C53023002D0B51 /* StudyGroup.m in Sources */,
 				90CFB45618B91AE7007C3553 /* NSManagedObjectContext+AR.m in Sources */,
-				90CFB45F18B91FB2007C3553 /* Example.m in Sources */,
 				90645F7818964BD50040B739 /* main.m in Sources */,
 				90CFB45918B91BFB007C3553 /* NSPersistentStoreCoordinator+AR.m in Sources */,
+				9012A02E18C53023002D0B51 /* Student.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,7 +696,7 @@
 			);
 			currentVersion = 90A9687218B425D8003BEE09 /* model.xcdatamodel */;
 			name = model.xcdatamodeld;
-			path = ../model.xcdatamodeld;
+			path = ../../model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

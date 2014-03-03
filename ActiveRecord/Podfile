@@ -1,6 +1,7 @@
 
 pod 'MKFoundationKit/Block', '>= 1.0.0'
-pod 'RubySugar', '>= 1.0.0'
+#pod 'RubySugar', '>= 1.1.0'
+pod 'RubySugar', :git => 'https://github.com/michalkonturek/ActiveRecord'
 
 target :ActiveRecordTests, :exclusive => true do
 #	pod 'OCHamcrest',  	'>= 3.0.0'    

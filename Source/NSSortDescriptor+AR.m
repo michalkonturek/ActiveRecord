@@ -8,7 +8,8 @@
 
 #import "NSSortDescriptor+AR.h"
 
-#import <RubySugar/NSString+RubySugar.h>
+#import <RubySugar/RubySugar.h>
+#import <MKFoundationKit/NSArray+MK_Block.h>
 
 @implementation NSSortDescriptor (AR)
 
@@ -36,6 +37,14 @@
 
 + (instancetype)_createFromString:(NSString *)object {
     static id key = @"!";
+//    static id keyMulti = @",";
+//    
+//    if ([object rs_containsString:keyMulti]) {
+//        id objects = [[object rs_split:keyMulti] mk_map:^id(id item) {
+//            return [item rs_strip];
+//        }];
+//    }
+    
     if (![object rs_containsString:key]) return [self createWithKey:object ascending:YES];
     else return [self createWithKey:[object rs_delete:key] ascending:NO];
 }
