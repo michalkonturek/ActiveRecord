@@ -16,15 +16,23 @@ SPEC_BEGIN(NSSortDescriptor_AR_Spec)
 
 describe(@"NSSortDescriptor_AR", ^{
     
+    __block id expected;
+    beforeAll(^{
+        expected = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    });
+    
     describe(@"+from", ^{
-        __block id expected = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-        
-        id invalid = [[NSObject alloc] init];
-        id input = @[
-                     [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES],
-                     @"name",
-                     invalid];
-        __block id result = [NSSortDescriptor descriptors:input];
+        __block id invalid;
+        __block id input;
+        __block id result;
+        beforeAll(^{
+            invalid = [[NSObject alloc] init];
+            input = @[
+                      [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES],
+                      @"name",
+                      invalid];
+            result = [NSSortDescriptor descriptors:input];
+        });
         
         it(@"should ignore invalid object", ^{
             [[result should] haveCountOf:2];
@@ -45,8 +53,6 @@ describe(@"NSSortDescriptor_AR", ^{
     
     describe(@"+createFrom", ^{
         
-        __block id expected = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-        
         it(@"should create from NSSortDescriptor", ^{
             id input = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
             id result = [NSSortDescriptor create:input];
@@ -65,7 +71,6 @@ describe(@"NSSortDescriptor_AR", ^{
     describe(@"+createWithKey", ^{
         
         it(@"creates NSSortDescriptor with right key ASC", ^{
-            id expected = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
             id result = [NSSortDescriptor createWithKey:@"name" ascending:YES];
             [[result should] equal:expected];
         });
