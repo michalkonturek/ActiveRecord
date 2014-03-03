@@ -116,8 +116,31 @@
     return [self rs_drop:count];
 }
 
+- (void)rs_each:(void (^)(id item))block {
+    [self mk_each:block];
+}
+
 - (id)rs_fetch:(NSUInteger)index {
     return [self objectAtIndex:index];
+}
+
+- (instancetype)rs_fill:(id)object {
+    return [self rs_fill:object withRange:NSMakeRange(0, self.count)];
+}
+
+- (instancetype)rs_fill:(id)object withRange:(NSRange)range {
+    if (!object) object = [NSNull null];
+    
+    id result = [NSMutableArray arrayWithCapacity:self.count];
+    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if ((idx >= range.location) && (idx < range.location + range.length)) {
+            [result addObject:object];
+        } else {
+            [result addObject:obj];
+        }
+    }];
+    
+    return result;
 }
 
 - (instancetype)rs_flatten {
@@ -140,6 +163,22 @@
     return [self containsObject:object];
 }
 
+- (id)rs_inject:(id (^)(id accumulator, id item))block {
+    return [self rs_inject:nil withBlock:block];
+}
+
+- (id)rs_inject:(id)initial withBlock:(id (^)(id accumulator, id item))block {
+    if (!block) return initial;
+    
+    __block id result = initial;
+    
+    [self rs_each:^(id element) {
+        result = result ? block(result, element) : element;
+    }];
+    
+    return result;
+}
+
 - (BOOL)rs_isEmpty {
     return ([self count] == 0);
 }
@@ -157,6 +196,10 @@
         else result = [NSString stringWithFormat:@"%@%@%@", result, separator, obj];
     }];
     return result;
+}
+
+- (instancetype)rs_map:(id (^)(id item))block {
+    return [self mk_map:block];
 }
 
 - (instancetype)rs_reverse {
@@ -188,6 +231,10 @@
     return result;
 }
 
+- (instancetype)rs_select:(BOOL (^)(id item))block {
+    return [self mk_select:block];
+}
+
 - (instancetype)rs_shuffle {
     NSInteger index =  arc4random_uniform(self.count);
     return [self rs_permutation][index];
@@ -210,6 +257,10 @@
     }
     
     return result;
+}
+
+- (instancetype)rs_reject:(BOOL (^)(id item))block {
+    return [self mk_reject:block];
 }
 
 - (instancetype)rs_zip {
@@ -264,14 +315,6 @@
     }
     
     return result;
-}
-
-- (BOOL)mk_any:(BOOL (^)(id item))conditionBlock {
-    if (!conditionBlock) return NO;
-    for (id item in self) {
-        if (conditionBlock(item)) return YES;
-    }
-    return NO;
 }
 
 - (id)objectForKeyedSubscript:(id<NSCopying>)key {

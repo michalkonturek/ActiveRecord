@@ -1,1 +1,1 @@
-../../RubySugar/RubySugar/RubySugar/Source/NSString+RubySugar.h
+../../RubySugar/Source/NSString+RubySugar.h

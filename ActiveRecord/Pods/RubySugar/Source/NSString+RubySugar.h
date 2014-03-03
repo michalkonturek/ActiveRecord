@@ -96,6 +96,11 @@
  */
 - (NSArray *)rs_split:(NSString *)pattern;
 
+/**
+ Returns a copy of str with leading and trailing whitespace removed.
+ */
+- (NSString *)rs_strip;
+
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
 - (id)objectForKeyedSubscript:(id<NSCopying>)key;
 

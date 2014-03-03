@@ -148,6 +148,10 @@
     return result;
 }
 
+- (NSString *)rs_strip {
+    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
 - (id)objectAtIndexedSubscript:(NSUInteger)index {
     if (index >= [self length]) return nil;
     unichar character = [self characterAtIndex:index];

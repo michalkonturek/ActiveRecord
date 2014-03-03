@@ -5,6 +5,15 @@
 [![Build Version](https://cocoapod-badges.herokuapp.com/v/RubySugar/badge.png)](https://github.com/michalkonturek/RubySugar)
 [![Build Status](https://travis-ci.org/michalkonturek/RubySugar.png?branch=master)](https://travis-ci.org/michalkonturek/RubySugar)
 
+
+## License
+
+Source code of this project is available under the standard MIT license. Please see [the license file][LICENSE].
+
+[PODS]:http://cocoapods.org/
+[LICENSE]:https://github.com/michalkonturek/RubySugar/blob/master/LICENSE
+
+
 ## Intro
 
 Ports Ruby syntactic sugar to Objective-C.
@@ -46,12 +55,6 @@ result = [@"Hello" rs_chars];
 // ["H", "e", "l", "l", "o"]
 ```
 
-## License
-
-Source code of this project is available under the standard MIT license. Please see [the license file][LICENSE].
-
-[PODS]:http://cocoapods.org/
-[LICENSE]:https://github.com/michalkonturek/RubySugar/blob/master/LICENSE
 
 # API
 
@@ -76,25 +79,39 @@ Source code of this project is available under the standard MIT license. Please 
 - (instancetype)rs_drop:(NSInteger)count;
 - (id)rs_dropWhile:(BOOL(^)(id item))block;
 
+- (void)rs_each:(void (^)(id item))block;
+
 - (id)rs_fetch:(NSUInteger)index;
+
+- (instancetype)rs_fill:(id)object;
+- (instancetype)rs_fill:(id)object withRange:(NSRange)range;
 
 - (instancetype)rs_flatten;
 - (instancetype)rs_flatten:(NSInteger)level;
 
 - (BOOL)rs_includes:(id)object;
 
+- (id)rs_inject:(id (^)(id accumulator, id item))block;
+- (id)rs_inject:(id)initial withBlock:(id (^)(id accumulator, id item))block;
+
 - (BOOL)rs_isEmpty;
 
 - (NSString *)rs_join;
 - (NSString *)rs_join:(NSString *)separator;
 
+- (instancetype)rs_map:(id (^)(id item))block;
+
 - (instancetype)rs_permutation;
 - (instancetype)rs_permutation:(NSInteger)n;
+
+- (instancetype)rs_reject:(BOOL (^)(id item))block;
 
 - (instancetype)rs_reverse;
 
 - (id)rs_sample;
 - (instancetype)rs_sample:(NSUInteger)count;
+
+- (instancetype)rs_select:(BOOL (^)(id item))block;
 
 - (instancetype)rs_shuffle;
 
@@ -105,6 +122,8 @@ Source code of this project is available under the standard MIT license. Please 
 - (instancetype)rs_uniq:(id(^)(id item))block;
 
 - (instancetype)rs_zip;
+
+- (id)objectForKeyedSubscript:(id<NSCopying>)key;
 
 ```
 
@@ -158,8 +177,9 @@ Source code of this project is available under the standard MIT license. Please 
 - (NSString *)rs_justifyRight:(NSInteger)length with:(NSString *)pad;
 
 - (NSArray *)rs_split;
-
 - (NSArray *)rs_split:(NSString *)pattern;
+
+- (NSString *)rs_strip;
 
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
 - (id)objectForKeyedSubscript:(id<NSCopying>)key;

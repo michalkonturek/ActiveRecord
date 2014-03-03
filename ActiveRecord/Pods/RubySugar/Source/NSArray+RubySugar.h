@@ -72,9 +72,24 @@
 - (id)rs_dropWhile:(BOOL(^)(id item))block;
 
 /**
+ Calls the given block once for each element in self, passing that element as a parameter
+ */
+- (void)rs_each:(void (^)(id item))block;
+
+/**
  Mirror: [self objectAtIndex:index];
  */
 - (id)rs_fetch:(NSUInteger)index;
+
+/**
+ Returns a new array filled with ojbect for all elements.
+ */
+- (instancetype)rs_fill:(id)object;
+
+/**
+ Returns a new array filled with ojbect for selected elements.
+ */
+- (instancetype)rs_fill:(id)object withRange:(NSRange)range;
 
 /**
  Returns a new array that is a one-dimensional flattening of self (recursively).
@@ -95,6 +110,12 @@
 - (BOOL)rs_includes:(id)object;
 
 /**
+ Combines all elements of enum by applying a binary operation
+ */
+- (id)rs_inject:(id (^)(id accumulator, id item))block;
+- (id)rs_inject:(id)initial withBlock:(id (^)(id accumulator, id item))block;
+
+/**
  Shorthand ([self count] == 0)
  */
 - (BOOL)rs_isEmpty;
@@ -111,6 +132,11 @@
 - (NSString *)rs_join:(NSString *)separator;
 
 /**
+ Returns an array of elements returned by the given block.
+ */
+- (instancetype)rs_map:(id (^)(id item))block;
+
+/**
  Returns array that yields all permutations of all elements.
  */
 - (instancetype)rs_permutation;
@@ -119,6 +145,11 @@
  Returns array that yields all permutations of n elements.
  */
 - (instancetype)rs_permutation:(NSInteger)n;
+
+/**
+ Returns a new array containing all elements for which the given block returns a false.
+ */
+- (instancetype)rs_reject:(BOOL (^)(id item))block;
 
 /**
  Returns a new array containing self‘s elements in reverse order.
@@ -132,9 +163,13 @@
 
 /**
  Returns an array of n random element from the array.
- Returns an empty array in case a target array is empty.
  */
 - (instancetype)rs_sample:(NSUInteger)count;
+
+/**
+ Returns a new array containing all elements for which the given block returns a true.
+ */
+- (instancetype)rs_select:(BOOL (^)(id item))block;
 
 /**
  Returns a new array with elements of self shuffled.
