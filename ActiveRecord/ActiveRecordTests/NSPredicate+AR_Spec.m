@@ -18,9 +18,14 @@ describe(@"NSPredicate_AR", ^{
     
     describe(@"+createFrom", ^{
        
+        __block id expected;
+        
+        beforeEach(^{
+            expected = @"name == \"Adam\"";
+        });
+        
         it(@"should create from NSPredicate", ^{
             id input = [NSPredicate predicateWithFormat:@"name == %@", @"Adam"];
-            id expected = @"name == \"Adam\"";
             id result = [NSPredicate createFrom:input];
             [[result should] beKindOfClass:[NSPredicate class]];
             [[[result description] should] equal:expected];
@@ -28,7 +33,6 @@ describe(@"NSPredicate_AR", ^{
         
         it(@"should create from NSString", ^{
             id input = @"name == 'Adam'";
-            id expected = @"name == \"Adam\"";
             id result = [NSPredicate createFrom:input];
             [[result should] beKindOfClass:[NSPredicate class]];
             [[[result description] should] equal:expected];
@@ -36,38 +40,49 @@ describe(@"NSPredicate_AR", ^{
         
         it(@"should create from NSDictionary", ^{
             id input = @{@"name": @"Adam"};
-            id expected = @"name == \"Adam\"";
             id result = [NSPredicate createFrom:input];
             [[result should] beKindOfClass:[NSPredicate class]];
             [[[result description] should] equal:expected];
         });
     });
     
-    describe(@"-and", ^{
+    context(@"", ^{
 
-        __block id target = [NSPredicate predicateWithFormat:@"age > 10"];
-        __block id result = [target and:@"age != 13"];
+        __block id target;
+        __block id result;
         
-        it(@"should be member of NSCompoundPredicate", ^{
-            [[result should] beMemberOfClass:[NSCompoundPredicate class]];
-        });
-
-        it(@"should create AND compound predicate", ^{
-            [[[result description] should] equal:@"age > 10 AND age != 13"];
-        });
-    });
-    
-    describe(@"-or", ^{
-        
-        __block id target = [NSPredicate predicateWithFormat:@"age > 10"];
-        __block id result = [target or:@"age != 13"];
-        
-        it(@"should be member of NSCompoundPredicate", ^{
-            [[result should] beMemberOfClass:[NSCompoundPredicate class]];
+        beforeEach(^{
+            target = [NSPredicate predicateWithFormat:@"age > 10"];
         });
         
-        it(@"should create OR compound predicate", ^{
-            [[[result description] should] equal:@"age > 10 OR age != 13"];
+        describe(@"-and", ^{
+            
+            beforeEach(^{
+                result = [target and:@"age != 13"];
+            });
+            
+            it(@"should be member of NSCompoundPredicate", ^{
+                [[result should] beMemberOfClass:[NSCompoundPredicate class]];
+            });
+            
+            it(@"should create AND compound predicate", ^{
+                [[[result description] should] equal:@"age > 10 AND age != 13"];
+            });
+        });
+        
+        describe(@"-or", ^{
+            
+            beforeEach(^{
+                result = [target or:@"age != 13"];
+            });
+            
+            it(@"should be member of NSCompoundPredicate", ^{
+                [[result should] beMemberOfClass:[NSCompoundPredicate class]];
+            });
+            
+            it(@"should create OR compound predicate", ^{
+                [[[result description] should] equal:@"age > 10 OR age != 13"];
+            });
         });
     });
     
