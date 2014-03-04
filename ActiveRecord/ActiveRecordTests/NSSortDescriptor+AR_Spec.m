@@ -17,11 +17,18 @@ SPEC_BEGIN(NSSortDescriptor_AR_Spec)
 describe(@"NSSortDescriptor_AR", ^{
     
     __block id expected;
+    __block id expectedObjects;
     beforeAll(^{
         expected = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+        expectedObjects = @[
+                            [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES],
+                            [NSSortDescriptor sortDescriptorWithKey:@"age" ascending:YES],
+                            [NSSortDescriptor sortDescriptorWithKey:@"sex" ascending:NO]
+                            ];
     });
     
-    describe(@"+from", ^{
+    describe(@"+descriptors", ^{
+        
         __block id invalid;
         __block id input;
         __block id result;
@@ -29,25 +36,30 @@ describe(@"NSSortDescriptor_AR", ^{
             invalid = [[NSObject alloc] init];
             input = @[
                       [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES],
-                      @"name",
-                      invalid];
+                      @"age",
+                      @"!sex",
+                      invalid
+                      ];
             result = [NSSortDescriptor descriptors:input];
         });
         
         it(@"should ignore invalid object", ^{
-            [[result should] haveCountOf:2];
+            [[result should] haveCountOf:3];
         });
         
-        it(@"should contain only instances of NSSortDescriptors", ^{
+        it(@"should contain only instances of NSSortDescriptor", ^{
             [result mk_each:^(id item) {
                 [[item should] beKindOfClass:[NSSortDescriptor class]];
             }];
         });
         
-        it(@"should contain only expected NSSortDescriptors", ^{
-            [result mk_each:^(id item) {
-                [[item should] equal:expected];
-            }];
+        it(@"should contain only expected NSSortDescriptor", ^{
+            [[result should] containObjectsInArray:expectedObjects];
+        });
+        
+        it(@"should handle ", ^{
+            id result = [NSSortDescriptor descriptors:@"name, age, !sex"];
+            [[result should] containObjectsInArray:expectedObjects];
         });
     });
     
