@@ -18,6 +18,28 @@ Source code of this project is available under the standard MIT license. Please 
 ## Usage
 
 ```
+// create an entity
+Student *student = [Student create];
+student.firstName = @"Adam";
+student.lastName = @"Smith";
+student.age = @21;
+
+// commit changes in contet
+[Student commit];
+
+// rollback context to last commit
+[student delete];
+[Student rollback];
+
+[Student objects];
+[Student objects:@"age > 20"];
+[Student objects:@"lastName == 'Smith'"];
+[Student objects:@{@"age": @21, @"lastName": @"Smith"}];
+
+[Student ordered:@"lastName, age"]; // orders by name ASC, age ASC
+[Student ordered:@"lastName, !age"]; // orders by name ASC, age DESC
+
+[Student objects:@"age > 20" ordered:@"!age"];
 
 ```
 

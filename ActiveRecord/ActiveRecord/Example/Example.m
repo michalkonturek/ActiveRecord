@@ -11,8 +11,6 @@
 #import "ActiveRecord.h"
 #import "Domain.h"
 
-//#import "Factory.h"
-
 @implementation Example
 
 + (void)run {
@@ -31,8 +29,6 @@
     
     // rollback context to last commit
     [Student rollback];
-    
-//    [Factory createStudents:20];
     
     [Student objects];
     [Student objects:@"age > 20"];
