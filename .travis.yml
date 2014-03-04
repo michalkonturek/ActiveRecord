@@ -1,0 +1,15 @@
+language: objective-c
+before_install:
+
+    - gem install cocoapods --no-ri --no-rdoc
+    - gem install xcpretty --no-ri --no-rdoc
+
+    - pod --version
+    #- xcpretty --version
+
+    - cd ActiveRecord
+
+script: make ci
+
+notifications:
+    email: false

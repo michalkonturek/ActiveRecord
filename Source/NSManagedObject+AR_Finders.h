@@ -10,18 +10,31 @@
 
 @interface NSManagedObject (AR_Finders)
 
++ (BOOL)hasObjects;
++ (BOOL)hasObjects:(id)condition;
++ (BOOL)hasObjectsWithPredicate:(NSPredicate *)predicate;
+
++ (NSInteger)count;
++ (NSInteger)count:(id)condition;
++ (NSInteger)countWithPredicate:(NSPredicate *)predicate;
+
++ (instancetype)object:(id)condition;
 + (instancetype)objectWithID:(NSNumber *)objectID;
 + (instancetype)objectWithPredicate:(NSPredicate *)predicate;
-+ (instancetype)objectWithMaxValueForAttribute:(NSString *)attribute;
-+ (instancetype)objectWithMinValueForAttribute:(NSString *)attribute;
++ (instancetype)objectWithMaxValueFor:(NSString *)attribute;
++ (instancetype)objectWithMinValueFor:(NSString *)attribute;
 
 + (NSArray *)orderedAscendingBy:(NSString *)key;
 + (NSArray *)orderedDescendingBy:(NSString *)key;
-+ (NSArray *)orderedBy:(NSSortDescriptor *)descriptor;
++ (NSArray *)ordered:(id)order;
 
 + (NSArray *)objects;
++ (NSArray *)objects:(id)condition;
++ (NSArray *)objects:(id)condition ordered:(id)order;
 + (NSArray *)objectsWithPredicate:(NSPredicate *)predicate;
-+ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate withSortDescriptor:(NSSortDescriptor *)descriptor;
-+ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate withSortDescriptors:(NSArray *)descriptors;
++ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate
+               withSortDescriptor:(NSSortDescriptor *)descriptor;
++ (NSArray *)objectsWithPredicate:(NSPredicate *)predicate
+              withSortDescriptors:(NSArray *)descriptors;
 
 @end

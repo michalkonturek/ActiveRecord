@@ -5,13 +5,17 @@ PODS:
     - Kiwi/ARC
     - Kiwi/NonARC
   - MKFoundationKit/Block (1.1.0)
+  - RubySugar (1.1.0):
+    - MKFoundationKit/Block (~> 1.0.0)
 
 DEPENDENCIES:
   - Kiwi/XCTest (>= 2.2.1)
   - MKFoundationKit/Block (>= 1.0.0)
+  - RubySugar (>= 1.1.0)
 
 SPEC CHECKSUMS:
   Kiwi: 04c51e880831d291748ec702d42c4101f7eb95c9
   MKFoundationKit: db5b09c3d266b6476e605b6060096a62fd542b61
+  RubySugar: ae92dc65703164976839119745ed78c7ee37766c
 
 COCOAPODS: 0.29.0

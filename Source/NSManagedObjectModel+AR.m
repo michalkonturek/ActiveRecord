@@ -9,7 +9,7 @@
 #import "NSManagedObjectModel+AR.h"
 
 static dispatch_once_t pred;
-static NSManagedObjectModel *sharedManagedObject;
+static NSManagedObjectModel *sharedInstance;
 
 @implementation NSManagedObjectModel (AR)
 
@@ -17,20 +17,20 @@ static NSManagedObjectModel *sharedManagedObject;
     
     dispatch_once(&pred, ^{
         NSArray *bundles = [NSArray arrayWithObject:[NSBundle mainBundle]];
-        sharedManagedObject = [NSManagedObjectModel mergedModelFromBundles:bundles];
+        sharedInstance = [NSManagedObjectModel mergedModelFromBundles:bundles];
     });
     
-    return sharedManagedObject;
+    return sharedInstance;
 }
 
 + (instancetype)managedObjectModelWithName:(NSString *)modelName {
     
     dispatch_once(&pred, ^{
         NSURL *modelURL = [[NSBundle mainBundle] URLForResource:modelName withExtension:@"momd"];
-        sharedManagedObject = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+        sharedInstance = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     });
     
-    return sharedManagedObject;
+    return sharedInstance;
 }
 
 @end

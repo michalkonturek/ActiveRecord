@@ -39,8 +39,8 @@
 
 + (instancetype)createFrom:(id)object {
     if ([object isKindOfClass:[self class]]) return object;
-    else if ([object isKindOfClass:[NSString class]]) return [self predicateWithFormat:object];
-    else if ([object isKindOfClass:[NSDictionary class]]) return [self _createFromDictionary:object];
+    if ([object isKindOfClass:[NSString class]]) return [self predicateWithFormat:object];
+    if ([object isKindOfClass:[NSDictionary class]]) return [self _createFromDictionary:object];
     return nil;
 }
 

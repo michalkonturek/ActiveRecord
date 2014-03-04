@@ -8,24 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-
-#import "NSPersistentStoreCoordinator+AR.h"
-#import "NSManagedObjectContext+AR.h"
+#import <MKFoundationKit/NSArray+MK_Block.h>
+#import <MKFoundationKit/NSDictionary+MK_Block.h>
+#import <RubySugar/RubySugar.h>
 
 #import "NSManagedObject+AR.h"
 #import "NSManagedObject+AR_Context.h"
 #import "NSManagedObject+AR_Finders.h"
 #import "NSManagedObject+AR_Request.h"
 
+#import "NSManagedObjectContext+AR.h"
+#import "NSPersistentStoreCoordinator+AR.h"
 #import "NSPredicate+AR.h"
+#import "NSSortDescriptor+AR.h"
 
 @interface ActiveRecord : NSObject
-
-+ (void)setup;
-+ (void)setupWithInMemoryStore;
-
-+ (void)cleanup;
-
-+ (NSString *)defaultStoreName;
 
 @end

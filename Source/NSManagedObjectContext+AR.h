@@ -11,12 +11,12 @@
 @interface NSManagedObjectContext (AR)
 
 + (instancetype)managedObjectContext;
-+ (instancetype)mainContext;
++ (instancetype)foregroundContext;
 + (instancetype)backgroundContext;
 
 + (void)removeBackgroundContext;
 + (void)setBackgroundContext:(NSManagedObjectContext *)context;
 
-+ (void)debug_print;
+//+ (void)debug_print;
 
 @end
