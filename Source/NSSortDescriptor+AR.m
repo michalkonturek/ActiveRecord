@@ -9,7 +9,6 @@
 #import "NSSortDescriptor+AR.h"
 
 #import <RubySugar/RubySugar.h>
-//#import <MKFoundationKit/NSArray+MK_Block.h>
 
 @implementation NSSortDescriptor (AR)
 
@@ -52,27 +51,14 @@
 
 + (instancetype)create:(id)object {
     if ([object isKindOfClass:[self class]]) return object;
-//    if ([object isKindOfClass:[NSString class]]) return [self createWithKey:object ascending:YES];
     if ([object isKindOfClass:[NSString class]]) return [self _createFromString:object];
     return nil;
 }
 
 + (instancetype)_createFromString:(NSString *)object {
-    static id key = @"!";
-    if (![object rs_containsString:key]) return [self createWithKey:object ascending:YES];
-    else return [self createWithKey:[object rs_delete:key] ascending:NO];
-
-    //    static id keyMulti = @",";
-//    
-//    if ([object rs_containsString:keyMulti]) {
-//        id objects = [[object rs_split:keyMulti] mk_map:^id(id item) {
-//            return [item rs_strip];
-//        }];
-//        return [self descriptors:objects];
-//    } else {
-//        if (![object rs_containsString:key]) return [self createWithKey:object ascending:YES];
-//        else return [self createWithKey:[object rs_delete:key] ascending:NO];
-//    }
+    static id descendingKey = @"!";
+    if (![object rs_containsString:descendingKey]) return [self createWithKey:object ascending:YES];
+    else return [self createWithKey:[object rs_delete:descendingKey] ascending:NO];
 }
 
 + (instancetype)createWithKey:(NSString *)key ascending:(BOOL)ascending {

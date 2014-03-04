@@ -35,12 +35,12 @@
 //    [Factory createStudents:20];
     
     [Student objects];
-//    [Student objects:@"age > 20"];
-//    [Student objects:@"lastName == 'Smith'"];
-//    [Student objects:@{@"age": @21, @"lastName": @"Smith"}];
-//    
-//    [Student ordered:@"lastName, age"]; // orders by name, age ASC
-//    [Student ordered:@"lastName, !age"]; // orders by name ASC, age DESC
+    [Student objects:@"age > 20"];
+    [Student objects:@"lastName == 'Smith'"];
+    [Student objects:@{@"age": @21, @"lastName": @"Smith"}];
+    
+    [Student ordered:@"lastName, age"]; // orders by name, age ASC
+    [Student ordered:@"lastName, !age"]; // orders by name ASC, age DESC
     
     [Student deleteAll];
     [Student commit];
