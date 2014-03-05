@@ -17,7 +17,7 @@ Source code of this project is available under the standard MIT license. Please 
 
 ## Usage
 
-```
+```objc
 // create an entity
 Student *student = [Student create];
 student.firstName = @"Adam";
@@ -47,7 +47,7 @@ student.age = @21;
 
 ## `NSManagedObject+AR`
 
-```
+```objc
 + (instancetype)createWithAutoID;
 + (instancetype)createWithID:(NSNumber *)objectID;
 + (instancetype)create;
@@ -65,7 +65,7 @@ student.age = @21;
 
 ## `NSManagedObject+AR_Finders`
 
-```
+```objc
 + (BOOL)hasObjects;
 + (BOOL)hasObjects:(id)condition;
 + (BOOL)hasObjectsWithPredicate:(NSPredicate *)predicate;
@@ -97,7 +97,7 @@ student.age = @21;
 
 ## `NSPredicate+AR`
 
-```
+```objc
 + (instancetype)and:(NSArray *)conditions;
 + (instancetype)or:(NSArray *)conditions;
 
@@ -113,7 +113,7 @@ student.age = @21;
 
 ## `NSSortDescriptor+AR`
 
-```
+```objc
 + (NSArray *)descriptors:(id)object;
 + (instancetype)create:(id)object;
 + (instancetype)createWithKey:(NSString *)key ascending:(BOOL)ascending;
@@ -122,7 +122,7 @@ student.age = @21;
 
 ## `NSManagedObjectContext+AR`
 
-```
+```objc
 + (instancetype)managedObjectContext;
 + (instancetype)mainContext;
 + (instancetype)backgroundContext;
@@ -133,7 +133,7 @@ student.age = @21;
 
 ## `NSManagedObjectContext+AR_Request`
 
-```
+```objc
 + (NSFetchRequest *)requestWithPredicate:(NSPredicate *)predicate
                       withSortDescriptor:(NSSortDescriptor *)descriptor;
 
@@ -144,7 +144,7 @@ student.age = @21;
 
 ## `NSFetchRequest+AR`
 
-```
+```objc
 + (instancetype)createWithPredicate:(NSPredicate *)predicate
                  withSortDescriptor:(NSSortDescriptor *)descriptor;
 + (instancetype)createWithPredicate:(NSPredicate *)predicate
