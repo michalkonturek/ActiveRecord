@@ -151,7 +151,8 @@ student.age = @21;
                 withSortDescriptors:(NSArray *)descriptors;
 ```
 
-
+<!--
 - - -
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/michalkonturek/activerecord/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+-->
