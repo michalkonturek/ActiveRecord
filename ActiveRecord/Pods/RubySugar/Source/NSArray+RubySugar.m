@@ -31,7 +31,7 @@
 
 - (instancetype):(NSInteger)from :(NSInteger)to exclusive:(BOOL)exclusive {
     id op = (exclusive) ? @"..." : @"..";
-    return self[[NSString stringWithFormat:@"%i%@%i", from, op, to]];
+    return self[[NSString stringWithFormat:@"%li%@%li", (long)from, op, (long)to]];
 }
 
 - (instancetype)rs_clear {
@@ -208,7 +208,7 @@
 
 - (id)rs_sample {
     if ([self rs_isEmpty]) return nil;
-    else return self[arc4random_uniform([self count])];
+    else return self[arc4random_uniform((uint32_t)[self count])];
 }
 
 - (instancetype)rs_sample:(NSUInteger)count {
@@ -218,7 +218,7 @@
     
     id indices = [NSMutableIndexSet indexSet];
     while (YES) {
-        NSInteger index = arc4random_uniform([self count]);
+        NSInteger index = arc4random_uniform((uint32_t)[self count]);
         [indices addIndex:index];
         if ([indices count] == count) break;
     }
@@ -236,7 +236,7 @@
 }
 
 - (instancetype)rs_shuffle {
-    NSInteger index =  arc4random_uniform(self.count);
+    NSInteger index =  arc4random_uniform((uint32_t)[self count]);
     return [self rs_permutation][index];
 }
 

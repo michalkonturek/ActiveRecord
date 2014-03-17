@@ -32,7 +32,7 @@
 
 - (NSString *):(NSInteger)from :(NSInteger)to exclusive:(BOOL)exclusive {
     id op = (exclusive) ? @"..." : @"..";
-    return self[[NSString stringWithFormat:@"%i%@%i", from, op, to]];
+    return self[[NSString stringWithFormat:@"%li%@%li", (long)from, op, (long)to]];
 }
 
 - (NSArray *)rs_chars {
