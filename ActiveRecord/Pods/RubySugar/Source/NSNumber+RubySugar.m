@@ -18,7 +18,7 @@
 
 - (instancetype)rs_lcm:(NSInteger)other {
     if (([self integerValue] == 0) && (other == 0)) return @0;
-    id result =  @(abs([self integerValue] * other) / [[self rs_gcd:other] integerValue]);
+    id result =  @(labs([self integerValue] * other) / [[self rs_gcd:other] integerValue]);
     return [self _wrap:result];
 }
 
