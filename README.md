@@ -17,6 +17,10 @@ Source code of this project is available under the standard MIT license. Please 
 
 ## Usage
 
+Simply import `#import "ActiveRecord.h"` (please see [example][EXAMPLE])
+
+[EXAMPLE]:https://github.com/michalkonturek/ActiveRecord/blob/master/ActiveRecord/ActiveRecord/Example/Example.m
+
 ```objc
 // create an entity
 Student *student = [Student create];
@@ -24,7 +28,7 @@ student.firstName = @"Adam";
 student.lastName = @"Smith";
 student.age = @21;
 
-// commit changes in contet
+// commit changes in context
 [Student commit];
 
 // rollback context to last commit
