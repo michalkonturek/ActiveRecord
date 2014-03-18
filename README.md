@@ -47,6 +47,19 @@ student.age = @21;
 
 ```
 
+### JSON Serialization
+
+TBA
+
+### Background Processing
+
+TBA
+
+### Integration with `mogenerator`
+
+TBA
+
+
 # API
 
 ## `NSManagedObject+AR`
