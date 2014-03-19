@@ -21,7 +21,7 @@
     student.lastName = @"Smith";
     student.age = @21;
     
-    // commit changes in contet
+    // commit changes in context
     [Student commit];
     
     [student delete];

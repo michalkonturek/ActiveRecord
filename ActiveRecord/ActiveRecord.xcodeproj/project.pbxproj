@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7E9B23BA1FAC4D24B014C4C8 /* libPods-ActiveRecordTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 520C64368C034727BD0DBA7B /* libPods-ActiveRecordTests.a */; };
+		847F108A18D9E93D00FA142C /* NSManagedObject+AR_Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 847F108918D9E93D00FA142C /* NSManagedObject+AR_Serialization.m */; };
 		9012A02B18C53023002D0B51 /* Example.m in Sources */ = {isa = PBXBuildFile; fileRef = 9012A02018C53023002D0B51 /* Example.m */; };
 		9012A02C18C53023002D0B51 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 9012A02318C53023002D0B51 /* Course.m */; };
 		9012A02D18C53023002D0B51 /* Module.m in Sources */ = {isa = PBXBuildFile; fileRef = 9012A02618C53023002D0B51 /* Module.m */; };
@@ -60,6 +61,8 @@
 		095142AA7F314D5D9909D734 /* Pods-ActiveRecordTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActiveRecordTests.xcconfig"; path = "Pods/Pods-ActiveRecordTests.xcconfig"; sourceTree = "<group>"; };
 		36E3A54062CA4CD8981453EB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		520C64368C034727BD0DBA7B /* libPods-ActiveRecordTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ActiveRecordTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		847F108818D9E93D00FA142C /* NSManagedObject+AR_Serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+AR_Serialization.h"; sourceTree = "<group>"; };
+		847F108918D9E93D00FA142C /* NSManagedObject+AR_Serialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+AR_Serialization.m"; sourceTree = "<group>"; };
 		9012A01F18C53023002D0B51 /* Example.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Example.h; sourceTree = "<group>"; };
 		9012A02018C53023002D0B51 /* Example.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example.m; sourceTree = "<group>"; };
 		9012A02218C53023002D0B51 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
@@ -269,6 +272,8 @@
 				909E98C818B9504500C2982E /* NSManagedObject+AR_Finders.m */,
 				90A9687718B4323B003BEE09 /* NSManagedObject+AR_Request.h */,
 				90A9687818B4323B003BEE09 /* NSManagedObject+AR_Request.m */,
+				847F108818D9E93D00FA142C /* NSManagedObject+AR_Serialization.h */,
+				847F108918D9E93D00FA142C /* NSManagedObject+AR_Serialization.m */,
 				90CFB45418B91AE7007C3553 /* NSManagedObjectContext+AR.h */,
 				90CFB45518B91AE7007C3553 /* NSManagedObjectContext+AR.m */,
 				90CFB45A18B91C8C007C3553 /* NSManagedObjectModel+AR.h */,
@@ -449,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				901FBAFC18BD3AB00004DD73 /* NSSortDescriptor+AR.m in Sources */,
+				847F108A18D9E93D00FA142C /* NSManagedObject+AR_Serialization.m in Sources */,
 				90CFB44018B83F75007C3553 /* NSManagedObject+AR_Context.m in Sources */,
 				90CFB45C18B91C8C007C3553 /* NSManagedObjectModel+AR.m in Sources */,
 				909E98C918B9504500C2982E /* NSManagedObject+AR_Finders.m in Sources */,
