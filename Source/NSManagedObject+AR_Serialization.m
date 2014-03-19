@@ -69,7 +69,7 @@
         id relatedObject = [data objectForKey:relationship];
         if (relatedObject != nil) {
             
-            // MKNOTE: I do not thing this statemen is usefull
+            // MKNOTE: I do not think this statemen is usefull
             /* NOTE: NSNull is not accepted by attributes of NSManagedObject */
             relatedObject = [ARTypeConverter convertNSNullToNil:relatedObject];
             

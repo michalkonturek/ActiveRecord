@@ -11,8 +11,8 @@
 @interface NSManagedObject (AR_Serialization)
 
 + (instancetype)createOrUpdateObjectWithData:(NSDictionary *)data;
-+ (instancetype)createOrUpdateObjectWithData:(NSDictionary *)data usingPredicate:(NSPredicate *)predicate;
-
++ (instancetype)createOrUpdateObjectWithData:(NSDictionary *)data
+                              usingPredicate:(NSPredicate *)predicate;
 
 + (instancetype)updateObject:(id)object withData:(NSDictionary *)data;
 + (instancetype)updateObject:(id)object withAttributesData:(NSDictionary *)data;

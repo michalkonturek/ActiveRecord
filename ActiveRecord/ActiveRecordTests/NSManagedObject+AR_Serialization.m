@@ -55,6 +55,7 @@ describe(@"NSManagedObject+AR_Serialization", ^{
         
         beforeAll(^{
             [Student deleteAll];
+            [Course deleteAll];
             sut = [Student createWithID:uid];
         });
         
@@ -71,17 +72,44 @@ describe(@"NSManagedObject+AR_Serialization", ^{
         
         context(@"should update object's relationships", ^{
             
-            it(@"", ^{
+            xit(@"should handle relationship 1:1", ^{
+                // add national number
+            });
+            
+            xit(@"should handle relationship 1:m", ^{
+                id course = @{@"uid": @1, @"uid": @"Software Engineering"};
+                id data = @{@"uid": @1, @"course": course};
+                [Student updateObject:sut withData:data];
+                
+                [[[[sut course] uid] should] equal:[course objectForKey:@"uid"]];
+                [[[[sut course] name] should] equal:[course objectForKey:@"name"]];
+            });
+            
+            xit(@"should handle relationship m:n", ^{
+                
+            });
+            
+            xit(@"should handle related object of [NSManagedObject class]", ^{
                 
             });
 
-            it(@"", ^{
+            xit(@"should handle related object of [NSNumber class]", ^{
+                
+            });
+            
+            xit(@"should handle related object of [NSString class]", ^{
+                
+            });
+            
+            xit(@"should handle related object of [NSDictionary class]", ^{
                 
             });
         });
     });
     
-    
+    describe(@"+", ^{
+        
+    });
 });
 
 SPEC_END
