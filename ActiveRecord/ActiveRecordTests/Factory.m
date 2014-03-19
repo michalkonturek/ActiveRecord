@@ -17,8 +17,8 @@
     
     for (NSInteger idx = 0; idx < count; idx++) {
         Student *item = [Student createWithID:@(idx)];
-        item.firstName = [NSString stringWithFormat:@"firstName%i", idx];
-        item.lastName = [NSString stringWithFormat:@"lastName%i", idx];
+        item.firstName = [NSString stringWithFormat:@"firstName%@", @(idx)];
+        item.lastName = [NSString stringWithFormat:@"lastName%@", @(idx)];
         item.age = @(20 + idx);
     }
     

@@ -13,6 +13,8 @@
 + (instancetype)createOrUpdateObjectWithData:(NSDictionary *)data;
 + (instancetype)createOrUpdateObjectWithData:(NSDictionary *)data usingPredicate:(NSPredicate *)predicate;
 
+
++ (instancetype)updateObject:(id)object withData:(NSDictionary *)data;
 + (instancetype)updateObject:(id)object withAttributesData:(NSDictionary *)data;
 + (instancetype)updateObject:(id)object withRelationshipsData:(NSDictionary *)data;
 

@@ -27,11 +27,18 @@
         object = [[self class] create];
     }
     
-    object = [[self class] updateObject:object withAttributesData:data];
-    object = [[self class] updateObject:object withRelationshipsData:data];
+//    object = [[self class] updateObject:object withAttributesData:data];
+//    object = [[self class] updateObject:object withRelationshipsData:data];
+    object = [self updateObject:object withData:data];
 
     [[self class] commit];
     
+    return object;
+}
+
++ (instancetype)updateObject:(id)object withData:(NSDictionary *)data {
+    object = [[self class] updateObject:object withAttributesData:data];
+    object = [[self class] updateObject:object withRelationshipsData:data];
     return object;
 }
 
