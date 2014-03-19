@@ -208,11 +208,13 @@
 
 - (id)rs_sample {
     if ([self rs_isEmpty]) return nil;
-    else return self[arc4random_uniform((uint32_t)[self count])];
+    assert([self count] <= (uint32_t) - 1);
+    return self[arc4random_uniform((uint32_t)[self count])];
 }
 
 - (instancetype)rs_sample:(NSUInteger)count {
     if ([self rs_isEmpty]) return self;
+    assert([self count] <= (uint32_t) - 1);
     
     if (count > self.count) count = self.count; // R: return shuffled
     
@@ -236,7 +238,8 @@
 }
 
 - (instancetype)rs_shuffle {
-    NSInteger index =  arc4random_uniform((uint32_t)[self count]);
+    assert([self count] <= (uint32_t) - 1);
+    NSUInteger index =  arc4random_uniform((uint32_t)[self count]);
     return [self rs_permutation][index];
 }
 
