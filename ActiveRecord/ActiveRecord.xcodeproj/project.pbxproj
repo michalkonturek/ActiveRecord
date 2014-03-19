@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7E9B23BA1FAC4D24B014C4C8 /* libPods-ActiveRecordTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 520C64368C034727BD0DBA7B /* libPods-ActiveRecordTests.a */; };
+		840B69EF18D9ED0900B9C314 /* ARTypeConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 840B69EE18D9ED0900B9C314 /* ARTypeConverter.m */; };
 		847F108A18D9E93D00FA142C /* NSManagedObject+AR_Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 847F108918D9E93D00FA142C /* NSManagedObject+AR_Serialization.m */; };
 		9012A02B18C53023002D0B51 /* Example.m in Sources */ = {isa = PBXBuildFile; fileRef = 9012A02018C53023002D0B51 /* Example.m */; };
 		9012A02C18C53023002D0B51 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 9012A02318C53023002D0B51 /* Course.m */; };
@@ -61,6 +62,8 @@
 		095142AA7F314D5D9909D734 /* Pods-ActiveRecordTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActiveRecordTests.xcconfig"; path = "Pods/Pods-ActiveRecordTests.xcconfig"; sourceTree = "<group>"; };
 		36E3A54062CA4CD8981453EB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		520C64368C034727BD0DBA7B /* libPods-ActiveRecordTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ActiveRecordTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		840B69ED18D9ED0900B9C314 /* ARTypeConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTypeConverter.h; sourceTree = "<group>"; };
+		840B69EE18D9ED0900B9C314 /* ARTypeConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTypeConverter.m; sourceTree = "<group>"; };
 		847F108818D9E93D00FA142C /* NSManagedObject+AR_Serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+AR_Serialization.h"; sourceTree = "<group>"; };
 		847F108918D9E93D00FA142C /* NSManagedObject+AR_Serialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+AR_Serialization.m"; sourceTree = "<group>"; };
 		9012A01F18C53023002D0B51 /* Example.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Example.h; sourceTree = "<group>"; };
@@ -286,6 +289,8 @@
 				909E98C518B94EA100C2982E /* NSPredicate+AR.m */,
 				901FBAFA18BD3AB00004DD73 /* NSSortDescriptor+AR.h */,
 				901FBAFB18BD3AB00004DD73 /* NSSortDescriptor+AR.m */,
+				840B69ED18D9ED0900B9C314 /* ARTypeConverter.h */,
+				840B69EE18D9ED0900B9C314 /* ARTypeConverter.m */,
 			);
 			name = Source;
 			path = ../../Source;
@@ -459,6 +464,7 @@
 				90CFB45C18B91C8C007C3553 /* NSManagedObjectModel+AR.m in Sources */,
 				909E98C918B9504500C2982E /* NSManagedObject+AR_Finders.m in Sources */,
 				9012A02C18C53023002D0B51 /* Course.m in Sources */,
+				840B69EF18D9ED0900B9C314 /* ARTypeConverter.m in Sources */,
 				90645FA118964C8B0040B739 /* ActiveRecord.m in Sources */,
 				90A9687618B42D29003BEE09 /* NSFetchRequest+AR.m in Sources */,
 				90A9687318B425D8003BEE09 /* model.xcdatamodeld in Sources */,

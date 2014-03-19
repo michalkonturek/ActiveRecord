@@ -11,6 +11,8 @@
 #import "NSManagedObject+AR.h"
 #import "NSManagedObject+AR_Finders.h"
 
+#import "ARTypeConverter.h"
+
 @implementation NSManagedObject (AR_Serialization)
 
 + (instancetype)createOrUpdateObjectWithData:(NSDictionary *)data {
@@ -22,7 +24,7 @@
     
     id object = [[self class] objectWithPredicate:predicate];
     if (object == nil) {
-        object = [[self class] createObject];
+        object = [[self class] create];
     }
     
     object = [[self class] updateObject:object withAttributesData:data];
@@ -42,7 +44,7 @@
         id value = [data objectForKey:attribute];
         if (((NSNull *)value != [NSNull null]) && (value != nil)) {
             NSAttributeType type = [[attributes objectForKey:attribute] attributeType];
-            value = [MKTypeConverter convertValue:value toDataType:type];
+            value = [ARTypeConverter convertValue:value toDataType:type];
             [object setValue:value forKey:attribute];
             
 //            if ([self debug_isDebugOutputPrinted]) MLog(@"%@ : %@", attribute, value);
@@ -62,7 +64,7 @@
             
             // MKNOTE: I do not thing this statemen is usefull
             /* NOTE: NSNull is not accepted by attributes of NSManagedObject */
-            relatedObject = [MKTypeConverter convertNSNullToNil:relatedObject];
+            relatedObject = [ARTypeConverter convertNSNullToNil:relatedObject];
             
             NSRelationshipDescription *description = [[[object entity] relationshipsByName] objectForKey:relationship];
             if ([description isToMany]) {
@@ -97,7 +99,7 @@
             relatedObject = [destinationClass objectWithID:objectID];
             
         } else if ([relatedObject isKindOfClass:[NSString class]]) {
-            NSNumber *objectID = [MKTypeConverter convertNSStringToNSNumber:relatedObject];
+            NSNumber *objectID = [ARTypeConverter convertNSStringToNSNumber:relatedObject];
             Class destinationClass = NSClassFromString([[description destinationEntity] managedObjectClassName]);
             relatedObject = [destinationClass objectWithID:objectID];
             
