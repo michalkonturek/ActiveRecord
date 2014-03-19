@@ -10,6 +10,15 @@
 
 //#import <MKFoundationKit/NSDate+MK.h>
 
+/*
+ 
+ This class was used only when incorrect JSON was passed, 
+ i.e. numbers were decoded as strings.
+ 
+ Converter could be included as a module in case somebody wants to pass it.
+ 
+ */
+
 @implementation ARTypeConverter
 
 + (id)convertValue:(id)value toDataType:(NSAttributeType)type {

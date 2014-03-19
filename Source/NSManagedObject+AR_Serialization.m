@@ -90,7 +90,8 @@
     return object;
 }
 
-+ (instancetype)transformRelatedObject:(id)relatedObject toMatchRelationshipDescritpion:(NSRelationshipDescription *)description {
++ (instancetype)transformRelatedObject:(id)relatedObject
+        toMatchRelationshipDescritpion:(NSRelationshipDescription *)description {
     
     if (![relatedObject isKindOfClass:[NSManagedObject class]]) {
         if ([relatedObject isKindOfClass:[NSNumber class]]) {

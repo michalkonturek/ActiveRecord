@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7E9B23BA1FAC4D24B014C4C8 /* libPods-ActiveRecordTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 520C64368C034727BD0DBA7B /* libPods-ActiveRecordTests.a */; };
+		8401565A18D9F860000210BA /* ARTypeConverter_Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = 8401565918D9F860000210BA /* ARTypeConverter_Spec.m */; };
+		8401565C18D9FB7C000210BA /* NSManagedObject+AR_Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8401565B18D9FB7C000210BA /* NSManagedObject+AR_Serialization.m */; };
 		840B69EF18D9ED0900B9C314 /* ARTypeConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 840B69EE18D9ED0900B9C314 /* ARTypeConverter.m */; };
 		847F108A18D9E93D00FA142C /* NSManagedObject+AR_Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 847F108918D9E93D00FA142C /* NSManagedObject+AR_Serialization.m */; };
 		9012A02B18C53023002D0B51 /* Example.m in Sources */ = {isa = PBXBuildFile; fileRef = 9012A02018C53023002D0B51 /* Example.m */; };
@@ -62,6 +64,8 @@
 		095142AA7F314D5D9909D734 /* Pods-ActiveRecordTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActiveRecordTests.xcconfig"; path = "Pods/Pods-ActiveRecordTests.xcconfig"; sourceTree = "<group>"; };
 		36E3A54062CA4CD8981453EB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		520C64368C034727BD0DBA7B /* libPods-ActiveRecordTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ActiveRecordTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8401565918D9F860000210BA /* ARTypeConverter_Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTypeConverter_Spec.m; sourceTree = "<group>"; };
+		8401565B18D9FB7C000210BA /* NSManagedObject+AR_Serialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+AR_Serialization.m"; sourceTree = "<group>"; };
 		840B69ED18D9ED0900B9C314 /* ARTypeConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTypeConverter.h; sourceTree = "<group>"; };
 		840B69EE18D9ED0900B9C314 /* ARTypeConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTypeConverter.m; sourceTree = "<group>"; };
 		847F108818D9E93D00FA142C /* NSManagedObject+AR_Serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+AR_Serialization.h"; sourceTree = "<group>"; };
@@ -245,8 +249,10 @@
 				90645F8B18964BD50040B739 /* Supporting Files */,
 				90CFB46218B933D9007C3553 /* Factory.h */,
 				90CFB46318B933D9007C3553 /* Factory.m */,
+				8401565918D9F860000210BA /* ARTypeConverter_Spec.m */,
 				90CFB46018B925A1007C3553 /* NSManagedObject+AR_Spec.m */,
 				90F102B218BA56D50005B3E1 /* NSManagedObject+AR_Finders_Spec.m */,
+				8401565B18D9FB7C000210BA /* NSManagedObject+AR_Serialization.m */,
 				901FBAF618BD26630004DD73 /* NSPredicate+AR_Spec.m */,
 				901FBAF818BD39DE0004DD73 /* NSSortDescriptor+AR_Spec.m */,
 			);
@@ -490,6 +496,8 @@
 				90F102B318BA56D50005B3E1 /* NSManagedObject+AR_Finders_Spec.m in Sources */,
 				901FBAF718BD26630004DD73 /* NSPredicate+AR_Spec.m in Sources */,
 				901FBAF918BD39DE0004DD73 /* NSSortDescriptor+AR_Spec.m in Sources */,
+				8401565A18D9F860000210BA /* ARTypeConverter_Spec.m in Sources */,
+				8401565C18D9FB7C000210BA /* NSManagedObject+AR_Serialization.m in Sources */,
 				90CFB46418B933D9007C3553 /* Factory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
