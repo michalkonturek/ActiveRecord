@@ -24,7 +24,7 @@ describe(@"NSManagedObject+AR_Serialization", ^{
     
     describe(@"+createOrUpdateObjectWithData", ^{
         
-        context(@"when object exists", ^{
+        context(@"when an object with specified ID already exists", ^{
             
             beforeAll(^{
                 [Student deleteAll];
@@ -36,13 +36,13 @@ describe(@"NSManagedObject+AR_Serialization", ^{
             });
         });
         
-        context(@"when object does not exist", ^{
+        context(@"when no object with specified PK exists", ^{
             
             beforeAll(^{
                 [Student deleteAll];
             });
 
-            it(@"it should create new object", ^{
+            it(@"should create new object", ^{
                 [Student createOrUpdateObjectWithData:input];
                 [[@([Student count]) should] equal:@1];
             });
@@ -58,7 +58,7 @@ describe(@"NSManagedObject+AR_Serialization", ^{
             sut = [Student createWithID:uid];
         });
         
-        it(@"should update current object", ^{
+        it(@"should update object's attributes", ^{
             [Student updateObject:sut withData:input];
             
             id object = [Student objectWithID:uid];
@@ -67,6 +67,17 @@ describe(@"NSManagedObject+AR_Serialization", ^{
             [[[object age] should] equal:[input objectForKey:@"age"]];
             [[[object firstName] should] equal:[input objectForKey:@"firstName"]];
             [[[object lastName] should] equal:[input objectForKey:@"lastName"]];
+        });
+        
+        context(@"should update object's relationships", ^{
+            
+            it(@"", ^{
+                
+            });
+
+            it(@"", ^{
+                
+            });
         });
     });
     
