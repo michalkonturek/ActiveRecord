@@ -13,4 +13,6 @@
 
 + (void)createStudents:(NSInteger)count;
 
++ (void)deleteAll;
+
 @end

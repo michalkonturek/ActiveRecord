@@ -52,8 +52,7 @@ describe(@"NSManagedObject+AR_Serialization", ^{
         __block Student *sut;
         
         beforeEach(^{
-            [Student deleteAll];
-            [Course deleteAll];
+            [Factory deleteAll];
             sut = [Student createWithID:uid];
         });
         
@@ -102,27 +101,59 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                 [[module.name should] equal:[json objectForKey:@"name"]];
                 [[module.students should] haveCountOf:1];
             });
+        });
+        
+        context(@"should update related object of", ^{
             
-            it(@"should update related object of [NSManagedObject class]", ^{
+            void (^validate)(void) = ^() {
+                [[sut.modules should] haveCountOf:2];
                 
-            });
-
-            xit(@"should update related object of [NSNumber class]", ^{
+                id module = [[sut.modules allObjects] mk_match:^BOOL(id item) {
+                    return ([[item uid] integerValue] == 1);
+                }];
+                [[[module name] should] equal:@"Module A"];
                 
+                module = [[sut.modules allObjects] mk_match:^BOOL(id item) {
+                    return ([[item uid] integerValue] == 2);
+                }];
+                [[[module name] should] equal:@"Module B"];
+            };
+            
+            beforeEach(^{
+                [[Module createWithID:@1] setName:@"Module A"];
+                [[Module createWithID:@2] setName:@"Module B"];
             });
             
-            xit(@"should update related object of [NSString class]", ^{
-                
+            it(@"pointed by NSNumber class", ^{
+                id data = @{@"modules": @[@1, @2]};
+                [Student updateObject:sut withData:data];
+                validate();
             });
             
-            xit(@"should update related object of [NSDictionary class]", ^{
-                
+            it(@"pointed by NSString class", ^{
+                id data = @{@"modules": @[@"1", @"2"]};
+                [Student updateObject:sut withData:data];
+                validate();
+            });
+            
+            it(@"represented NSDictionary class", ^{
+                [Module deleteAll];
+                [Student updateObject:sut withData:@{@"modules": @[
+                                                             @{@"uid": @1, @"name": @"Module A"},
+                                                             @{@"uid": @2, @"name": @"Module B"}
+                                                             ]}];
+                validate();
+            });
+            
+            it(@"represented by NSManagedObject class", ^{
+                id data = @{@"modules": @[
+                                    [Module objectWithID:@1],
+                                    [Module objectWithID:@2]
+                                    ]};
+                [Student updateObject:sut withData:data];
+                validate();
             });
         });
-    });
-    
-    describe(@"+", ^{
-        
     });
 });
 

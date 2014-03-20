@@ -25,4 +25,12 @@
 //    [Student commit];
 }
 
++ (void)deleteAll {
+    [Course deleteAll];
+    [Module deleteAll];
+    [Registration deleteAll];
+    [Student deleteAll];
+    [StudyGroup deleteAll];
+}
+
 @end
