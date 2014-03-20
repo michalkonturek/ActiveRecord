@@ -24,10 +24,13 @@ describe(@"NSManagedObject+AR_Serialization", ^{
     
     describe(@"+createOrUpdateObjectWithData", ^{
         
+        beforeEach(^{
+            [Student deleteAll];
+        });
+        
         context(@"when an object with specified ID already exists", ^{
             
             beforeAll(^{
-                [Student deleteAll];
                 [Student createWithID:uid];
             });
             
@@ -37,11 +40,6 @@ describe(@"NSManagedObject+AR_Serialization", ^{
         });
         
         context(@"when no object with specified PK exists", ^{
-            
-            beforeAll(^{
-                [Student deleteAll];
-            });
-
             it(@"should create new object", ^{
                 [Student createOrUpdateObjectWithData:input];
                 [[@([Student count]) should] equal:@1];
@@ -72,11 +70,11 @@ describe(@"NSManagedObject+AR_Serialization", ^{
         
         context(@"should update object's relationships", ^{
             
-            xit(@"should handle relationship 1:1", ^{
+            xit(@"should update relationship 1:1", ^{
                 // add national number
             });
             
-            it(@"should handle relationship 1:m", ^{
+            it(@"should update relationship 1:m", ^{
                 id course = @{@"uid": @1, @"name": @"Software Engineering"};
                 id data = @{@"uid": @1, @"course": course};
                 [Student updateObject:sut withData:data];
@@ -86,7 +84,7 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                 [[item.name should] equal:[course objectForKey:@"name"]];
             });
             
-            it(@"should handle relationship m:n", ^{
+            it(@"should update relationship m:n", ^{
                 id module = @{@"uid": @1, @"name": @"iOS Application Programming"};
                 id data = @{@"uid": @1, @"modules": @[module]};
                 [Student updateObject:sut withData:data];
@@ -98,19 +96,19 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                 [[item.name should] equal:[module objectForKey:@"name"]];
             });
             
-            xit(@"should handle related object of [NSManagedObject class]", ^{
+            it(@"should update related object of [NSManagedObject class]", ^{
                 
             });
 
-            xit(@"should handle related object of [NSNumber class]", ^{
+            xit(@"should update related object of [NSNumber class]", ^{
                 
             });
             
-            xit(@"should handle related object of [NSString class]", ^{
+            xit(@"should update related object of [NSString class]", ^{
                 
             });
             
-            xit(@"should handle related object of [NSDictionary class]", ^{
+            xit(@"should update related object of [NSDictionary class]", ^{
                 
             });
         });
