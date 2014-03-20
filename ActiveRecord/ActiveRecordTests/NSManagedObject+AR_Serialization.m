@@ -28,19 +28,19 @@ describe(@"NSManagedObject+AR_Serialization", ^{
             [Student deleteAll];
         });
         
-        context(@"when an object with specified ID already exists", ^{
+        context(@"when an object with specified PK exists", ^{
             
             beforeAll(^{
                 [Student createWithID:uid];
             });
             
-            it(@"should not create another object", ^{
+            it(@"should not create another one", ^{
                 [[@([Student count]) should] equal:@1];
             });
         });
         
         context(@"when no object with specified PK exists", ^{
-            it(@"should create new object", ^{
+            it(@"should create new one", ^{
                 [Student createOrUpdateWithData:input];
                 [[@([Student count]) should] equal:@1];
             });
@@ -69,7 +69,7 @@ describe(@"NSManagedObject+AR_Serialization", ^{
         
         context(@"should update object's relationships", ^{
             
-            it(@"should update relationship 1:1", ^{
+            it(@"1:1", ^{
                 id json = @{@"uid": @1, @"signature": @"dlsgfjlaskdf"};
                 id data = @{@"uid": @1, @"registration": json};
                 [Student update:sut withData:data];
@@ -79,7 +79,7 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                 [[sut.registration.student.uid should] equal:sut.uid];
             });
             
-            it(@"should update relationship 1:m", ^{
+            it(@"1:m", ^{
                 id json = @{@"uid": @1, @"name": @"Software Engineering"};
                 id data = @{@"uid": @1, @"course": json};
                 [Student update:sut withData:data];
@@ -89,7 +89,7 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                 [[sut.course.students should] haveCountOf:1];
             });
             
-            it(@"should update relationship m:n", ^{
+            it(@"m:n", ^{
                 id json = @{@"uid": @1, @"name": @"iOS Application Programming"};
                 id data = @{@"uid": @1, @"modules": @[json]};
                 [Student update:sut withData:data];
@@ -103,7 +103,7 @@ describe(@"NSManagedObject+AR_Serialization", ^{
             });
         });
         
-        context(@"should update related object of", ^{
+        context(@"should update related object", ^{
             
             void (^validate)(void) = ^() {
                 [[sut.modules should] haveCountOf:2];
@@ -124,19 +124,19 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                 [[Module createWithID:@2] setName:@"Module B"];
             });
             
-            it(@"pointed by NSNumber class", ^{
+            it(@"pointed by NSNumber", ^{
                 id data = @{@"modules": @[@1, @2]};
                 [Student update:sut withData:data];
                 validate();
             });
             
-            it(@"pointed by NSString class", ^{
+            it(@"pointed by NSString", ^{
                 id data = @{@"modules": @[@"1", @"2"]};
                 [Student update:sut withData:data];
                 validate();
             });
             
-            it(@"represented NSDictionary class", ^{
+            it(@"represented NSDictionary", ^{
                 [Module deleteAll];
                 [Student update:sut withData:@{@"modules": @[
                                                              @{@"uid": @1, @"name": @"Module A"},
@@ -145,7 +145,7 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                 validate();
             });
             
-            it(@"represented by NSManagedObject class", ^{
+            it(@"represented by NSManagedObject", ^{
                 id data = @{@"modules": @[
                                     [Module objectWithID:@1],
                                     [Module objectWithID:@2]
