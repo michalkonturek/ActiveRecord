@@ -51,9 +51,9 @@ describe(@"NSManagedObject+AR_Serialization", ^{
     
     describe(@"+updateObject:withData", ^{
 
-        __block id sut;
+        __block Student *sut;
         
-        beforeAll(^{
+        beforeEach(^{
             [Student deleteAll];
             [Course deleteAll];
             sut = [Student createWithID:uid];
@@ -76,17 +76,26 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                 // add national number
             });
             
-            xit(@"should handle relationship 1:m", ^{
-                id course = @{@"uid": @1, @"uid": @"Software Engineering"};
+            it(@"should handle relationship 1:m", ^{
+                id course = @{@"uid": @1, @"name": @"Software Engineering"};
                 id data = @{@"uid": @1, @"course": course};
                 [Student updateObject:sut withData:data];
                 
-                [[[[sut course] uid] should] equal:[course objectForKey:@"uid"]];
-                [[[[sut course] name] should] equal:[course objectForKey:@"name"]];
+                Course *item = sut.course;
+                [[item.uid should] equal:[course objectForKey:@"uid"]];
+                [[item.name should] equal:[course objectForKey:@"name"]];
             });
             
-            xit(@"should handle relationship m:n", ^{
+            it(@"should handle relationship m:n", ^{
+                id module = @{@"uid": @1, @"name": @"iOS Application Programming"};
+                id data = @{@"uid": @1, @"modules": @[module]};
+                [Student updateObject:sut withData:data];
                 
+                [[sut.modules should] haveCountOf:1];
+                
+                Module *item = [[sut.modules allObjects] objectAtIndex:0];
+                [[item.uid should] equal:[module objectForKey:@"uid"]];
+                [[item.name should] equal:[module objectForKey:@"name"]];
             });
             
             xit(@"should handle related object of [NSManagedObject class]", ^{
