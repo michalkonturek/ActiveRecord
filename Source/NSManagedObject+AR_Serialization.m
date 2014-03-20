@@ -12,34 +12,39 @@
 #import "NSManagedObject+AR_Context.h"
 #import "NSManagedObject+AR_Finders.h"
 
+#import "NSPredicate+AR.h"
+
 #import "ARTypeConverter.h"
 
 @implementation NSManagedObject (AR_Serialization)
 
 + (instancetype)createOrUpdateWithData:(NSDictionary *)data {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"uid == %@", [data objectForKey:@"uid"]];
+    id pk = [self primaryKey];
+    id value = [data objectForKey:pk];
+    id predicate = [NSPredicate createFrom:@{pk: value}];
     return [self createOrUpdateWithData:data usingPredicate:predicate];
 }
 
-+ (instancetype)createOrUpdateWithData:(NSDictionary *)data usingPredicate:(NSPredicate *)predicate {
++ (instancetype)createOrUpdateWithData:(NSDictionary *)data
+                        usingPredicate:(NSPredicate *)predicate {
     
     id object = [self objectWithPredicate:predicate];
     if (object == nil) object = [self create];
     
-    object = [self updateObject:object withData:data];
+    object = [self update:object withData:data];
 
-    [self commit];
+//    [self commit]; NOTE: this should not be here (background processing?)
     
     return object;
 }
 
-+ (instancetype)updateObject:(id)object withData:(NSDictionary *)data {
-    object = [self updateObject:object withAttributesData:data];
-    object = [self updateObject:object withRelationshipsData:data];
++ (instancetype)update:(id)object withData:(NSDictionary *)data {
+    object = [self update:object withAttributesData:data];
+    object = [self update:object withRelationshipsData:data];
     return object;
 }
 
-+ (instancetype)updateObject:(id)object withAttributesData:(NSDictionary *)data {
++ (instancetype)update:(id)object withAttributesData:(NSDictionary *)data {
 //    if ([self debug_isDebugOutputPrinted]) MLog(@"- - - - -");
     
     NSDictionary *attributes = [[object entity] attributesByName];
@@ -58,7 +63,7 @@
     return object;
 }
 
-+ (instancetype)updateObject:(id)object withRelationshipsData:(NSDictionary *)data {
++ (instancetype)update:(id)object withRelationshipsData:(NSDictionary *)data {
     
     NSDictionary *relationships = [[object entity] relationshipsByName];
     for (NSString *relationship in [relationships allKeys]) {
@@ -78,14 +83,14 @@
 //                    NSMutableSet *relatedObjectSet = [NSMutableSet setWithSet:[object mutableSetValueForKey:relationship]];
                     
                     for (id __strong o in relatedObject) {
-                        o = [self transformRelatedObject:o toMatchRelationshipDescritpion:description];
+                        o = [self transform:o toMatchRelationship:description];
                         [relatedObjectSet addObject:o];
                     }
                     
                     [object setValue:relatedObjectSet forKey:relationship];
                 }
             } else {
-                relatedObject = [self transformRelatedObject:relatedObject toMatchRelationshipDescritpion:description];
+                relatedObject = [self transform:relatedObject toMatchRelationship:description];
                 [object setValue:relatedObject forKey:relationship];
             }
         }
@@ -94,29 +99,29 @@
     return object;
 }
 
-+ (instancetype)transformRelatedObject:(id)relatedObject
-        toMatchRelationshipDescritpion:(NSRelationshipDescription *)description {
++ (instancetype)transform:(id)object
+      toMatchRelationship:(NSRelationshipDescription *)description {
     
-    if (![relatedObject isKindOfClass:[NSManagedObject class]]) {
-        if ([relatedObject isKindOfClass:[NSNumber class]]) {
-            NSNumber *objectID = relatedObject;
+    if (![object isKindOfClass:[NSManagedObject class]]) {
+        if ([object isKindOfClass:[NSNumber class]]) {
+            NSNumber *objectID = object;
             Class destinationClass = NSClassFromString([[description destinationEntity] managedObjectClassName]);
-            relatedObject = [destinationClass objectWithID:objectID];
+            object = [destinationClass objectWithID:objectID];
             
-        } else if ([relatedObject isKindOfClass:[NSString class]]) {
-            NSNumber *objectID = [ARTypeConverter convertNSStringToNSNumber:relatedObject];
+        } else if ([object isKindOfClass:[NSString class]]) {
+            NSNumber *objectID = [ARTypeConverter convertNSStringToNSNumber:object];
             Class destinationClass = NSClassFromString([[description destinationEntity] managedObjectClassName]);
-            relatedObject = [destinationClass objectWithID:objectID];
+            object = [destinationClass objectWithID:objectID];
             
-        } else if ([relatedObject isKindOfClass:[NSDictionary class]]) {
+        } else if ([object isKindOfClass:[NSDictionary class]]) {
             Class destinationClass = NSClassFromString([[description destinationEntity] managedObjectClassName]);
-            relatedObject = [destinationClass createOrUpdateWithData:relatedObject];
+            object = [destinationClass createOrUpdateWithData:object];
         }
     }
     
 //    if ([self debug_isDebugOutputPrinted]) MLog(@"*** RELATION: %@", [[description destinationEntity] managedObjectClassName]);
     
-    return relatedObject;
+    return object;
 }
 
 - (NSDictionary *)dictionary {

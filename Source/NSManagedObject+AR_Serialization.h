@@ -12,14 +12,14 @@
 
 + (instancetype)createOrUpdateWithData:(NSDictionary *)data;
 + (instancetype)createOrUpdateWithData:(NSDictionary *)data
-                              usingPredicate:(NSPredicate *)predicate;
+                        usingPredicate:(NSPredicate *)predicate;
 
-+ (instancetype)updateObject:(id)object withData:(NSDictionary *)data;
-+ (instancetype)updateObject:(id)object withAttributesData:(NSDictionary *)data;
-+ (instancetype)updateObject:(id)object withRelationshipsData:(NSDictionary *)data;
++ (instancetype)update:(id)object withData:(NSDictionary *)data;
++ (instancetype)update:(id)object withAttributesData:(NSDictionary *)data;
++ (instancetype)update:(id)object withRelationshipsData:(NSDictionary *)data;
 
-+ (instancetype)transformRelatedObject:(id)relatedObject
-        toMatchRelationshipDescritpion:(NSRelationshipDescription *)description;
++ (instancetype)transform:(id)object
+      toMatchRelationship:(NSRelationshipDescription *)description;
 
 - (NSDictionary *)dictionary;
 
