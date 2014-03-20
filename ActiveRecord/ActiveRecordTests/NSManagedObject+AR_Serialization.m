@@ -41,7 +41,7 @@ describe(@"NSManagedObject+AR_Serialization", ^{
         
         context(@"when no object with specified PK exists", ^{
             it(@"should create new object", ^{
-                [Student createOrUpdateObjectWithData:input];
+                [Student createOrUpdateWithData:input];
                 [[@([Student count]) should] equal:@1];
             });
         });

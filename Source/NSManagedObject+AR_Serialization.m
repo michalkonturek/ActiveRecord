@@ -9,36 +9,33 @@
 #import "NSManagedObject+AR_Serialization.h"
 
 #import "NSManagedObject+AR.h"
+#import "NSManagedObject+AR_Context.h"
 #import "NSManagedObject+AR_Finders.h"
 
 #import "ARTypeConverter.h"
 
 @implementation NSManagedObject (AR_Serialization)
 
-+ (instancetype)createOrUpdateObjectWithData:(NSDictionary *)data {
++ (instancetype)createOrUpdateWithData:(NSDictionary *)data {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"uid == %@", [data objectForKey:@"uid"]];
-    return [[self class] createOrUpdateObjectWithData:data usingPredicate:predicate];
+    return [self createOrUpdateWithData:data usingPredicate:predicate];
 }
 
-+ (instancetype)createOrUpdateObjectWithData:(NSDictionary *)data usingPredicate:(NSPredicate *)predicate {
++ (instancetype)createOrUpdateWithData:(NSDictionary *)data usingPredicate:(NSPredicate *)predicate {
     
-    id object = [[self class] objectWithPredicate:predicate];
-    if (object == nil) {
-        object = [[self class] create];
-    }
+    id object = [self objectWithPredicate:predicate];
+    if (object == nil) object = [self create];
     
-//    object = [[self class] updateObject:object withAttributesData:data];
-//    object = [[self class] updateObject:object withRelationshipsData:data];
     object = [self updateObject:object withData:data];
 
-    [[self class] commit];
+    [self commit];
     
     return object;
 }
 
 + (instancetype)updateObject:(id)object withData:(NSDictionary *)data {
-    object = [[self class] updateObject:object withAttributesData:data];
-    object = [[self class] updateObject:object withRelationshipsData:data];
+    object = [self updateObject:object withAttributesData:data];
+    object = [self updateObject:object withRelationshipsData:data];
     return object;
 }
 
@@ -81,14 +78,14 @@
 //                    NSMutableSet *relatedObjectSet = [NSMutableSet setWithSet:[object mutableSetValueForKey:relationship]];
                     
                     for (id __strong o in relatedObject) {
-                        o = [[self class] transformRelatedObject:o toMatchRelationshipDescritpion:description];
+                        o = [self transformRelatedObject:o toMatchRelationshipDescritpion:description];
                         [relatedObjectSet addObject:o];
                     }
                     
                     [object setValue:relatedObjectSet forKey:relationship];
                 }
             } else {
-                relatedObject = [[self class] transformRelatedObject:relatedObject toMatchRelationshipDescritpion:description];
+                relatedObject = [self transformRelatedObject:relatedObject toMatchRelationshipDescritpion:description];
                 [object setValue:relatedObject forKey:relationship];
             }
         }
@@ -113,7 +110,7 @@
             
         } else if ([relatedObject isKindOfClass:[NSDictionary class]]) {
             Class destinationClass = NSClassFromString([[description destinationEntity] managedObjectClassName]);
-            relatedObject = [destinationClass createOrUpdateObjectWithData:relatedObject];
+            relatedObject = [destinationClass createOrUpdateWithData:relatedObject];
         }
     }
     
@@ -123,12 +120,12 @@
 }
 
 - (NSDictionary *)dictionary {
-    NSMutableDictionary *result = [NSMutableDictionary dictionary];
+    id result = [NSMutableDictionary dictionary];
     
-    NSDictionary *attributes = [[self entity] attributesByName];
+    id attributes = [[self entity] attributesByName];
     for (NSString *key in [attributes allKeys]) {
         id value = [self valueForKey:key];
-        [result setObject:value forKey:key];
+        if (value) [result setObject:value forKey:key];
     }
     
     return result;
