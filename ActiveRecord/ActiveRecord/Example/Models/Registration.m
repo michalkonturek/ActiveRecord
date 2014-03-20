@@ -14,7 +14,7 @@
 
 @dynamic uid;
 @dynamic date;
-@dynamic digitalSignature;
+@dynamic signature;
 @dynamic student;
 
 @end

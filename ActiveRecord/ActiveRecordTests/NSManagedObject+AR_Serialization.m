@@ -70,30 +70,34 @@ describe(@"NSManagedObject+AR_Serialization", ^{
         
         context(@"should update object's relationships", ^{
             
-            xit(@"should update relationship 1:1", ^{
-                // add national number
+            it(@"should update relationship 1:1", ^{
+                id json = @{@"uid": @1, @"signature": @"dlsgfjlaskdf"};
+                id data = @{@"uid": @1, @"registration": json};
+                [Student updateObject:sut withData:data];
+                
+                [[sut.registration.uid should] equal:[json objectForKey:@"uid"]];
+                [[sut.registration.signature should] equal:[json objectForKey:@"signature"]];
             });
             
             it(@"should update relationship 1:m", ^{
-                id course = @{@"uid": @1, @"name": @"Software Engineering"};
-                id data = @{@"uid": @1, @"course": course};
+                id json = @{@"uid": @1, @"name": @"Software Engineering"};
+                id data = @{@"uid": @1, @"course": json};
                 [Student updateObject:sut withData:data];
                 
-                Course *item = sut.course;
-                [[item.uid should] equal:[course objectForKey:@"uid"]];
-                [[item.name should] equal:[course objectForKey:@"name"]];
+                [[sut.course.uid should] equal:[json objectForKey:@"uid"]];
+                [[sut.course.name should] equal:[json objectForKey:@"name"]];
             });
             
             it(@"should update relationship m:n", ^{
-                id module = @{@"uid": @1, @"name": @"iOS Application Programming"};
-                id data = @{@"uid": @1, @"modules": @[module]};
+                id json = @{@"uid": @1, @"name": @"iOS Application Programming"};
+                id data = @{@"uid": @1, @"modules": @[json]};
                 [Student updateObject:sut withData:data];
                 
                 [[sut.modules should] haveCountOf:1];
                 
-                Module *item = [[sut.modules allObjects] objectAtIndex:0];
-                [[item.uid should] equal:[module objectForKey:@"uid"]];
-                [[item.name should] equal:[module objectForKey:@"name"]];
+                Module *module = [[sut.modules allObjects] objectAtIndex:0];
+                [[module.uid should] equal:[json objectForKey:@"uid"]];
+                [[module.name should] equal:[json objectForKey:@"name"]];
             });
             
             it(@"should update related object of [NSManagedObject class]", ^{

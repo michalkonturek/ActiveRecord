@@ -10,5 +10,6 @@
 #import "StudyGroup.h"
 #import "Module.h"
 #import "Course.h"
+#import "Registration.h"
 
 

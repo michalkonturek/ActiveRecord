@@ -15,7 +15,7 @@
 
 @property (nonatomic, retain) NSNumber * uid;
 @property (nonatomic, retain) NSDate * date;
-@property (nonatomic, retain) NSString * digitalSignature;
+@property (nonatomic, retain) NSString * signature;
 @property (nonatomic, retain) Student *student;
 
 @end
