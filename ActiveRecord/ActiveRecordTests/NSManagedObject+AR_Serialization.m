@@ -77,6 +77,7 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                 
                 [[sut.registration.uid should] equal:[json objectForKey:@"uid"]];
                 [[sut.registration.signature should] equal:[json objectForKey:@"signature"]];
+                [[sut.registration.student.uid should] equal:sut.uid];
             });
             
             it(@"should update relationship 1:m", ^{
@@ -86,6 +87,7 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                 
                 [[sut.course.uid should] equal:[json objectForKey:@"uid"]];
                 [[sut.course.name should] equal:[json objectForKey:@"name"]];
+                [[sut.course.students should] haveCountOf:1];
             });
             
             it(@"should update relationship m:n", ^{
@@ -98,6 +100,7 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                 Module *module = [[sut.modules allObjects] objectAtIndex:0];
                 [[module.uid should] equal:[json objectForKey:@"uid"]];
                 [[module.name should] equal:[json objectForKey:@"name"]];
+                [[module.students should] haveCountOf:1];
             });
             
             it(@"should update related object of [NSManagedObject class]", ^{
