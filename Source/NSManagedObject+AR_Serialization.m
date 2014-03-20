@@ -72,7 +72,8 @@
         if (relatedObject != nil) {
             
             // MKNOTE: I do not think this statemen is usefull
-            /* NOTE: NSNull is not accepted by attributes of NSManagedObject */
+            // NOTE: NSNull is not accepted by attributes of NSManagedObject
+            // Replace with exist from MKFoundation
             relatedObject = [ARTypeConverter convertNSNullToNil:relatedObject];
             
             NSRelationshipDescription *description = [[[object entity] relationshipsByName] objectForKey:relationship];
@@ -80,7 +81,6 @@
                 
                 if (relatedObject != nil && [relatedObject isKindOfClass:[NSArray class]]) {
                     NSMutableSet *relatedObjectSet = [object mutableSetValueForKey:relationship];
-//                    NSMutableSet *relatedObjectSet = [NSMutableSet setWithSet:[object mutableSetValueForKey:relationship]];
                     
                     for (id __strong o in relatedObject) {
                         o = [self transform:o toMatchRelationship:description];
@@ -99,29 +99,20 @@
     return object;
 }
 
-+ (instancetype)transform:(id)object
-      toMatchRelationship:(NSRelationshipDescription *)description {
++ (instancetype)transform:(id)object toMatchRelationship:(NSRelationshipDescription *)description {
     
-    if (![object isKindOfClass:[NSManagedObject class]]) {
-        if ([object isKindOfClass:[NSNumber class]]) {
-            NSNumber *objectID = object;
-            Class destinationClass = NSClassFromString([[description destinationEntity] managedObjectClassName]);
-            object = [destinationClass objectWithID:objectID];
-            
-        } else if ([object isKindOfClass:[NSString class]]) {
-            NSNumber *objectID = [ARTypeConverter convertNSStringToNSNumber:object];
-            Class destinationClass = NSClassFromString([[description destinationEntity] managedObjectClassName]);
-            object = [destinationClass objectWithID:objectID];
-            
-        } else if ([object isKindOfClass:[NSDictionary class]]) {
-            Class destinationClass = NSClassFromString([[description destinationEntity] managedObjectClassName]);
-            object = [destinationClass createOrUpdateWithData:object];
-        }
-    }
+    Class klass = NSClassFromString([[description destinationEntity] managedObjectClassName]);
     
+    if ([object isKindOfClass:[NSManagedObject class]]) return object;
+    if ([object isKindOfClass:[NSDictionary class]]) return [klass createOrUpdateWithData:object];
+    if ([object isKindOfClass:[NSNumber class]]) return [klass objectWithID:object];
+    
+    if ([object isKindOfClass:[NSString class]])
+        return [klass objectWithID:[ARTypeConverter convertNSStringToNSNumber:object]];
+
 //    if ([self debug_isDebugOutputPrinted]) MLog(@"*** RELATION: %@", [[description destinationEntity] managedObjectClassName]);
     
-    return object;
+    return nil;
 }
 
 - (NSDictionary *)dictionary {

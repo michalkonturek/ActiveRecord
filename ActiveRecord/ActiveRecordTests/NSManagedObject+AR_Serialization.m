@@ -22,7 +22,7 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                          @"firstName": @"Adam",
                          @"lastName": @"Smith"};
     
-    describe(@"+createOrUpdateObjectWithData", ^{
+    describe(@"+createOrUpdateWithData", ^{
         
         beforeEach(^{
             [Student deleteAll];
@@ -47,7 +47,7 @@ describe(@"NSManagedObject+AR_Serialization", ^{
         });
     });
     
-    describe(@"+updateObject:withData", ^{
+    describe(@"+update:withData", ^{
 
         __block Student *sut;
         
