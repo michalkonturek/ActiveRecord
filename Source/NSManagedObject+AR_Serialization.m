@@ -45,7 +45,6 @@
 }
 
 + (instancetype)update:(id)object withAttributesData:(NSDictionary *)data {
-//    if ([self debug_isDebugOutputPrinted]) MLog(@"- - - - -");
     
     NSDictionary *attributes = [[object entity] attributesByName];
     for (NSString *attribute in [attributes allKeys]) {
@@ -55,8 +54,6 @@
             NSAttributeType type = [[attributes objectForKey:attribute] attributeType];
             value = [ARTypeConverter convertValue:value toDataType:type];
             [object setValue:value forKey:attribute];
-            
-//            if ([self debug_isDebugOutputPrinted]) MLog(@"%@ : %@", attribute, value);
         }
     }
     
@@ -109,8 +106,6 @@
     
     if ([object isKindOfClass:[NSString class]])
         return [klass objectWithID:[ARTypeConverter convertNSStringToNSNumber:object]];
-
-//    if ([self debug_isDebugOutputPrinted]) MLog(@"*** RELATION: %@", [[description destinationEntity] managedObjectClassName]);
     
     return nil;
 }
