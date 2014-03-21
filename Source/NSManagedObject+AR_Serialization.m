@@ -129,14 +129,14 @@
                 NSMutableSet *relatedObjectSet = [self mutableSetValueForKey:relationship];
                 
                 for (id __strong item in relatedObject) {
-                    item = [[self class] transform:item toMatchRelationship:description];
+                    item = [self _transform:item toMatchRelationship:description];
                     if (item) [relatedObjectSet addObject:item];
                 }
                 
                 [self setValue:relatedObjectSet forKey:relationship];
             }
         } else {
-            relatedObject = [[self class] transform:relatedObject toMatchRelationship:description];
+            relatedObject = [self _transform:relatedObject toMatchRelationship:description];
             if (relatedObject) [self setValue:relatedObject forKey:relationship];
         }
     }
@@ -144,7 +144,7 @@
     return self;
 }
 
-+ (instancetype)transform:(id)object toMatchRelationship:(NSRelationshipDescription *)description {
+- (instancetype)_transform:(id)object toMatchRelationship:(NSRelationshipDescription *)description {
 
     if ([object isKindOfClass:[NSManagedObject class]]) return object;
     

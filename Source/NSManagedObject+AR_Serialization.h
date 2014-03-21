@@ -18,11 +18,11 @@
 + (instancetype)update:(id)object withAttributesData:(NSDictionary *)data;
 + (instancetype)update:(id)object withRelationshipsData:(NSDictionary *)data;
 
-+ (instancetype)transform:(id)object toMatchRelationship:(NSRelationshipDescription *)description;
-
 - (instancetype)updateWithData:(NSDictionary *)data;
 - (instancetype)updateWithAttributesData:(NSDictionary *)data;
 - (instancetype)updateWithRelationshipsData:(NSDictionary *)data;
+
+//- (instancetype)transform:(id)object toMatchRelationship:(NSRelationshipDescription *)description;
 
 - (NSDictionary *)dictionary;
 
