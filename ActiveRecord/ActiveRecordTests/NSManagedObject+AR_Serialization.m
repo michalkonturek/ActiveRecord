@@ -125,11 +125,11 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                     [[sut.modules should] haveCountOf:0];
                 });
                 
-//                it(@"of not null type are ignored", ^{
-//                    id data = @{@"modules": @[[NSNull null]]};
-//                    [Student update:sut withData:data];
-//                    [[sut.modules should] haveCountOf:0];
-//                });
+                it(@"of not null type are ignored", ^{
+                    id data = @{@"modules": @[[NSNull null]]};
+                    [Student update:sut withData:data];
+                    [[sut.modules should] haveCountOf:0];
+                });
                 
                 void (^validate)(void) = ^() {
                     [[sut.modules should] haveCountOf:2];
