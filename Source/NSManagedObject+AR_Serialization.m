@@ -53,7 +53,7 @@
         if (((NSNull *)value != [NSNull null]) && (value != nil)) {
             NSAttributeType type = [[attributes objectForKey:attribute] attributeType];
             value = [ARTypeConverter convertValue:value toDataType:type];
-            [object setValue:value forKey:attribute];
+            if (value) [object setValue:value forKey:attribute];
         }
     }
     
@@ -79,9 +79,9 @@
                 if (relatedObject != nil && [relatedObject isKindOfClass:[NSArray class]]) {
                     NSMutableSet *relatedObjectSet = [object mutableSetValueForKey:relationship];
                     
-                    for (id __strong o in relatedObject) {
-                        o = [self transform:o toMatchRelationship:description];
-                        [relatedObjectSet addObject:o];
+                    for (id __strong item in relatedObject) {
+                        item = [self transform:item toMatchRelationship:description];
+                        if (item) [relatedObjectSet addObject:item];
                     }
                     
                     [object setValue:relatedObjectSet forKey:relationship];
