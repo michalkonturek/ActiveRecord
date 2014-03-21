@@ -20,7 +20,9 @@
 
 + (instancetype)transform:(id)object toMatchRelationship:(NSRelationshipDescription *)description;
 
+- (instancetype)updateWithData:(NSDictionary *)data;
 - (instancetype)updateWithAttributesData:(NSDictionary *)data;
+- (instancetype)updateWithRelationshipsData:(NSDictionary *)data;
 
 - (NSDictionary *)dictionary;
 

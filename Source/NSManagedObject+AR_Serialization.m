@@ -29,7 +29,7 @@
                         usingPredicate:(NSPredicate *)predicate {
     
     id object = [self objectWithPredicate:predicate];
-    if (object == nil) object = [self create];
+    if (!object) object = [self create];
     
     object = [self update:object withData:data];
 
@@ -39,9 +39,14 @@
 }
 
 + (instancetype)update:(id)object withData:(NSDictionary *)data {
-    object = [self update:object withAttributesData:data];
-    object = [self update:object withRelationshipsData:data];
-    return object;
+    return [object updateWithData:data];
+//    object = [self update:object withAttributesData:data];
+//    object = [self update:object withRelationshipsData:data];
+//    return object;
+}
+
+- (instancetype)updateWithData:(NSDictionary *)data {
+    return [[self updateWithAttributesData:data] updateWithRelationshipsData:data];
 }
 
 + (instancetype)update:(id)object withAttributesData:(NSDictionary *)data {
