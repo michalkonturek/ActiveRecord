@@ -77,6 +77,25 @@ describe(@"NSManagedObject+AR_Serialization", ^{
         
         context(@"relationships", ^{
             
+            context(@"of null type are ignored", ^{
+               
+                it(@"in m:1 or m:n", ^{
+                    id data = @{@"modules": [NSNull null]};
+                    [Student update:sut withData:data];
+                    [[sut.modules should] haveCountOf:0];
+                });
+                
+                it(@"in 1:1", ^{
+                    id object = @{@"uid": @1, @"signature": @"dlsgfjlaskdf"};
+                    id data = @{@"uid": @1, @"registration": object};
+                    [Student update:sut withData:data];
+                    
+                    data = @{@"registration": [NSNull null]};
+                    [Student update:sut withData:data];
+                    [[sut.registration shouldNot] beNil];
+                });
+            });
+            
             context(@"are handled of type", ^{
                 it(@"1:1", ^{
                     id json = @{@"uid": @1, @"signature": @"dlsgfjlaskdf"};

@@ -68,11 +68,6 @@
         id relatedObject = [data objectForKey:relationship];
         if (relatedObject != nil) {
             
-            // MKNOTE: I do not think this statemen is usefull
-            // NOTE: NSNull is not accepted by attributes of NSManagedObject
-            // Replace with exist from MKFoundation
-            relatedObject = [ARTypeConverter convertNSNullToNil:relatedObject];
-            
             NSRelationshipDescription *description = [[[object entity] relationshipsByName] objectForKey:relationship];
             if ([description isToMany]) {
                 
@@ -88,7 +83,7 @@
                 }
             } else {
                 relatedObject = [self transform:relatedObject toMatchRelationship:description];
-                [object setValue:relatedObject forKey:relationship];
+                if (relatedObject) [object setValue:relatedObject forKey:relationship];
             }
         }
     }
