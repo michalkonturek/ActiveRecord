@@ -66,25 +66,24 @@
     for (NSString *relationship in [relationships allKeys]) {
         
         id relatedObject = [data objectForKey:relationship];
-        if (relatedObject != nil) {
+        if (!relatedObject) continue;
+
+        NSRelationshipDescription *description = [[[object entity] relationshipsByName] objectForKey:relationship];
+        if ([description isToMany]) {
             
-            NSRelationshipDescription *description = [[[object entity] relationshipsByName] objectForKey:relationship];
-            if ([description isToMany]) {
+            if ([relatedObject isKindOfClass:[NSArray class]]) {
+                NSMutableSet *relatedObjectSet = [object mutableSetValueForKey:relationship];
                 
-                if (relatedObject != nil && [relatedObject isKindOfClass:[NSArray class]]) {
-                    NSMutableSet *relatedObjectSet = [object mutableSetValueForKey:relationship];
-                    
-                    for (id __strong item in relatedObject) {
-                        item = [self transform:item toMatchRelationship:description];
-                        if (item) [relatedObjectSet addObject:item];
-                    }
-                    
-                    [object setValue:relatedObjectSet forKey:relationship];
+                for (id __strong item in relatedObject) {
+                    item = [self transform:item toMatchRelationship:description];
+                    if (item) [relatedObjectSet addObject:item];
                 }
-            } else {
-                relatedObject = [self transform:relatedObject toMatchRelationship:description];
-                if (relatedObject) [object setValue:relatedObject forKey:relationship];
+                
+                [object setValue:relatedObjectSet forKey:relationship];
             }
+        } else {
+            relatedObject = [self transform:relatedObject toMatchRelationship:description];
+            if (relatedObject) [object setValue:relatedObject forKey:relationship];
         }
     }
     
@@ -92,10 +91,11 @@
 }
 
 + (instancetype)transform:(id)object toMatchRelationship:(NSRelationshipDescription *)description {
+
+    if ([object isKindOfClass:[NSManagedObject class]]) return object;
     
     Class klass = NSClassFromString([[description destinationEntity] managedObjectClassName]);
     
-    if ([object isKindOfClass:[NSManagedObject class]]) return object;
     if ([object isKindOfClass:[NSDictionary class]]) return [klass createOrUpdateWithData:object];
     if ([object isKindOfClass:[NSNumber class]]) return [klass objectWithID:object];
     
