@@ -45,19 +45,36 @@
 }
 
 + (instancetype)update:(id)object withAttributesData:(NSDictionary *)data {
+
+    return [object updateWithAttributesData:data];
+//    NSDictionary *attributes = [[object entity] attributesByName];
+//    for (NSString *attribute in [attributes allKeys]) {
+//        
+//        id value = [data objectForKey:attribute];
+//        if (((NSNull *)value != [NSNull null]) && (value != nil)) {
+//            NSAttributeType type = [[attributes objectForKey:attribute] attributeType];
+//            value = [ARTypeConverter convertValue:value toDataType:type];
+//            if (value) [object setValue:value forKey:attribute];
+//        }
+//    }
+//    
+//    return object;
+}
+
+- (instancetype)updateWithAttributesData:(NSDictionary *)data {
     
-    NSDictionary *attributes = [[object entity] attributesByName];
+    NSDictionary *attributes = [[self entity] attributesByName];
     for (NSString *attribute in [attributes allKeys]) {
         
         id value = [data objectForKey:attribute];
         if (((NSNull *)value != [NSNull null]) && (value != nil)) {
             NSAttributeType type = [[attributes objectForKey:attribute] attributeType];
             value = [ARTypeConverter convertValue:value toDataType:type];
-            if (value) [object setValue:value forKey:attribute];
+            if (value) [self setValue:value forKey:attribute];
         }
     }
     
-    return object;
+    return self;
 }
 
 + (instancetype)update:(id)object withRelationshipsData:(NSDictionary *)data {
