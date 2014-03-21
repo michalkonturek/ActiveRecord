@@ -79,32 +79,64 @@
 
 + (instancetype)update:(id)object withRelationshipsData:(NSDictionary *)data {
     
-    NSDictionary *relationships = [[object entity] relationshipsByName];
+    return [object updateWithRelationshipsData:data];
+    
+//    NSDictionary *relationships = [[object entity] relationshipsByName];
+//    for (NSString *relationship in [relationships allKeys]) {
+//        
+//        id relatedObject = [data objectForKey:relationship];
+//        if (!relatedObject) continue;
+//
+//        NSRelationshipDescription *description = [[[object entity] relationshipsByName] objectForKey:relationship];
+//        if ([description isToMany]) {
+//            
+//            if ([relatedObject isKindOfClass:[NSArray class]]) {
+//                NSMutableSet *relatedObjectSet = [object mutableSetValueForKey:relationship];
+//                
+//                for (id __strong item in relatedObject) {
+//                    item = [self transform:item toMatchRelationship:description];
+//                    if (item) [relatedObjectSet addObject:item];
+//                }
+//                
+//                [object setValue:relatedObjectSet forKey:relationship];
+//            }
+//        } else {
+//            relatedObject = [self transform:relatedObject toMatchRelationship:description];
+//            if (relatedObject) [object setValue:relatedObject forKey:relationship];
+//        }
+//    }
+//    
+//    return object;
+}
+
+- (instancetype)updateWithRelationshipsData:(NSDictionary *)data {
+    
+    NSDictionary *relationships = [[self entity] relationshipsByName];
     for (NSString *relationship in [relationships allKeys]) {
         
         id relatedObject = [data objectForKey:relationship];
         if (!relatedObject) continue;
-
-        NSRelationshipDescription *description = [[[object entity] relationshipsByName] objectForKey:relationship];
+        
+        NSRelationshipDescription *description = [[[self entity] relationshipsByName] objectForKey:relationship];
         if ([description isToMany]) {
             
             if ([relatedObject isKindOfClass:[NSArray class]]) {
-                NSMutableSet *relatedObjectSet = [object mutableSetValueForKey:relationship];
+                NSMutableSet *relatedObjectSet = [self mutableSetValueForKey:relationship];
                 
                 for (id __strong item in relatedObject) {
-                    item = [self transform:item toMatchRelationship:description];
+                    item = [[self class] transform:item toMatchRelationship:description];
                     if (item) [relatedObjectSet addObject:item];
                 }
                 
-                [object setValue:relatedObjectSet forKey:relationship];
+                [self setValue:relatedObjectSet forKey:relationship];
             }
         } else {
-            relatedObject = [self transform:relatedObject toMatchRelationship:description];
-            if (relatedObject) [object setValue:relatedObject forKey:relationship];
+            relatedObject = [[self class] transform:relatedObject toMatchRelationship:description];
+            if (relatedObject) [self setValue:relatedObject forKey:relationship];
         }
     }
     
-    return object;
+    return self;
 }
 
 + (instancetype)transform:(id)object toMatchRelationship:(NSRelationshipDescription *)description {
