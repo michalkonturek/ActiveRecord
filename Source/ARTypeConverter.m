@@ -26,28 +26,28 @@
 }
 
 
-+ (id)convertValue:(id)value toDataType:(NSAttributeType)type {
-    
-    if ([value isKindOfClass:[NSString class]]) {
-        return [[self class] convertString:value toDataType:type];
-    } else {
-        return value;
-    }
-    
-//    if ([value isKindOfClass:[NSNumber class]]) {
+//+ (id)convertValue:(id)value toDataType:(NSAttributeType)type {
+//    
+//    if ([value isKindOfClass:[NSString class]]) {
+//        return [[self class] convertString:value toDataType:type];
+//    } else {
 //        return value;
 //    }
-    
-    return nil;
-}
+//    
+////    if ([value isKindOfClass:[NSNumber class]]) {
+////        return value;
+////    }
+//    
+//    return nil;
+//}
 
-+ (id)convertString:(NSString *)value toDataType:(NSAttributeType)type {
-
-    return [[self create] convertString:value toAttributeType:type];
-}
+//+ (id)convertString:(NSString *)value toDataType:(NSAttributeType)type {
+//
+//    return [[self create] convertString:value toAttributeType:type];
+//}
 
 - (id)convert:(id)value toAttributeType:(NSAttributeType)type {
-    if (![value isKindOfClass:[NSString class]]) return nil;
+    if (![value isKindOfClass:[NSString class]]) return value;
     return [self convertString:value toAttributeType:type];
 }
 
@@ -99,23 +99,23 @@
     return value;
 }
 
-+ (NSNumber *)convertNSStringToNSNumber:(NSString *)value {
-    
-    if ((NSNull *)value != [NSNull null] && value != nil) {
-        @try {
-            return [NSNumber numberWithInteger:[value integerValue]];
-        }
-        @catch (NSException *exception) {
-            return nil;
-        }
-    }
-    
-    return nil;
-}
+//+ (NSNumber *)convertNSStringToNSNumber:(NSString *)value {
+//    
+//    if ((NSNull *)value != [NSNull null] && value != nil) {
+//        @try {
+//            return [NSNumber numberWithInteger:[value integerValue]];
+//        }
+//        @catch (NSException *exception) {
+//            return nil;
+//        }
+//    }
+//    
+//    return nil;
+//}
 
-+ (NSNumber *)convertNSStringToNSNumberBool:(NSString *)value {
-    return [NSNumber numberWithBool:[self convertNSStringToBool:value]];
-}
+//+ (NSNumber *)convertNSStringToNSNumberBool:(NSString *)value {
+//    return [NSNumber numberWithBool:[self convertNSStringToBool:value]];
+//}
 
 + (BOOL)convertNSStringToBool:(NSString *)value {
     
@@ -135,13 +135,13 @@
 
 
 
-+ (id)convertNilToNSNull:(id)value {
-    return (value == nil) ? [NSNull null] : value;
-}
-
-+ (id)convertNSNullToNil:(id)value {
-    return ((NSNull *)value == [NSNull null]) ? nil : value;
-}
+//+ (id)convertNilToNSNull:(id)value {
+//    return (value == nil) ? [NSNull null] : value;
+//}
+//
+//+ (id)convertNSNullToNil:(id)value {
+//    return ((NSNull *)value == [NSNull null]) ? nil : value;
+//}
 
 
 @end

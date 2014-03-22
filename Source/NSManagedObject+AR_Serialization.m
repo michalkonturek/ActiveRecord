@@ -74,7 +74,7 @@
         id value = [data objectForKey:attribute];
         if (((NSNull *)value != [NSNull null]) && (value != nil)) {
             NSAttributeType type = [[attributes objectForKey:attribute] attributeType];
-            value = [ARTypeConverter convertValue:value toDataType:type];
+            value = [[ARTypeConverter create] convert:value toAttributeType:type];
             if (value) [self setValue:value forKey:attribute];
         }
     }
@@ -154,7 +154,7 @@
     if ([object isKindOfClass:[NSNumber class]]) return [klass objectWithID:object];
     
     if ([object isKindOfClass:[NSString class]])
-        return [klass objectWithID:[ARTypeConverter convertNSStringToNSNumber:object]];
+        return [klass objectWithID:[[ARTypeConverter create] convertNSStringToNSNumber:object]];
     
     return nil;
 }

@@ -33,8 +33,9 @@ describe(@"ARTypeConverter", ^{
     describe(@"-convert:toAttributeType:", ^{
         
         context(@"when type is not supported", ^{
-            it(@"returns nil", ^{
-                [[[sut convert:@1 toAttributeType:NSStringAttributeType] should] beNil];
+            it(@"returns same instance", ^{
+                id expected = @1;
+                [[[sut convert:expected toAttributeType:NSStringAttributeType] should] beIdenticalTo:expected];
             });
         });
     });
