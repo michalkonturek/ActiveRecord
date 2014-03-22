@@ -11,12 +11,10 @@
 //#import <MKFoundationKit/NSDate+MK.h>
 
 /*
+ This class is responsible for fixing JSON with incorrect types,
+ i.e. numbers are passed as strings.
  
- This class was used only when incorrect JSON was passed, 
- i.e. numbers were decoded as strings.
- 
- Converter could be included as a module in case somebody wants to pass it.
- 
+ TODO: anyone should be able to add its own converter
  */
 
 @implementation ARTypeConverter
@@ -24,27 +22,6 @@
 + (instancetype)create {
     return [[self alloc] init];
 }
-
-
-//+ (id)convertValue:(id)value toDataType:(NSAttributeType)type {
-//    
-//    if ([value isKindOfClass:[NSString class]]) {
-//        return [[self class] convertString:value toDataType:type];
-//    } else {
-//        return value;
-//    }
-//    
-////    if ([value isKindOfClass:[NSNumber class]]) {
-////        return value;
-////    }
-//    
-//    return nil;
-//}
-
-//+ (id)convertString:(NSString *)value toDataType:(NSAttributeType)type {
-//
-//    return [[self create] convertString:value toAttributeType:type];
-//}
 
 - (id)convert:(id)value toAttributeType:(NSAttributeType)type {
     if (![value isKindOfClass:[NSString class]]) return value;
@@ -65,9 +42,6 @@
         case NSInteger64AttributeType:
             return [self convertNSStringToNSNumber:value];
             break;
-//        case NSBooleanAttributeType:
-//            return [[self class] convertNSStringToNSNumberBool:value];
-//            break;
 //        case NSDateAttributeType:
 //            return [NSDate mk_dateFromString:value];
 //            break;
@@ -98,50 +72,5 @@
     if ([[NSNull null] isEqual:value]) return nil;
     return value;
 }
-
-//+ (NSNumber *)convertNSStringToNSNumber:(NSString *)value {
-//    
-//    if ((NSNull *)value != [NSNull null] && value != nil) {
-//        @try {
-//            return [NSNumber numberWithInteger:[value integerValue]];
-//        }
-//        @catch (NSException *exception) {
-//            return nil;
-//        }
-//    }
-//    
-//    return nil;
-//}
-
-//+ (NSNumber *)convertNSStringToNSNumberBool:(NSString *)value {
-//    return [NSNumber numberWithBool:[self convertNSStringToBool:value]];
-//}
-
-+ (BOOL)convertNSStringToBool:(NSString *)value {
-    
-    if ((NSNull *)value != [NSNull null] && value != nil) {
-        @try {
-            if ([value isEqualToString:@"Y"] == YES || [value isEqualToString:@"y"] == YES) {
-                return YES;
-            }
-        }
-        @catch (NSException *exception) {
-            return NO;
-        }
-    }
-    
-    return NO;
-}
-
-
-
-//+ (id)convertNilToNSNull:(id)value {
-//    return (value == nil) ? [NSNull null] : value;
-//}
-//
-//+ (id)convertNSNullToNil:(id)value {
-//    return ((NSNull *)value == [NSNull null]) ? nil : value;
-//}
-
 
 @end
