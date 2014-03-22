@@ -12,7 +12,7 @@
 
 + (instancetype)create;
 
-
+- (id)convert:(id)value toAttributeType:(NSAttributeType)type;
 - (id)convertString:(NSString *)value toAttributeType:(NSAttributeType)type;
 
 - (id)convertNilToNSNull:(id)value;

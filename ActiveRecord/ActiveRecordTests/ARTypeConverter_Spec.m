@@ -30,6 +30,15 @@ describe(@"ARTypeConverter", ^{
         });
     });
     
+    describe(@"-convert:toAttributeType:", ^{
+        
+        context(@"when type is not supported", ^{
+            it(@"returns nil", ^{
+                [[[sut convert:@1 toAttributeType:NSStringAttributeType] should] beNil];
+            });
+        });
+    });
+    
     describe(@"-convertString:toAttributeType:", ^{
         
         it(@"returns input when NSString type", ^{
@@ -92,7 +101,7 @@ describe(@"ARTypeConverter", ^{
         
         context(@"when not NSNull", ^{
             it(@"returns same instance", ^{
-                id expected = nil;
+                id expected = @1;
                 [[[sut convertNSNullToNil:expected] should] beIdenticalTo:expected];
             });
         });

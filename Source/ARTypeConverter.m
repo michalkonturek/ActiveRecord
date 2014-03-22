@@ -44,30 +44,11 @@
 + (id)convertString:(NSString *)value toDataType:(NSAttributeType)type {
 
     return [[self create] convertString:value toAttributeType:type];
-    
-//    switch (type) {
-//        case NSStringAttributeType:
-//            return value;
-//            break;
-//        case NSInteger16AttributeType:
-//            return [[self class] convertNSStringToNSNumber:value];
-//            break;
-//        case NSInteger32AttributeType:
-//            return [[self class] convertNSStringToNSNumber:value];
-//            break;
-//        case NSInteger64AttributeType:
-//            return [[self class] convertNSStringToNSNumberLong:value];
-//            break;
-//        case NSBooleanAttributeType:
-//            return [[self class] convertNSStringToNSNumberBool:value];
-//            break;
-////        case NSDateAttributeType:
-////            return [NSDate mk_dateFromString:value];
-////            break;
-//        default:
-//            return nil;
-//            break;
-//    }
+}
+
+- (id)convert:(id)value toAttributeType:(NSAttributeType)type {
+    if (![value isKindOfClass:[NSString class]]) return nil;
+    return [self convertString:value toAttributeType:type];
 }
 
 - (id)convertString:(NSString *)value toAttributeType:(NSAttributeType)type {
@@ -118,11 +99,6 @@
     return value;
 }
 
-
-//+ (NSNumber *)convertNSStringToNSNumberOrNSNull:(NSString *)value {
-//    return [self convertNilToNSNull:[self convertNSStringToNSNumber:value]];
-//}
-//
 + (NSNumber *)convertNSStringToNSNumber:(NSString *)value {
     
     if ((NSNull *)value != [NSNull null] && value != nil) {
@@ -136,24 +112,6 @@
     
     return nil;
 }
-
-//+ (NSNumber *)convertNSStringToNSNumberLongOrNSNull:(NSString *)value {
-//    return [self convertNilToNSNull:[self convertNSStringToNSNumberLong:value]];
-//}
-
-//+ (NSNumber *)convertNSStringToNSNumberLong:(NSString *)value {
-//    
-//    if ((NSNull *)value != [NSNull null] && value != nil) {
-//        @try {
-//            return [NSNumber numberWithLongLong:[value longLongValue]];
-//        }
-//        @catch (NSException *exception) {
-//            return nil;
-//        }
-//    }
-//    
-//    return nil;
-//}
 
 + (NSNumber *)convertNSStringToNSNumberBool:(NSString *)value {
     return [NSNumber numberWithBool:[self convertNSStringToBool:value]];
