@@ -21,6 +21,11 @@
 
 @implementation ARTypeConverter
 
++ (instancetype)create {
+    return [[self alloc] init];
+}
+
+
 + (id)convertValue:(id)value toDataType:(NSAttributeType)type {
     
     if ([value isKindOfClass:[NSString class]]) {
@@ -37,23 +42,51 @@
 }
 
 + (id)convertString:(NSString *)value toDataType:(NSAttributeType)type {
+
+    return [[self create] convertString:value toAttributeType:type];
     
+//    switch (type) {
+//        case NSStringAttributeType:
+//            return value;
+//            break;
+//        case NSInteger16AttributeType:
+//            return [[self class] convertNSStringToNSNumber:value];
+//            break;
+//        case NSInteger32AttributeType:
+//            return [[self class] convertNSStringToNSNumber:value];
+//            break;
+//        case NSInteger64AttributeType:
+//            return [[self class] convertNSStringToNSNumberLong:value];
+//            break;
+//        case NSBooleanAttributeType:
+//            return [[self class] convertNSStringToNSNumberBool:value];
+//            break;
+////        case NSDateAttributeType:
+////            return [NSDate mk_dateFromString:value];
+////            break;
+//        default:
+//            return nil;
+//            break;
+//    }
+}
+
+- (id)convertString:(NSString *)value toAttributeType:(NSAttributeType)type {
     switch (type) {
         case NSStringAttributeType:
             return value;
             break;
         case NSInteger16AttributeType:
-            return [[self class] convertNSStringToNSNumber:value];
+            return [self convertNSStringToNSNumber:value];
             break;
         case NSInteger32AttributeType:
-            return [[self class] convertNSStringToNSNumber:value];
+            return [self convertNSStringToNSNumber:value];
             break;
         case NSInteger64AttributeType:
-            return [[self class] convertNSStringToNSNumberLong:value];
+            return [self convertNSStringToNSNumber:value];
             break;
-        case NSBooleanAttributeType:
-            return [[self class] convertNSStringToNSNumberBool:value];
-            break;
+//        case NSBooleanAttributeType:
+//            return [[self class] convertNSStringToNSNumberBool:value];
+//            break;
 //        case NSDateAttributeType:
 //            return [NSDate mk_dateFromString:value];
 //            break;
@@ -63,10 +96,33 @@
     }
 }
 
-+ (NSNumber *)convertNSStringToNSNumberOrNSNull:(NSString *)value {
-    return [self convertNilToNSNull:[self convertNSStringToNSNumber:value]];
+- (NSNumber *)convertNSStringToNSNumber:(NSString *)value {
+    if (!value) return nil;
+    if ([[NSNull null] isEqual:value]) return nil;
+    
+    @try {
+        return @([value longLongValue]);
+    }
+    @catch (NSException *exception) {
+        return nil;
+    }
 }
 
+- (id)convertNilToNSNull:(id)value {
+    if (!value) return [NSNull null];
+    return value;
+}
+
+- (id)convertNSNullToNil:(id)value {
+    if ([[NSNull null] isEqual:value]) return nil;
+    return value;
+}
+
+
+//+ (NSNumber *)convertNSStringToNSNumberOrNSNull:(NSString *)value {
+//    return [self convertNilToNSNull:[self convertNSStringToNSNumber:value]];
+//}
+//
 + (NSNumber *)convertNSStringToNSNumber:(NSString *)value {
     
     if ((NSNull *)value != [NSNull null] && value != nil) {
@@ -81,23 +137,23 @@
     return nil;
 }
 
-+ (NSNumber *)convertNSStringToNSNumberLongOrNSNull:(NSString *)value {
-    return [self convertNilToNSNull:[self convertNSStringToNSNumberLong:value]];
-}
+//+ (NSNumber *)convertNSStringToNSNumberLongOrNSNull:(NSString *)value {
+//    return [self convertNilToNSNull:[self convertNSStringToNSNumberLong:value]];
+//}
 
-+ (NSNumber *)convertNSStringToNSNumberLong:(NSString *)value {
-    
-    if ((NSNull *)value != [NSNull null] && value != nil) {
-        @try {
-            return [NSNumber numberWithLongLong:[value longLongValue]];
-        }
-        @catch (NSException *exception) {
-            return nil;
-        }
-    }
-    
-    return nil;
-}
+//+ (NSNumber *)convertNSStringToNSNumberLong:(NSString *)value {
+//    
+//    if ((NSNull *)value != [NSNull null] && value != nil) {
+//        @try {
+//            return [NSNumber numberWithLongLong:[value longLongValue]];
+//        }
+//        @catch (NSException *exception) {
+//            return nil;
+//        }
+//    }
+//    
+//    return nil;
+//}
 
 + (NSNumber *)convertNSStringToNSNumberBool:(NSString *)value {
     return [NSNumber numberWithBool:[self convertNSStringToBool:value]];
@@ -118,6 +174,8 @@
     
     return NO;
 }
+
+
 
 + (id)convertNilToNSNull:(id)value {
     return (value == nil) ? [NSNull null] : value;
