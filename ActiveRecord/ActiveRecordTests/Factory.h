@@ -15,4 +15,8 @@
 
 + (void)deleteAll;
 
++ (id)fixture100;
++ (id)fixture1000;
++ (id)fixture10000;
+
 @end

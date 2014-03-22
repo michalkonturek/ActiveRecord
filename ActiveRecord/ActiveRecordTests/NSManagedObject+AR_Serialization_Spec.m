@@ -1,5 +1,5 @@
 //
-//  NSManagedObject+AR_Serialization.m
+//  NSManagedObject+AR_Serialization_Spec.m
 //  ActiveRecord
 //
 //  Created by Michal Konturek on 19/03/2014.
@@ -12,7 +12,7 @@
 #import "Domain.h"
 #import "Factory.h"
 
-SPEC_BEGIN(NSManagedObject_AR_Serialization)
+SPEC_BEGIN(NSManagedObject_AR_Serialization_Spec)
 
 describe(@"NSManagedObject+AR_Serialization", ^{
     

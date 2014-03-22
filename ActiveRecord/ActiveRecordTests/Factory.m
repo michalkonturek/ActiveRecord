@@ -33,4 +33,22 @@
     [StudyGroup deleteAll];
 }
 
++ (id)fixture100 {
+    return [self _loadDataFromFile:@"data-100"];
+}
+
++ (id)fixture1000 {
+    return [self _loadDataFromFile:@"data-1000"];
+}
+
++ (id)fixture10000 {
+    return [self _loadDataFromFile:@"data-10000"];
+}
+
++ (id)_loadDataFromFile:(NSString *)filename {
+    id path = [[NSBundle mainBundle] URLForResource:filename withExtension:@"json"];
+    id json = [NSData dataWithContentsOfURL:path];
+    return [NSJSONSerialization JSONObjectWithData:json options:kNilOptions error:nil];
+}
+
 @end
