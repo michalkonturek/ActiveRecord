@@ -31,25 +31,14 @@
     id object = [self objectWithPredicate:predicate];
     if (!object) object = [self create];
     
-//    object = [self update:object withData:data];
     object = [object updateWithData:data];
-
-//    [self commit]; NOTE: this should not be here (background processing?)
     
     return object;
 }
 
-//+ (instancetype)update:(id)object withData:(NSDictionary *)data {
-//    return [object updateWithData:data];
-//}
-
 - (instancetype)updateWithData:(NSDictionary *)data {
     return [[self updateWithAttributesData:data] updateWithRelationshipsData:data];
 }
-
-//+ (instancetype)update:(id)object withAttributesData:(NSDictionary *)data {
-//    return [object updateWithAttributesData:data];
-//}
 
 - (instancetype)updateWithAttributesData:(NSDictionary *)data {
     
@@ -66,10 +55,6 @@
     
     return self;
 }
-
-//+ (instancetype)update:(id)object withRelationshipsData:(NSDictionary *)data {
-//    return [object updateWithRelationshipsData:data];
-//}
 
 - (instancetype)updateWithRelationshipsData:(NSDictionary *)data {
     

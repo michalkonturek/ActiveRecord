@@ -54,11 +54,9 @@ describe(@"NSManagedObject+AR_Serialization", ^{
         
         context(@"attributes", ^{
             it(@"should ignore null values", ^{
-//                [Student update:sut withData:input];
                 [sut updateWithData:input];
                 
                 id data = @{@"uid": uid, @"age": [NSNull null]};
-//                [Student update:sut withData:data];
                 [sut updateWithData:data];
                 
                 id object = [Student objectWithID:uid];
@@ -66,7 +64,6 @@ describe(@"NSManagedObject+AR_Serialization", ^{
             });
             
             it(@"should update object's attributes", ^{
-//                [Student update:sut withData:input];
                 [sut updateWithData:input];
                 
                 id object = [Student objectWithID:uid];
@@ -84,7 +81,6 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                
                 it(@"in m:1 or m:n", ^{
                     id data = @{@"modules": [NSNull null]};
-//                    [Student update:sut withData:data];
                     [sut updateWithData:data];
                     [[sut.modules should] haveCountOf:0];
                 });
@@ -92,11 +88,9 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                 it(@"in 1:1", ^{
                     id object = @{@"uid": @1, @"signature": @"dlsgfjlaskdf"};
                     id data = @{@"uid": @1, @"registration": object};
-//                    [Student update:sut withData:data];
                     [sut updateWithData:data];
                     
                     data = @{@"registration": [NSNull null]};
-//                    [Student update:sut withData:data];
                     [sut updateWithData:data];
                     [[sut.registration shouldNot] beNil];
                 });
@@ -106,7 +100,6 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                 it(@"1:1", ^{
                     id json = @{@"uid": @1, @"signature": @"dlsgfjlaskdf"};
                     id data = @{@"uid": @1, @"registration": json};
-//                    [Student update:sut withData:data];
                     [sut updateWithData:data];
                     
                     [[sut.registration.uid should] equal:[json objectForKey:@"uid"]];
@@ -117,7 +110,6 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                 it(@"1:m", ^{
                     id json = @{@"uid": @1, @"name": @"Software Engineering"};
                     id data = @{@"uid": @1, @"course": json};
-//                    [Student update:sut withData:data];
                     [sut updateWithData:data];
                     
                     [[sut.course.uid should] equal:[json objectForKey:@"uid"]];
@@ -128,7 +120,6 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                 it(@"m:n", ^{
                     id json = @{@"uid": @1, @"name": @"iOS Application Programming"};
                     id data = @{@"uid": @1, @"modules": @[json]};
-//                    [Student update:sut withData:data];
                     [sut updateWithData:data];
                     
                     [[sut.modules should] haveCountOf:1];
@@ -149,14 +140,12 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                 
                 it(@"of not supported type are ignored", ^{
                     id data = @{@"modules": @[[NSArray array]]};
-//                    [Student update:sut withData:data];
                     [sut updateWithData:data];
                     [[sut.modules should] haveCountOf:0];
                 });
                 
                 it(@"of not null type are ignored", ^{
                     id data = @{@"modules": @[[NSNull null]]};
-//                    [Student update:sut withData:data];
                     [sut updateWithData:data];
                     [[sut.modules should] haveCountOf:0];
                 });
@@ -177,14 +166,12 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                 
                 it(@"pointed by NSNumber", ^{
                     id data = @{@"modules": @[@1, @2]};
-//                    [Student update:sut withData:data];
                     [sut updateWithData:data];
                     validate();
                 });
                 
                 it(@"pointed by NSString", ^{
                     id data = @{@"modules": @[@"1", @"2"]};
-//                    [Student update:sut withData:data];
                     [sut updateWithData:data];
                     validate();
                 });
@@ -195,10 +182,6 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                                         @{@"uid": @1, @"name": @"Module A"},
                                         @{@"uid": @2, @"name": @"Module B"}
                                         ]};
-//                    [Student update:sut withData:@{@"modules": @[
-//                                                           @{@"uid": @1, @"name": @"Module A"},
-//                                                           @{@"uid": @2, @"name": @"Module B"}
-//                                                           ]}];
                     [sut updateWithData:data];
                     validate();
                 });
@@ -208,7 +191,6 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                                         [Module objectWithID:@1],
                                         [Module objectWithID:@2]
                                         ]};
-//                    [Student update:sut withData:data];
                     [sut updateWithData:data];
                     validate();
                 });
