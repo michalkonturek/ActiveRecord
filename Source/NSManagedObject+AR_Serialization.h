@@ -14,9 +14,9 @@
 + (instancetype)createOrUpdateWithData:(NSDictionary *)data
                         usingPredicate:(NSPredicate *)predicate;
 
-+ (instancetype)update:(id)object withData:(NSDictionary *)data;
-+ (instancetype)update:(id)object withAttributesData:(NSDictionary *)data;
-+ (instancetype)update:(id)object withRelationshipsData:(NSDictionary *)data;
+//+ (instancetype)update:(id)object withData:(NSDictionary *)data;
+//+ (instancetype)update:(id)object withAttributesData:(NSDictionary *)data;
+//+ (instancetype)update:(id)object withRelationshipsData:(NSDictionary *)data;
 
 - (instancetype)updateWithData:(NSDictionary *)data;
 - (instancetype)updateWithAttributesData:(NSDictionary *)data;
