@@ -48,11 +48,11 @@ student.age = @21;
 
 ### JSON Serialization
 
-Active Record allows you to create `NSManagedObject` instances directly from JSON object (i.e. JSON string in the form of `NSDictionary`). As long as names of attributes and relationships in JSON object matches the ones in your model, Active Record will do most of the heavy lifting for you.
+Active Record allows you to create `NSManagedObject` instances directly from a JSON object (i.e. JSON string in the form of `NSDictionary`). As long as names of attributes and relationships in a JSON object matches the ones in your model, Active Record will do most of the heavy lifting for you.
 
 For example, passing a file with JSON content below
 
-```
+```json
 {
     "uid": 0,
     "age": 32,
@@ -96,7 +96,7 @@ For more detailed information, please see tests associated with this project.
 
 Background processing with Active Record is straightforward. Simply execute your code on background thread and Active Record will do the rest. It will automatically create background context with `NSConfinementConcurrencyType` and will set it's parent as your main (foreground) context. 
 
-This approach guarantees that each time you save (commit) changes in your child (background) context, they will be pushed to your parent (main) context.
+This approach guarantees that each time you save (commit) changes in your child (background) context, they are pushed to your parent (main) context.
 
 Please see [example][EXAMPLE-BG].
 
