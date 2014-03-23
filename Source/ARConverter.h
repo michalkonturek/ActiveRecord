@@ -8,7 +8,7 @@
 
 #import <CoreData/CoreData.h>
 
-@interface ARTypeConverter : NSObject
+@interface ARConverter : NSObject
 
 + (instancetype)create;
 

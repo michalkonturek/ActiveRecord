@@ -1,5 +1,5 @@
 //
-//  ARTypeConverter_Spec.m
+//  ARConverter_Spec.m
 //  ActiveRecord
 //
 //  Created by Michal Konturek on 19/03/2014.
@@ -11,22 +11,22 @@
 #import "ActiveRecord.h"
 #import "Domain.h"
 
-#import "ARTypeConverter.h"
+#import "ARConverter.h"
 
-SPEC_BEGIN(ARTypeConverter_Spec)
+SPEC_BEGIN(ARConverter_Spec)
 
-describe(@"ARTypeConverter", ^{
+describe(@"ARConverter", ^{
 
-    __block ARTypeConverter *sut;
+    __block ARConverter *sut;
     
     beforeEach(^{
-        sut = [ARTypeConverter create];
+        sut = [ARConverter create];
     });
     
     describe(@"+create", ^{
         it(@"creates an instance", ^{
             [[sut shouldNot] beNil];
-            [[sut should] beMemberOfClass:[ARTypeConverter class]];
+            [[sut should] beMemberOfClass:[ARConverter class]];
         });
     });
     

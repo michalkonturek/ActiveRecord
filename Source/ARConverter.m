@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Michal Konturek. All rights reserved.
 //
 
-#import "ARTypeConverter.h"
+#import "ARConverter.h"
 
 #import "NSManagedObject+AR.h"
 #import "NSManagedObject+AR_Finders.h"
@@ -21,7 +21,7 @@
  TODO: anyone should be able to add its own converter
  */
 
-@implementation ARTypeConverter
+@implementation ARConverter
 
 + (instancetype)create {
     return [[self alloc] init];

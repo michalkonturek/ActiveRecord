@@ -14,7 +14,7 @@
 
 #import "NSPredicate+AR.h"
 
-#import "ARTypeConverter.h"
+#import "ARConverter.h"
 
 @implementation NSManagedObject (AR_Serialization)
 
@@ -48,7 +48,7 @@
         id value = [data objectForKey:attribute];
         if (((NSNull *)value != [NSNull null]) && (value != nil)) {
             NSAttributeType type = [[attributes objectForKey:attribute] attributeType];
-            value = [[ARTypeConverter create] convert:value toAttributeType:type];
+            value = [[ARConverter create] convert:value toAttributeType:type];
             if (value) [self setValue:value forKey:attribute];
         }
     }
@@ -72,7 +72,7 @@
                 
                 for (id __strong item in relatedObject) {
 //                    item = [self _transform:item toMatchRelationship:description];
-                    item = [[ARTypeConverter create] convert:item toMatchRelationship:description];
+                    item = [[ARConverter create] convert:item toMatchRelationship:description];
                     if (item) [relatedObjectSet addObject:item];
                 }
                 
@@ -80,7 +80,7 @@
             }
         } else {
 //            relatedObject = [self _transform:relatedObject toMatchRelationship:description];
-            relatedObject = [[ARTypeConverter create] convert:relatedObject toMatchRelationship:description];
+            relatedObject = [[ARConverter create] convert:relatedObject toMatchRelationship:description];
             if (relatedObject) [self setValue:relatedObject forKey:relationship];
         }
     }
