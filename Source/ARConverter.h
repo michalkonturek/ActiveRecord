@@ -12,7 +12,7 @@
 
 + (instancetype)create;
 
-- (NSManagedObject *)convert:(id)object toMatchRelationship:(NSRelationshipDescription *)description;
+//- (NSManagedObject *)convert:(id)object toMatchRelationship:(NSRelationshipDescription *)description;
 
 - (id)convert:(id)value toAttributeType:(NSAttributeType)type;
 - (id)convertString:(NSString *)value toAttributeType:(NSAttributeType)type;
