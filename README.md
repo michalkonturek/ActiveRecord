@@ -49,15 +49,38 @@ student.age = @21;
 
 ### JSON Serialization
 
-TBA
+```objc
+
+```
 
 ### Background Processing
 
-TBA
+Background processing with Active Record is straightforward. Simply execute your code on background thread and Active Record will do the rest. It will automatically create background context with `NSConfinementConcurrencyType` and will set it's parent as your main (foreground) context. 
 
-### Integration with `mogenerator`
+This approach guarantees that each time you save (commit) changes in your child (background) context, they will be pushed to your parent (main) context.
 
-TBA
+Please see [example][EXAMPLE-BG].
+
+[EXAMPLE-BG]:https://github.com/michalkonturek/ActiveRecord/blob/master/ActiveRecord/ActiveRecord/Example/ExampleBackground.m
+
+```objc
+id students = [Factory fixture1000];
+
+dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    
+    [students mk_each:^(id item) {
+		[[Student createOrUpdateWithData:item] commit];
+    }];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+		// notify about completion
+    });
+});
+```
+
+<!--### Integration with `mogenerator`
+
+TBA-->
 
 
 # API
