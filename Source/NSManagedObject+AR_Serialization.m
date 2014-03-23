@@ -72,7 +72,6 @@
                 NSMutableSet *relatedObjectSet = [self mutableSetValueForKey:relationship];
                 
                 for (id __strong item in relatedObject) {
-//                    item = [[ARConverter create] convert:item toMatchRelationship:description];
                     item = [description managedObjectFrom:item];
                     if (item) [relatedObjectSet addObject:item];
                 }
@@ -80,7 +79,6 @@
                 [self setValue:relatedObjectSet forKey:relationship];
             }
         } else {
-//            relatedObject = [[ARConverter create] convert:relatedObject toMatchRelationship:description];
             relatedObject = [description managedObjectFrom:relatedObject];
             if (relatedObject) [self setValue:relatedObject forKey:relationship];
         }

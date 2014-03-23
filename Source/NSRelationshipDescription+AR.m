@@ -30,19 +30,4 @@
     return nil;
 }
 
-//- (NSManagedObject *)convert:(id)object toMatchRelationship:(NSRelationshipDescription *)description {
-//    
-//    if ([object isKindOfClass:[NSManagedObject class]]) return object;
-//    
-//    Class klass = NSClassFromString([[description destinationEntity] managedObjectClassName]);
-//    
-//    if ([object isKindOfClass:[NSDictionary class]]) return [klass createOrUpdateWithData:object];
-//    if ([object isKindOfClass:[NSNumber class]]) return [klass objectWithID:object];
-//    
-//    if ([object isKindOfClass:[NSString class]])
-//        return [klass objectWithID:[[ARConverter create] convertNSStringToNSNumber:object]];
-//    
-//    return nil;
-//}
-
 @end
