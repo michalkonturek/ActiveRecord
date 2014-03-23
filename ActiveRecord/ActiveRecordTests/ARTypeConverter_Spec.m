@@ -112,8 +112,3 @@ describe(@"ARTypeConverter", ^{
 });
 
 SPEC_END
-
-
-
-
-

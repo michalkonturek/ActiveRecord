@@ -25,11 +25,12 @@
 //        [[NSManagedObjectContext backgroundContext] setUndoManager:nil];
 
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        for (id item in students) {
+        
+        [students mk_each:^(id item) {
             id student = [Student createOrUpdateWithData:item];
             NSLog(@"Loaded %@", [student uid]);
             [Student commit];
-        }
+        }];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             for (id item in [Student ordered:@"uid"]) {

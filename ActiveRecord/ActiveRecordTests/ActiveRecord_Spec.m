@@ -97,7 +97,7 @@ describe(@"ActiveRecord", ^{
             course = @{@"uid": @1,
                        @"name": @"Computer Science",
                        @"students": students
-                       //                 @"students": @[@1, @2, @3, @4]
+//                       @"students": @[@1, @2, @3, @4]
                        };
             
             [modules mk_each:^(id item) {

@@ -164,8 +164,6 @@ describe(@"NSManagedObject+AR_Serialization", ^{
                     [[[module name] should] equal:@"Module B"];
                 };
                 
-
-                
                 it(@"pointed by NSNumber", ^{
                     id data = @{@"modules": @[@1, @2]};
                     [Student update:sut withData:data];
