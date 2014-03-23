@@ -8,6 +8,10 @@
 
 #import "ARTypeConverter.h"
 
+#import "NSManagedObject+AR.h"
+#import "NSManagedObject+AR_Finders.h"
+#import "NSManagedObject+AR_Serialization.h"
+
 //#import <MKFoundationKit/NSDate+MK.h>
 
 /*
@@ -21,6 +25,22 @@
 
 + (instancetype)create {
     return [[self alloc] init];
+}
+
+- (NSManagedObject *)convert:(id)object toMatchRelationship:(NSRelationshipDescription *)description {
+    
+    if ([object isKindOfClass:[NSManagedObject class]]) return object;
+    
+    Class klass = NSClassFromString([[description destinationEntity] managedObjectClassName]);
+    
+    if ([object isKindOfClass:[NSDictionary class]]) return [klass createOrUpdateWithData:object];
+    if ([object isKindOfClass:[NSNumber class]]) return [klass objectWithID:object];
+    
+    if ([object isKindOfClass:[NSString class]])
+        return [klass objectWithID:[self convertNSStringToNSNumber:object]];
+//        return [klass objectWithID:[[ARTypeConverter create] convertNSStringToNSNumber:object]];
+    
+    return nil;
 }
 
 - (id)convert:(id)value toAttributeType:(NSAttributeType)type {
