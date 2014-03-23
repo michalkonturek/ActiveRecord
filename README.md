@@ -44,14 +44,53 @@ student.age = @21;
 [Student ordered:@"lastName, !age"]; // orders by name ASC, age DESC
 
 [Student objects:@"age > 20" ordered:@"!age"];
-
 ```
 
 ### JSON Serialization
 
-```objc
+Active Record allows you to create `NSManagedObject` instances directly from JSON object (i.e. JSON string in the form of `NSDictionary`). As long as names of attributes and relationships in JSON object matches the ones in your model, Active Record will do most of the heavy lifting for you.
+
+For example, passing a file with JSON content below
 
 ```
+{
+    "uid": 0,
+    "age": 32,
+    "firstName": "Jaclyn",
+    "lastName": "Petty",
+    "course": {
+        "uid": 1,
+        "name": "Software Engineering"
+    },
+    "modules": [
+        {
+            "uid": 0,
+            "name": "Module 0"
+        },
+        {
+            "uid": 1,
+            "name": "Module 1"
+        }
+    ],
+    "registration": {
+        "uid": 0,
+        "signature": "8a700e2b-f14c-4b69-bcd6-f8baddabb1da"
+    }
+}
+```
+
+will result in creation of a `Student` object associated with one `Course`, one `Registration` object, and two `Module` objects.
+
+```objc
+id path = [[NSBundle mainBundle] URLForResource:@"Example" withExtension:@"json"];
+id json = [NSData dataWithContentsOfURL:path];
+id data = [NSJSONSerialization JSONObjectWithData:json options:kNilOptions error:nil];
+
+id student = [Student createOrUpdateWithData:data];
+```
+
+For more detailed information, please see tests associated with this project.
+
 
 ### Background Processing
 
