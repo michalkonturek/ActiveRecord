@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "Example.h"
+#import "ExampleBackground.h"
 
 @implementation AppDelegate
 
@@ -17,6 +18,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     [Example run];
+    [ExampleBackground run];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

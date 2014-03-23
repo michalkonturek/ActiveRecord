@@ -37,6 +37,11 @@
 		9094870B18DE123600BD097A /* data-100.json in Resources */ = {isa = PBXBuildFile; fileRef = 9094870818DE123600BD097A /* data-100.json */; };
 		9094870C18DE123600BD097A /* data-1000.json in Resources */ = {isa = PBXBuildFile; fileRef = 9094870918DE123600BD097A /* data-1000.json */; };
 		9094870D18DE123600BD097A /* data-10000.json in Resources */ = {isa = PBXBuildFile; fileRef = 9094870A18DE123600BD097A /* data-10000.json */; };
+		9094870E18DE15B300BD097A /* data-1000.json in Resources */ = {isa = PBXBuildFile; fileRef = 9094870918DE123600BD097A /* data-1000.json */; };
+		9094870F18DE15B500BD097A /* data-100.json in Resources */ = {isa = PBXBuildFile; fileRef = 9094870818DE123600BD097A /* data-100.json */; };
+		9094871018DE15BC00BD097A /* data-10000.json in Resources */ = {isa = PBXBuildFile; fileRef = 9094870A18DE123600BD097A /* data-10000.json */; };
+		9094871318DE612100BD097A /* ExampleBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 9094871218DE612100BD097A /* ExampleBackground.m */; };
+		9094871418DE619C00BD097A /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFB46318B933D9007C3553 /* Factory.m */; };
 		909E98C618B94EA100C2982E /* NSPredicate+AR.m in Sources */ = {isa = PBXBuildFile; fileRef = 909E98C518B94EA100C2982E /* NSPredicate+AR.m */; };
 		909E98C918B9504500C2982E /* NSManagedObject+AR_Finders.m in Sources */ = {isa = PBXBuildFile; fileRef = 909E98C818B9504500C2982E /* NSManagedObject+AR_Finders.m */; };
 		90A9686F18B42583003BEE09 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E7BCB118986E260087F277 /* CoreData.framework */; };
@@ -101,8 +106,8 @@
 		90645F7518964BD50040B739 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		90645F7718964BD50040B739 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		90645F7918964BD50040B739 /* ActiveRecord-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ActiveRecord-Prefix.pch"; sourceTree = "<group>"; };
-		90645F7A18964BD50040B739 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		90645F7B18964BD50040B739 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		90645F7A18964BD50040B739 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
+		90645F7B18964BD50040B739 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../AppDelegate.m; sourceTree = "<group>"; };
 		90645F7D18964BD50040B739 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		90645F8318964BD50040B739 /* ActiveRecordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ActiveRecordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		90645F8418964BD50040B739 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -113,6 +118,8 @@
 		9094870818DE123600BD097A /* data-100.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "data-100.json"; sourceTree = "<group>"; };
 		9094870918DE123600BD097A /* data-1000.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "data-1000.json"; sourceTree = "<group>"; };
 		9094870A18DE123600BD097A /* data-10000.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "data-10000.json"; sourceTree = "<group>"; };
+		9094871118DE612100BD097A /* ExampleBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleBackground.h; sourceTree = "<group>"; };
+		9094871218DE612100BD097A /* ExampleBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleBackground.m; sourceTree = "<group>"; };
 		909E98C418B94EA100C2982E /* NSPredicate+AR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPredicate+AR.h"; sourceTree = "<group>"; };
 		909E98C518B94EA100C2982E /* NSPredicate+AR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPredicate+AR.m"; sourceTree = "<group>"; };
 		909E98C718B9504500C2982E /* NSManagedObject+AR_Finders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+AR_Finders.h"; sourceTree = "<group>"; };
@@ -174,6 +181,10 @@
 				9012A02118C53023002D0B51 /* Models */,
 				9012A01F18C53023002D0B51 /* Example.h */,
 				9012A02018C53023002D0B51 /* Example.m */,
+				9094871118DE612100BD097A /* ExampleBackground.h */,
+				9094871218DE612100BD097A /* ExampleBackground.m */,
+				90645F7A18964BD50040B739 /* AppDelegate.h */,
+				90645F7B18964BD50040B739 /* AppDelegate.m */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -237,8 +248,6 @@
 			children = (
 				9012A01E18C53023002D0B51 /* Example */,
 				90645F9E18964C810040B739 /* Source */,
-				90645F7A18964BD50040B739 /* AppDelegate.h */,
-				90645F7B18964BD50040B739 /* AppDelegate.m */,
 				90645F7D18964BD50040B739 /* Images.xcassets */,
 				90645F7218964BD50040B739 /* Supporting Files */,
 			);
@@ -406,8 +415,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9094870E18DE15B300BD097A /* data-1000.json in Resources */,
+				9094870F18DE15B500BD097A /* data-100.json in Resources */,
 				90645F7618964BD50040B739 /* InfoPlist.strings in Resources */,
 				90645F7E18964BD50040B739 /* Images.xcassets in Resources */,
+				9094871018DE15BC00BD097A /* data-10000.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +508,7 @@
 				847F108A18D9E93D00FA142C /* NSManagedObject+AR_Serialization.m in Sources */,
 				90CFB44018B83F75007C3553 /* NSManagedObject+AR_Context.m in Sources */,
 				90CFB45C18B91C8C007C3553 /* NSManagedObjectModel+AR.m in Sources */,
+				9094871418DE619C00BD097A /* Factory.m in Sources */,
 				909E98C918B9504500C2982E /* NSManagedObject+AR_Finders.m in Sources */,
 				9012A02C18C53023002D0B51 /* Course.m in Sources */,
 				840B69EF18D9ED0900B9C314 /* ARTypeConverter.m in Sources */,
@@ -514,6 +527,7 @@
 				90CFB45618B91AE7007C3553 /* NSManagedObjectContext+AR.m in Sources */,
 				90645F7818964BD50040B739 /* main.m in Sources */,
 				90CFB45918B91BFB007C3553 /* NSPersistentStoreCoordinator+AR.m in Sources */,
+				9094871318DE612100BD097A /* ExampleBackground.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
