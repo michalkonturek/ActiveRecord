@@ -17,12 +17,7 @@
 
 + (void)run {
     [Factory deleteAll];
-    
     id students = [Factory fixture1000];
-    
-//        [[NSManagedObjectContext managedObjectContext] setUndoManager:nil];
-//        [[NSManagedObjectContext foregroundContext] setUndoManager:nil];
-//        [[NSManagedObjectContext backgroundContext] setUndoManager:nil];
 
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         

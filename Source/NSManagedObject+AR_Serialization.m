@@ -40,9 +40,6 @@
 
 + (instancetype)update:(id)object withData:(NSDictionary *)data {
     return [object updateWithData:data];
-//    object = [self update:object withAttributesData:data];
-//    object = [self update:object withRelationshipsData:data];
-//    return object;
 }
 
 - (instancetype)updateWithData:(NSDictionary *)data {
@@ -50,20 +47,7 @@
 }
 
 + (instancetype)update:(id)object withAttributesData:(NSDictionary *)data {
-
     return [object updateWithAttributesData:data];
-//    NSDictionary *attributes = [[object entity] attributesByName];
-//    for (NSString *attribute in [attributes allKeys]) {
-//        
-//        id value = [data objectForKey:attribute];
-//        if (((NSNull *)value != [NSNull null]) && (value != nil)) {
-//            NSAttributeType type = [[attributes objectForKey:attribute] attributeType];
-//            value = [ARTypeConverter convertValue:value toDataType:type];
-//            if (value) [object setValue:value forKey:attribute];
-//        }
-//    }
-//    
-//    return object;
 }
 
 - (instancetype)updateWithAttributesData:(NSDictionary *)data {
@@ -83,35 +67,7 @@
 }
 
 + (instancetype)update:(id)object withRelationshipsData:(NSDictionary *)data {
-    
     return [object updateWithRelationshipsData:data];
-    
-//    NSDictionary *relationships = [[object entity] relationshipsByName];
-//    for (NSString *relationship in [relationships allKeys]) {
-//        
-//        id relatedObject = [data objectForKey:relationship];
-//        if (!relatedObject) continue;
-//
-//        NSRelationshipDescription *description = [[[object entity] relationshipsByName] objectForKey:relationship];
-//        if ([description isToMany]) {
-//            
-//            if ([relatedObject isKindOfClass:[NSArray class]]) {
-//                NSMutableSet *relatedObjectSet = [object mutableSetValueForKey:relationship];
-//                
-//                for (id __strong item in relatedObject) {
-//                    item = [self transform:item toMatchRelationship:description];
-//                    if (item) [relatedObjectSet addObject:item];
-//                }
-//                
-//                [object setValue:relatedObjectSet forKey:relationship];
-//            }
-//        } else {
-//            relatedObject = [self transform:relatedObject toMatchRelationship:description];
-//            if (relatedObject) [object setValue:relatedObject forKey:relationship];
-//        }
-//    }
-//    
-//    return object;
 }
 
 - (instancetype)updateWithRelationshipsData:(NSDictionary *)data {
