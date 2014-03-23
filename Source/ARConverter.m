@@ -1,5 +1,5 @@
 //
-//  ARTypeConverter.m
+//  ARConverter.m
 //  ActiveRecord
 //
 //  Created by Michal Konturek on 19/03/2014.
@@ -13,13 +13,6 @@
 #import "NSManagedObject+AR_Serialization.h"
 
 //#import <MKFoundationKit/NSDate+MK.h>
-
-/*
- This class is responsible for fixing JSON with incorrect types,
- i.e. numbers are passed as strings.
- 
- TODO: anyone should be able to add its own converter
- */
 
 @implementation ARConverter
 
@@ -38,7 +31,6 @@
     
     if ([object isKindOfClass:[NSString class]])
         return [klass objectWithID:[self convertNSStringToNSNumber:object]];
-//        return [klass objectWithID:[[ARTypeConverter create] convertNSStringToNSNumber:object]];
     
     return nil;
 }

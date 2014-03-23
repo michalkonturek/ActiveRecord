@@ -71,7 +71,6 @@
                 NSMutableSet *relatedObjectSet = [self mutableSetValueForKey:relationship];
                 
                 for (id __strong item in relatedObject) {
-//                    item = [self _transform:item toMatchRelationship:description];
                     item = [[ARConverter create] convert:item toMatchRelationship:description];
                     if (item) [relatedObjectSet addObject:item];
                 }
@@ -79,7 +78,6 @@
                 [self setValue:relatedObjectSet forKey:relationship];
             }
         } else {
-//            relatedObject = [self _transform:relatedObject toMatchRelationship:description];
             relatedObject = [[ARConverter create] convert:relatedObject toMatchRelationship:description];
             if (relatedObject) [self setValue:relatedObject forKey:relationship];
         }
@@ -87,21 +85,6 @@
     
     return self;
 }
-
-//- (instancetype)_transform:(id)object toMatchRelationship:(NSRelationshipDescription *)description {
-//
-//    if ([object isKindOfClass:[NSManagedObject class]]) return object;
-//    
-//    Class klass = NSClassFromString([[description destinationEntity] managedObjectClassName]);
-//    
-//    if ([object isKindOfClass:[NSDictionary class]]) return [klass createOrUpdateWithData:object];
-//    if ([object isKindOfClass:[NSNumber class]]) return [klass objectWithID:object];
-//    
-//    if ([object isKindOfClass:[NSString class]])
-//        return [klass objectWithID:[[ARTypeConverter create] convertNSStringToNSNumber:object]];
-//    
-//    return nil;
-//}
 
 - (NSDictionary *)dictionary {
     id result = [NSMutableDictionary dictionary];

@@ -1,5 +1,5 @@
 //
-//  ARTypeConverter.h
+//  ARConverter.h
 //  ActiveRecord
 //
 //  Created by Michal Konturek on 19/03/2014.
