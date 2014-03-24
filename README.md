@@ -35,9 +35,6 @@ student.age = @21;
 [student delete];
 [Student rollback];
 
-// Erase all objects from the database
-[Student deleteAll];
-
 // fetch all Student Objects
 [Student objects];
 
@@ -51,6 +48,9 @@ student.age = @21;
 [Student ordered:@"lastName, !age"]; // orders by name ASC, age DESC
 
 [Student objects:@"age > 20" ordered:@"!age"];
+
+// Erase all Student objects
+[Student deleteAll];
 ```
 
 ### JSON Serialization

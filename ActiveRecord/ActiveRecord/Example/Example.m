@@ -24,22 +24,26 @@
     // commit changes in context
     [Student commit];
     
-    [student delete];
-    [Student deleteAll];
-    
     // rollback context to last commit
+    [student delete];
     [Student rollback];
     
+    // fetch all Student objects
     [Student objects];
+    
+    // queries
     [Student objects:@"age > 20"];
     [Student objects:@"lastName == 'Smith'"];
     [Student objects:@{@"age": @21, @"lastName": @"Smith"}];
     
-    [Student ordered:@"lastName, age"]; // orders by name, age ASC
+    // ordered queries
+    [Student ordered:@"lastName, age"]; // orders by name ASC, age ASC
     [Student ordered:@"lastName, !age"]; // orders by name ASC, age DESC
     
+    [Student objects:@"age > 20" ordered:@"!age"];
+
+    // Erase all Student objects
     [Student deleteAll];
-    [Student commit];
 }
 
 @end
