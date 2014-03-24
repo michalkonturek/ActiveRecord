@@ -44,20 +44,82 @@ student.age = @21;
 [Student ordered:@"lastName, !age"]; // orders by name ASC, age DESC
 
 [Student objects:@"age > 20" ordered:@"!age"];
-
 ```
 
 ### JSON Serialization
 
-TBA
+Active Record allows you to create `NSManagedObject` instances directly from a JSON object (i.e. JSON string in the form of `NSDictionary`). As long as names of attributes and relationships in a JSON object matches the ones in your model, Active Record will do most of the heavy lifting for you.
+
+For example, passing a file with JSON content below
+
+```json
+{
+    "uid": 0,
+    "age": 32,
+    "firstName": "Jaclyn",
+    "lastName": "Petty",
+    "course": {
+        "uid": 1,
+        "name": "Software Engineering"
+    },
+    "modules": [
+        {
+            "uid": 0,
+            "name": "Module 0"
+        },
+        {
+            "uid": 1,
+            "name": "Module 1"
+        }
+    ],
+    "registration": {
+        "uid": 0,
+        "signature": "8a700e2b-f14c-4b69-bcd6-f8baddabb1da"
+    }
+}
+```
+
+will result in creation of a `Student` object associated with one `Course`, one `Registration` object, and two `Module` objects.
+
+```objc
+id path = [[NSBundle mainBundle] URLForResource:@"Example" withExtension:@"json"];
+id json = [NSData dataWithContentsOfURL:path];
+id data = [NSJSONSerialization JSONObjectWithData:json options:kNilOptions error:nil];
+
+id student = [Student createOrUpdateWithData:data];
+```
+
+For more detailed information, please see tests associated with this project.
+
 
 ### Background Processing
 
-TBA
+Background processing with Active Record is straightforward. Simply execute your code on background thread and Active Record will do the rest. It will automatically create background context with `NSConfinementConcurrencyType` and will set it's parent as your main (foreground) context. 
 
-### Integration with `mogenerator`
+This approach guarantees that each time you save (commit) changes in your child (background) context, they are pushed to your parent (main) context.
 
-TBA
+Please see [example][EXAMPLE-BG].
+
+[EXAMPLE-BG]:https://github.com/michalkonturek/ActiveRecord/blob/master/ActiveRecord/ActiveRecord/Example/ExampleBackground.m
+
+```objc
+id students = [Factory fixture1000];
+
+dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    
+    [students mk_each:^(id item) {
+		[[Student createOrUpdateWithData:item] commit];
+    }];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+		// notify about completion
+    });
+});
+```
+
+<!--### Integration with `mogenerator`
+
+TBA-->
 
 
 # API

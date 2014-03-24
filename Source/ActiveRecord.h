@@ -16,6 +16,7 @@
 #import "NSManagedObject+AR_Context.h"
 #import "NSManagedObject+AR_Finders.h"
 #import "NSManagedObject+AR_Request.h"
+#import "NSManagedObject+AR_Serialization.h"
 
 #import "NSManagedObjectContext+AR.h"
 #import "NSPersistentStoreCoordinator+AR.h"
