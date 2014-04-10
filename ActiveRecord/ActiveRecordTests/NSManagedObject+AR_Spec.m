@@ -181,14 +181,11 @@ describe(@"NSManagedObject_AR", ^{
     describe(@"-isTheSameAs:", ^{
         
         __block Student *sut;
-        beforeAll(^{
-            sut = [Student objectWithID:@1];
-        });
-        
         NSInteger count = 5;
-        beforeEach(^{
+        beforeAll(^{
             [Student deleteAll];
             [Factory createStudents:count];
+            sut = [Student objectWithID:@1];
         });
 
         context(@"when same uid", ^{
