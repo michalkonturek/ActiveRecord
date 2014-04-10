@@ -81,4 +81,12 @@
           [error localizedDescription]);
 }
 
+- (void)commit {
+    [[self class] commit];
+}
+
+- (void)rollback {
+    [[self class] rollback];
+}
+
 @end

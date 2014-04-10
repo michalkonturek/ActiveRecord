@@ -43,4 +43,7 @@
 
 + (NSManagedObjectContext *)managedObjectContext;
 
+- (void)commit;
+- (void)rollback;
+
 @end
