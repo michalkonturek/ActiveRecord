@@ -12,6 +12,12 @@
 #define COCOAPODS_VERSION_MINOR_MKFoundationKit_Block 2
 #define COCOAPODS_VERSION_PATCH_MKFoundationKit_Block 2
 
+// MKFoundationKit/NSNumber
+#define COCOAPODS_POD_AVAILABLE_MKFoundationKit_NSNumber
+#define COCOAPODS_VERSION_MAJOR_MKFoundationKit_NSNumber 1
+#define COCOAPODS_VERSION_MINOR_MKFoundationKit_NSNumber 2
+#define COCOAPODS_VERSION_PATCH_MKFoundationKit_NSNumber 2
+
 // RubySugar
 #define COCOAPODS_POD_AVAILABLE_RubySugar
 #define COCOAPODS_VERSION_MAJOR_RubySugar 1
