@@ -25,11 +25,14 @@
 
 #import <CoreData/CoreData.h>
 
-@interface ARConverter : NSObject
-
-+ (instancetype)create;
+@protocol ARConverter <NSObject>
 
 - (id)convert:(id)value toAttributeType:(NSAttributeType)type;
+
+@end
+
+@interface ARConverter : NSObject<ARConverter>
+
 - (id)convertString:(NSString *)value toAttributeType:(NSAttributeType)type;
 
 - (NSNumber *)convertNSStringToNSNumber:(NSString *)value;

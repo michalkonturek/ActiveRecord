@@ -42,7 +42,7 @@
     if ([object isKindOfClass:[NSNumber class]]) return [klass objectWithID:object];
     
     if ([object isKindOfClass:[NSString class]])
-        return [klass objectWithID:[[ARConverter create] convertNSStringToNSNumber:object]];
+        return [klass objectWithID:[[ARConverter new] convertNSStringToNSNumber:object]];
     
     return nil;
 }

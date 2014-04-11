@@ -61,7 +61,7 @@
 - (instancetype)updateWithAttributesData:(NSDictionary *)data {
     
     NSDictionary *attributes = [[self entity] attributesByName];
-    id converter = [ARConverter create];
+    id converter = [ARConverter new];
     for (NSString *attribute in [attributes allKeys]) {
         
         id value = [data objectForKey:attribute];
