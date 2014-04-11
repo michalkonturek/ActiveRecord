@@ -25,11 +25,13 @@
 
 #import "NSRelationshipDescription+AR.h"
 
-#import "NSManagedObject+AR.h"
-#import "NSManagedObject+AR_Finders.h"
-#import "NSManagedObject+AR_Serialization.h"
+#import "ActiveRecord.h"
 
-#import "ARConverter.h"
+//#import "NSManagedObject+AR.h"
+//#import "NSManagedObject+AR_Finders.h"
+//#import "NSManagedObject+AR_Serialization.h"
+//
+//#import "ARConverter.h"
 
 @implementation NSRelationshipDescription (AR)
 
@@ -42,7 +44,8 @@
     if ([object isKindOfClass:[NSNumber class]]) return [klass objectWithID:object];
     
     if ([object isKindOfClass:[NSString class]])
-        return [klass objectWithID:[[ARConverter new] convertNSStringToNSNumber:object]];
+        return [klass objectWithID:[[[ActiveRecord registeredConverterClass] new] convertNSStringToNSNumber:object]];
+//        return [klass objectWithID:[[ARConverter new] convertNSStringToNSNumber:object]];
     
     return nil;
 }

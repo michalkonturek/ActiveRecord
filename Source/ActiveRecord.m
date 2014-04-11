@@ -25,6 +25,38 @@
 
 #import "ActiveRecord.h"
 
+@interface ActiveRecord ()
+
+@property (nonatomic, assign) Class registeredConverterClass;
+
+@end
+
 @implementation ActiveRecord
+
+static ActiveRecord *sharedInstance;
+
++ (Class)registeredConverterClass {
+    return [[self sharedInstance] registeredConverterClass];
+}
+
++ (void)registerConverterClass:(Class)klass {
+    [[self sharedInstance] registerConverterClass:klass];
+}
+
++ (void)initialize {
+    [[self sharedInstance] registerConverterClass:[ARConverter class]];
+}
+
++ (instancetype)sharedInstance {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [self new];
+    });
+    return sharedInstance;
+}
+
+- (void)registerConverterClass:(Class)klass {
+    self.registeredConverterClass = klass;
+}
 
 @end

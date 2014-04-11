@@ -25,14 +25,16 @@
 
 #import "NSManagedObject+AR_Serialization.h"
 
-#import "NSManagedObject+AR.h"
-#import "NSManagedObject+AR_Context.h"
-#import "NSManagedObject+AR_Finders.h"
-
+//#import "NSManagedObject+AR.h"
+//#import "NSManagedObject+AR_Context.h"
+//#import "NSManagedObject+AR_Finders.h"
+//
+//#import "NSRelationshipDescription+AR.h"
+//#import "NSPredicate+AR.h"
+//
+//#import "ARConverter.h"
+#import "ActiveRecord.h"
 #import "NSRelationshipDescription+AR.h"
-#import "NSPredicate+AR.h"
-
-#import "ARConverter.h"
 
 @implementation NSManagedObject (AR_Serialization)
 
@@ -60,8 +62,8 @@
 
 - (instancetype)updateWithAttributesData:(NSDictionary *)data {
     
+    id converter = [[ActiveRecord registeredConverterClass] new];
     NSDictionary *attributes = [[self entity] attributesByName];
-    id converter = [ARConverter new];
     for (NSString *attribute in [attributes allKeys]) {
         
         id value = [data objectForKey:attribute];
