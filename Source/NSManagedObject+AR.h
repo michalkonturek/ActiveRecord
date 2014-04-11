@@ -40,4 +40,6 @@
 - (void)assignAutoID;
 - (void)delete;
 
+- (BOOL)isTheSame:(id)other;
+
 @end

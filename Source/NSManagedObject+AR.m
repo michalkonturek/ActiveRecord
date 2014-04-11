@@ -29,6 +29,7 @@
 #import "NSManagedObject+AR_Finders.h"
 
 #import <MKFoundationKit/NSArray+MK_Block.h>
+#import <MKFoundationKit/NSNumber+MK.h>
 
 @implementation NSManagedObject (AR)
 
@@ -100,6 +101,12 @@
 
 - (void)delete {
     [self.managedObjectContext deleteObject:self];
+}
+
+- (BOOL)isTheSame:(id)other {
+    if (![self isMemberOfClass:[other class]]) return NO;
+    id pk = [[self class] primaryKey];
+    return [[self valueForKeyPath:pk] mk_isTheSame:[other valueForKeyPath:pk]];
 }
 
 @end

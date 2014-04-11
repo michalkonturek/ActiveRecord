@@ -178,6 +178,38 @@ describe(@"NSManagedObject_AR", ^{
         });
     });
     
+    describe(@"-isTheSameAs:", ^{
+        
+        __block Student *sut;
+        NSInteger count = 5;
+        beforeAll(^{
+            [Student deleteAll];
+            [Factory createStudents:count];
+            sut = [Student objectWithID:@1];
+        });
+
+        context(@"when same uid", ^{
+            specify(^{
+                id other = [Student objectWithID:@1];
+                [[@([sut isTheSame:other]) should] equal:@(YES)];
+            });
+        });
+        
+        context(@"when different uid", ^{
+            specify(^{
+                id other = [Student objectWithID:@2];
+                [[@([sut isTheSame:other]) should] equal:@(NO)];
+            });
+        });
+        
+        context(@"when class mismatch", ^{
+            specify(^{
+                id other = [Course createWithID:@1];
+                [[@([sut isTheSame:other]) should] equal:@(NO)];
+            });
+        });
+    });
+    
 });
 
 SPEC_END

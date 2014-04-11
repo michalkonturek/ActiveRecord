@@ -37,7 +37,7 @@ describe(@"ARConverter", ^{
     __block ARConverter *sut;
     
     beforeEach(^{
-        sut = [ARConverter create];
+        sut = [ARConverter new];
     });
     
     describe(@"+create", ^{

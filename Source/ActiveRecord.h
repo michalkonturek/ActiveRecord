@@ -40,6 +40,17 @@
 #import "NSPredicate+AR.h"
 #import "NSSortDescriptor+AR.h"
 
+#import "ARConverter.h"
+
 @interface ActiveRecord : NSObject
+
++ (Class)registeredConverterClass;
++ (void)registerConverterClass:(Class)klass;
+
++ (instancetype)sharedInstance;
+
+@property (nonatomic, readonly, assign) Class registeredConverterClass;
+
+- (void)registerConverterClass:(Class)klass;
 
 @end

@@ -46,23 +46,12 @@
 }
 
 + (NSArray *)_descriptorsFromString:(NSString *)object {
-    // NOTE: there is a bug in rs_splut => returns empty array if no pattern matches
-    // There is another bug => does not take the last component.
     
     id delimiter = @",";
-    
-    id objects = nil;
-    if ([object rs_containsString:delimiter]) {
-        objects = [[object componentsSeparatedByString:delimiter]
-                   rs_map:^id(id item) {
-                       return [item rs_strip];
-                   }];
-    } else {
-        objects = @[object];
-    }
+    id objects = [object rs_split:delimiter];
     
     return [objects rs_map:^id(id item) {
-        return [self _createFromString:item];
+        return [self _createFromString:[item rs_strip]];
     }];
 }
 

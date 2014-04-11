@@ -447,9 +447,9 @@ Source code of this project is available under the standard MIT license. Please 
 - (BOOL)mk_matchesRegex:(NSString *)regex;
 ```
 
-- - - 
+<!--- - - 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/michalkonturek/mkfoundationkit/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
-
+-->
 

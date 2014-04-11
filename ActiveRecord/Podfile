@@ -1,5 +1,6 @@
 
 pod 'MKFoundationKit/Block', '>= 1.0.0'
+pod 'MKFoundationKit/NSNumber', '>= 1.0.0'
 pod 'RubySugar', '>= 1.1.0'
 
 target :ActiveRecordTests, :exclusive => true do
