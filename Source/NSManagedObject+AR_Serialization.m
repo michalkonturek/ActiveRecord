@@ -61,12 +61,13 @@
 - (instancetype)updateWithAttributesData:(NSDictionary *)data {
     
     NSDictionary *attributes = [[self entity] attributesByName];
+    id converter = [ARConverter create];
     for (NSString *attribute in [attributes allKeys]) {
         
         id value = [data objectForKey:attribute];
         if (((NSNull *)value != [NSNull null]) && (value != nil)) {
             NSAttributeType type = [[attributes objectForKey:attribute] attributeType];
-            value = [[ARConverter create] convert:value toAttributeType:type];
+            value = [converter convert:value toAttributeType:type];
             if (value) [self setValue:value forKey:attribute];
         }
     }
