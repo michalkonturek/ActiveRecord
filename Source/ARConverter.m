@@ -29,10 +29,6 @@
 
 @implementation ARConverter
 
-//+ (instancetype)create {
-//    return [[self alloc] init];
-//}
-
 - (id)convert:(id)value toAttributeType:(NSAttributeType)type {
     if (![value isKindOfClass:[NSString class]]) return value;
     return [self convertString:value toAttributeType:type];

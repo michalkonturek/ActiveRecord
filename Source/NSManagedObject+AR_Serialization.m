@@ -25,14 +25,6 @@
 
 #import "NSManagedObject+AR_Serialization.h"
 
-//#import "NSManagedObject+AR.h"
-//#import "NSManagedObject+AR_Context.h"
-//#import "NSManagedObject+AR_Finders.h"
-//
-//#import "NSRelationshipDescription+AR.h"
-//#import "NSPredicate+AR.h"
-//
-//#import "ARConverter.h"
 #import "ActiveRecord.h"
 #import "NSRelationshipDescription+AR.h"
 
