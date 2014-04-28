@@ -1,9 +1,14 @@
 # ActiveRecord
 
-[![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)](https://github.com/michalkonturek/ActiveRecord/blob/master/LICENSE)
+[![Twitter](https://img.shields.io/badge/contact-@MichalKonturek-blue.svg?style=flat)](http://twitter.com/michalkonturek)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/michalkonturek/ActiveRecord/blob/master/LICENSE)
+[![CocoaPods](https://img.shields.io/cocoapods/v/ActiveRecord.svg?style=flat)](https://github.com/michalkonturek/ActiveRecord)
+[![Build Status](http://img.shields.io/travis/michalkonturek/ActiveRecord.svg?style=flat)](https://travis-ci.org/michalkonturek/ActiveRecord)
+
+<!--[![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)](https://github.com/michalkonturek/ActiveRecord/blob/master/LICENSE)
 [![Build Platform](https://cocoapod-badges.herokuapp.com/p/ActiveRecord/badge.png)](https://github.com/michalkonturek/ActiveRecord)
 [![Build Version](https://cocoapod-badges.herokuapp.com/v/ActiveRecord/badge.png)](https://github.com/michalkonturek/ActiveRecord)
-[![Build Status](https://travis-ci.org/michalkonturek/ActiveRecord.png?branch=master)](https://travis-ci.org/michalkonturek/ActiveRecord)
+[![Build Status](https://travis-ci.org/michalkonturek/ActiveRecord.png?branch=master)](https://travis-ci.org/michalkonturek/ActiveRecord)-->
 
 A lightweight Active Record implementation for Core Data.
 
