@@ -79,6 +79,15 @@
     NSLog(@"*** %@ : %@ : %@",
           [self class], NSStringFromSelector(_cmd),
           [error localizedDescription]);
+    
+    id detaildErrors = [[error userInfo] objectForKey:NSDetailedErrorsKey];
+    if ([detaildErrors count] > 0) {
+        for (NSError *detailedError in detaildErrors) {
+            NSLog(@"*** %@", [detailedError userInfo]);
+        }
+    } else {
+        NSLog(@"*** %@", [error userInfo]);
+    }
 }
 
 - (void)commit {
