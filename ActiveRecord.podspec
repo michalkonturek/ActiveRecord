@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "ActiveRecord"
-  s.version      = "1.2.0"
+  s.version      = "1.2.1"
   s.summary      = "A lightweight Active Record implementation for Core Data."
   s.homepage     = "https://github.com/michalkonturek/ActiveRecord"
   s.license      = 'MIT'
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/michalkonturek'
   s.source       = { 
     :git => "https://github.com/michalkonturek/ActiveRecord.git", 
-    :tag => "1.2.0" 
+    :tag => s.version.to_s
   }
 
   s.source_files = 'Source/**/*.{h,m}'
