@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "ActiveRecord"
-  s.version      = "1.2.1"
+  s.version      = "1.2.2"
   s.summary      = "A lightweight Active Record implementation for Core Data."
   s.homepage     = "https://github.com/michalkonturek/ActiveRecord"
   s.license      = 'MIT'
