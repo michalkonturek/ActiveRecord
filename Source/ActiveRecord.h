@@ -39,6 +39,7 @@
 #import "NSPersistentStoreCoordinator+AR.h"
 #import "NSPredicate+AR.h"
 #import "NSSortDescriptor+AR.h"
+#import "NSFetchRequest+AR.h"
 
 #import "ARConverter.h"
 
