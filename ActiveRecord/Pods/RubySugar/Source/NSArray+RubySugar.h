@@ -133,6 +133,11 @@
 - (id)rs_inject:(id)initial withBlock:(id (^)(id accumulator, id item))block;
 
 /**
+ Inserts the given values before the element with the given index.
+ */
+- (instancetype)rs_insert:(id)object atIndex:(NSInteger)index;
+
+/**
  Shorthand ([self count] == 0)
  */
 - (BOOL)rs_isEmpty;

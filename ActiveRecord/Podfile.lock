@@ -1,23 +1,19 @@
 PODS:
-  - Kiwi/ARC (2.2.4)
-  - Kiwi/NonARC (2.2.4)
-  - Kiwi/XCTest (2.2.4):
-    - Kiwi/ARC
-    - Kiwi/NonARC
-  - MKFoundationKit/Block (1.2.2)
-  - MKFoundationKit/NSNumber (1.2.2)
-  - RubySugar (1.2.3):
-    - MKFoundationKit/Block (>= 1.0.0)
+  - Kiwi (2.3.0)
+  - MKFoundationKit/Block (1.3.0)
+  - MKFoundationKit/NSNumber (1.3.0)
+  - RubySugar (1.3.0):
+    - MKFoundationKit/Block (>= 1.2.0)
 
 DEPENDENCIES:
-  - Kiwi/XCTest (>= 2.2.1)
+  - Kiwi (>= 2.2.1)
   - MKFoundationKit/Block (>= 1.0.0)
   - MKFoundationKit/NSNumber (>= 1.0.0)
   - RubySugar (>= 1.1.0)
 
 SPEC CHECKSUMS:
-  Kiwi: d60d7498b640a16f58b01925fc3c8d7c4d809f66
-  MKFoundationKit: 7f203cb163a892826fa567842c441b1a13b4e70b
-  RubySugar: d552842e566465445ff00a60b32aafbd34ade696
+  Kiwi: 54bece5b35564d9b8e03c608d926f1a22fcfc589
+  MKFoundationKit: 70963bb9832074225e9586531451d7edff6184e4
+  RubySugar: 06c11e3d174c0bf532e480773995fed34bd0e090
 
-COCOAPODS: 0.31.1
+COCOAPODS: 0.33.1
