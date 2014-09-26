@@ -1,9 +1,14 @@
 # RubySugar
 
-[![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)](https://github.com/michalkonturek/RubySugar/blob/master/LICENSE)
+[![Twitter](https://img.shields.io/badge/contact-@MichalKonturek-blue.svg?style=flat)](http://twitter.com/michalkonturek)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/michalkonturek/RubySugar/blob/master/LICENSE)
+[![CocoaPods](https://img.shields.io/cocoapods/v/RubySugar.svg?style=flat)](https://github.com/michalkonturek/RubySugar)
+[![Build Status](http://img.shields.io/travis/michalkonturek/RubySugar.svg?style=flat)](https://travis-ci.org/michalkonturek/RubySugar)
+
+<!--[![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)](https://github.com/michalkonturek/RubySugar/blob/master/LICENSE)
 [![Build Platform](https://cocoapod-badges.herokuapp.com/p/RubySugar/badge.png)](https://github.com/michalkonturek/RubySugar)
 [![Build Version](https://cocoapod-badges.herokuapp.com/v/RubySugar/badge.png)](https://github.com/michalkonturek/RubySugar)
-[![Build Status](https://travis-ci.org/michalkonturek/RubySugar.png?branch=master)](https://travis-ci.org/michalkonturek/RubySugar)
+[![Build Status](https://travis-ci.org/michalkonturek/RubySugar.png?branch=master)](https://travis-ci.org/michalkonturek/RubySugar)-->
 
 
 ## License
@@ -184,6 +189,15 @@ result = [@"Hello" rs_chars];
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
 - (id)objectForKeyedSubscript:(id<NSCopying>)key;
 ```
+
+
+## Contributing
+
+1. Fork it.
+2. Create your feature branch (`git checkout -b new-feature`).
+3. Commit your changes (`git commit -am 'Added new-feature'`).
+4. Push to the branch (`git push origin new-feature`).
+5. Create new Pull Request.
 
 
 <!--- - -

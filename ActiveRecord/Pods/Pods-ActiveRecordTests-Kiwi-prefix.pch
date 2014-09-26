@@ -3,6 +3,4 @@
 #endif
 
 #import "Pods-ActiveRecordTests-environment.h"
-
-
 #import <XCTest/XCTest.h>

@@ -196,6 +196,17 @@
     return result;
 }
 
+- (instancetype)rs_insert:(id)object atIndex:(NSInteger)index {
+    if (index < 0) return self;
+    
+//    if (index == 0) return [object:self];
+    
+    id result = [self mutableCopy];
+    [result insertObject:object atIndex:index];
+    
+    return result;
+}
+
 - (BOOL)rs_isEmpty {
     return ([self count] == 0);
 }
